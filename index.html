@@ -11,11 +11,21 @@
              expensive than traditional incubator industrial space.">
         <meta name="author" content="Aaron Michael McNulty">
         <link rel="stylesheet" type="text/css" href="style/style.css">
+        <script type="text/javascript">
+            function initMap() {
+                var map;
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 38.9175412, lng: -94.7569592},
+                    zoom: 13
+                });
+            }
+        </script>
     </head>
     <body>
         <div id="header">
             <div id="headerLeft">
-                <img id="headerLogoImg" src="res/logo/logo.png" alt="Contractors Garage Logo">
+                <img  id="headerLogoImg" src="res/logo/logo.png" alt="Contractors Garage Logo">
+                <h3 id="phoneNumber">913-568-1134</h3>
             </div>
             <div id="headerRight">
                 <div id="companySloganContain">
@@ -39,6 +49,25 @@
         <div id="landing">
         </div>
         <div id="info">
+            <h2 id="aboutHeader">About Us</h2>
+            <div id="aboutLeft">
+                <p id="aboutUs">
+                    The Contractor's Garage offers large usable industrial storage space in the heart of Johnson County Kansas designed exclusively for entrepreneurs and hobbyists including but not limited to landscapers, plumbers, electricians, specialty vehicles, or about anyone needing something larger than mini storage but smaller and less expensive than traditional incubator industrial space.  
+                </p>
+            </div>
+            <div id="aboutRight">
+                <img class="beforeChange" id="grassPic" src="res/images/grass.jpeg" alt="Storage unit with grass on property">
+            </div>
         </div>
+        <div id="mapSection">
+            <h1 id="mapSectionHeader">Our Locations</h1>
+            <h4 id="mapInstructions">Click on map to activate</h4>
+            <div id="mapCanvas">
+                <div class="scrollOff" id="map"></div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="script/app.js" type="text/javascript"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
     </body>
 </html>

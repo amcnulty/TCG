@@ -3,6 +3,11 @@ html, body {
     padding: 0px;
 }
 
+body {
+    position: relative;
+    top: 160px;
+}
+
 #header {
     position: fixed;
     left: 0px;
@@ -21,9 +26,16 @@ html, body {
     line-height: 160px;
 }
 
+#phoneNumber {
+    display: inline-block;
+    margin: 0px;
+    margin-left: 20px;
+}
+
 #headerLogoImg {
     position: relative;
     left: 20px;
+    vertical-align: middle;
 }
 
 #headerLogoImg:hover {
@@ -71,13 +83,79 @@ nav div {
     position: relative;
     height: 900px;
     width: 100%;
-    top: 160px;
     background: url("../res/backgrounds/background.jpeg") center center;
     background-size: cover;
 }
 
 #info {
-    height: 500px;
+    height: 400px;
     width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background-color: rgb(152, 152, 152);
+}
+
+#aboutHeader {
+    margin: 0px;
+    text-align: center;
+    color: whitesmoke;
+}
+
+#aboutLeft {
+    height: 100%;
+    width: 50%;
+    float: left;
+    color: whitesmoke;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 1.3em;
+}
+
+#aboutUs {
+    margin-left: 35px;
+    text-align: center;
+}
+
+#aboutRight {
+    height: 100%;
+    width: 50%;
+    float: left;
+    overflow: hidden;
+}
+
+.beforeChange {
+    margin-left: 100%;
+    -webkit-transition: margin-left 1s ease;
+    -moz-transition: margin-left 1s ease;
+    -ms-transition: margin-left 1s ease;
+    -o-transition: margin-left 1s ease;
+    transition: margin-left 1s ease;
+}
+
+.change {
+    -webkit-transition: margin-left 1s ease;
+    -moz-transition: margin-left 1s ease;
+    -ms-transition: margin-left 1s ease;
+    -o-transition: margin-left 1s ease;
+    transition: margin-left 1s ease;
+    margin-left: 0px;
+}
+
+#mapSection {
+    width: 100%;
+    padding-top: 50px;
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+#mapSectionHeaer {
+    margin-top: 0px;
+}
+
+#map {
+    width: 100%;
+    height: 700px;
+}
+
+.scrollOff {
+    pointer-events: none;
 }
