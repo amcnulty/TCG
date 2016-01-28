@@ -3,7 +3,7 @@
     <head>
         <link rel="icon" href="res/icon/logo.ico" type="image/x-icon">
         <title>The Contractors Garage | Industrial Storage Space</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         <meta name="description" content="The Contractor's Garage offers large usable industrial 
             storage space in the heart of Johnson County Kansas designed exclusively for entrepreneurs
              and hobbyists including but not limited to landscapers, plumbers, electricians, specialty 
@@ -25,7 +25,7 @@
                     title: "8400 W 127th St, Overland Park, KS"
                 });
                 var infoWindow = new google.maps.InfoWindow({
-                    content: '<p>Overland Park, <a href="https://www.google.com">'+
+                    content: '<p>Overland Park, <a href="html/overlandPark.html">'+
                     'Learn more about this location</a> '
                 });
                 marker.addListener("click", function(){
@@ -38,7 +38,7 @@
                     title: "15735 S US169 Highway, Olathe, KS"
                 });
                 var infoWindow2 = new google.maps.InfoWindow({
-                    content: '<p>Olathe, <a href="https://www.google.com">'+
+                    content: '<p>Olathe, <a href="html/169hwyOlathe.html">'+
                     'Learn more about this location</a> '
                 });
                 marker2.addListener("click", function(){
@@ -51,7 +51,7 @@
                     title: "14100 Santa Fe Trail Dr., Lenexa, KS"
                 });
                 var infoWindow3 = new google.maps.InfoWindow({
-                    content: '<p>Lenexa, <a href="https://www.google.com">'+
+                    content: '<p>Lenexa, <a href="html/lenexa.html">'+
                     'Learn more about this location</a> '
                 });
                 marker3.addListener("click", function(){
@@ -64,7 +64,7 @@
                     title: "636 E Dennis Ave, Olathe, KS"
                 });
                 var infoWindow4 = new google.maps.InfoWindow({
-                    content: '<p>Olathe, <a href="https://www.google.com">'+
+                    content: '<p>Olathe, <a href="html/dennisOlathe.html">'+
                     'Learn more about this location</a> '
                 });
                 marker4.addListener("click", function(){
@@ -86,14 +86,14 @@
                     </p>
                 </div>
                 <nav>
-                    <div>
+                    <div id="homeNavButton">
                         <a>HOME</a>
+                    </div>
+                    <div id="aboutNavButton">
+                        <a>ABOUT-US</a>
                     </div>
                     <div id="locationsNavButton">
                         <a>LOCATIONS</a>
-                    </div>
-                    <div>
-                        <a>GALLERY</a>
                     </div>
                 </nav>
             </div>
@@ -116,6 +116,16 @@
             <h4 id="mapInstructions">Click on map to activate</h4>
             <div id="mapCanvas">
                 <div class="scrollOff" id="map"></div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footerTop">
+                <p>Content copyright &copy2016. The Contractors Garage - Contact: Kevin Combs - (913) 568-1134. All rights reserved.</p>
+            </div>
+            <div id="footerBottom">
+                <img src="res/logo/insightLogo.png" alt="Insight Commercial Logo"><br>
+                <a href="mailto:info@thecontractorsgarage.com">Email Us</a><br>
+                <a href="http://www.insightcommercial.net/">Insight Commerial Webpage</a>
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>

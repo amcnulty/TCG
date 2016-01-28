@@ -74,7 +74,12 @@ nav div {
     border-radius: 15px 15px 0px 0px;
 }
 
-#locationsNavButton {
+nav div:hover {
+    cursor: pointer;
+    background-color: rgb(204, 102, 51);
+}
+
+#aboutNavButton {
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -147,15 +152,48 @@ nav div {
     text-align: center;
 }
 
-#mapSectionHeaer {
+#mapSectionHeader {
     margin-top: 0px;
+    color: rgb(51, 51, 51);
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #map {
-    width: 100%;
+    position: relative;
+    width: 80%;
     height: 700px;
+    left: 10%;
 }
 
 .scrollOff {
     pointer-events: none;
+}
+
+#footer {
+    height: 120px;
+    width: 100%;
+    background-color: rgb(51, 51, 51);
+    color: whitesmoke;
+}
+
+#footerTop {
+    width: 100%;
+    text-align: center;
+}
+
+#footerTop p {
+    margin: 0px;
+    line-height: 40px;
+}
+
+#footerBottom {
+    margin-left: 40px;
+}
+
+#footerBottom a {
+    color: whitesmoke;
+}
+
+#footerBottom a:hover {
+    color: gold;
 }
