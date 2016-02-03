@@ -79,6 +79,19 @@ nav div:hover {
     background-color: rgb(204, 102, 51);
 }
 
+#headerBottom {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    top: 100px;
+    left: 0px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .5)), to(rgba(51, 51, 51, .5)));
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .5), rgba(51, 51, 51, .5));
+    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, .5), rgba(51, 51, 51, .5));
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, .5), rgba(51, 51, 51, .5));
+    z-index: -10;
+}
+
 #aboutNavButton {
     margin-left: 10px;
     margin-right: 10px;
@@ -91,6 +104,10 @@ nav div:hover {
     background: url("../res/backgrounds/background.jpeg") center center;
     background-size: cover;
     background-attachment: fixed;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(225, 225, 225, .2)), to(rgba(102, 102, 102, .2))), url("../res/backgrounds/background.jpeg");
+    background-image: -webkit-linear-gradient(top, rgba(225, 225, 225, .2), rgba(102, 102, 102, .2)), url("../res/backgrounds/background.jpeg");
+    background-image: -moz-linear-gradient(top, rgba(225, 225, 225, .2), rgba(102, 102, 102, .2)), url("../res/backgrounds/background.jpeg");
+    background-image: linear-gradient(to bottom, rgba(225, 225, 225, .2), rgba(102, 102, 102, .2)), url("../res/backgrounds/background.jpeg");
 }
 
 #info {
@@ -178,10 +195,30 @@ nav div:hover {
     float: left;
 }
 
+#lenexaInner {
+    width: 90%;
+    height: 100%;
+    border: 5px outset rgb(51, 51, 51);
+    -moz-border-image: -moz-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image: linear-gradient(to bottom right, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image-slice: 1;
+}
+
 #dennisOlathe {
     height: 100%;
     width: 25%;
     float: left;
+}
+
+#dennisInner {
+    width: 90%;
+    height: 100%;
+    border: 5px outset rgb(51, 51, 51);
+    -moz-border-image: -moz-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image: linear-gradient(to bottom right, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image-slice: 1;
 }
 
 #olathe169hwy {
@@ -190,10 +227,30 @@ nav div:hover {
     float: left;
 }
 
+#olathe169Inner {
+    width: 90%;
+    height: 100%;
+    border: 5px outset rgb(51, 51, 51);
+    -moz-border-image: -moz-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image: linear-gradient(to bottom right, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image-slice: 1;
+}
+
 #overlandPark {
     height: 100%;
     width: 25%;
     float: left;
+}
+
+#overlandInner {
+    width: 90%;
+    height: 100%;
+    border: 5px outset rgb(51, 51, 51);
+    -moz-border-image: -moz-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image: linear-gradient(to bottom right, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image-slice: 1;
 }
 
 .locationsLink {
