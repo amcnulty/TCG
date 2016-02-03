@@ -1,9 +1,9 @@
 window.onload = function() {
     function setScroll() {
-        if (window.scrollY >= 300) {
+        if (window.scrollY >= 50) {
             document.getElementById("grassPic").className = "change";
         }
-        else if (window.scrollY < 300) {
+        else if (window.scrollY < 50) {
             document.getElementById("grassPic").className = "beforeChange";
         }
     }
@@ -40,6 +40,22 @@ window.onload = function() {
         }
     }
     
+    function goToLenexa() {
+        window.location.href = "html/lenexa.html";
+    }
+    
+    function goToDennis() {
+        window.location.href = "html/dennisOlathe.html";
+    }
+    
+    function goToHwy() {
+        window.location.href = "html/169hwyOlathe.html";
+    }
+    
+    function goToOP() {
+        window.location.href = "html/overlandPark.html";
+    }
+    
     var mapCanvas = document.getElementById("mapCanvas"); 
     
     var map = document.getElementById("map");
@@ -51,4 +67,8 @@ window.onload = function() {
     document.getElementById("aboutNavButton").addEventListener("click", scrollToAbout, false);
     document.getElementById("locationsNavButton").addEventListener("click", scrollToLocations, false);
     document.getElementById("headerLogoImg").addEventListener("click", scrollToTop, false);
+    document.getElementById("lPic").addEventListener("click", goToLenexa, false);
+    document.getElementById("dPic").addEventListener("click", goToDennis, false);
+    document.getElementById("Pic1").addEventListener("click", goToHwy, false);
+    document.getElementById("oPic").addEventListener("click", goToOP, false);
 }

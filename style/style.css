@@ -86,10 +86,11 @@ nav div:hover {
 
 #landing {
     position: relative;
-    height: 900px;
+    height: 600px;
     width: 100%;
     background: url("../res/backgrounds/background.jpeg") center center;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 #info {
@@ -145,6 +146,14 @@ nav div:hover {
     margin-left: 0px;
 }
 
+#space {
+    width: 100%;
+    height: 500px;
+    background: url("../res/backgrounds/background2.jpeg") center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 #mapSection {
     width: 100%;
     padding-top: 50px;
@@ -156,6 +165,78 @@ nav div:hover {
     margin-top: 0px;
     color: rgb(51, 51, 51);
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#locationsContain {
+    height: 250px;
+    width: 100%;
+}
+
+#lenexa {
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+
+#dennisOlathe {
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+
+#olathe169hwy {
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+
+#overlandPark {
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+
+.locationsLink {
+    width: 100%;
+    font-size: 1.4em;
+}
+
+.locationsLink :hover {
+    color: black;
+}
+
+.locationPic {
+    margin-top: 40px;
+}
+
+.locationPic:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    #lenexa {
+       height: 100%;
+        width: 50%;
+        float: left;
+    }
+
+    #dennisOlathe {
+        height: 100%;
+        width: 50%;
+        float: left;
+    }
+
+    #olathe169hwy {
+        height: 100%;
+        width: 50%;
+        float: left;
+    }
+
+    #overlandPark {
+        height: 100%;
+        width: 50%;
+        float: left;
+    }
 }
 
 #map {
