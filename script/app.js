@@ -26,13 +26,7 @@ window.onload = function() {
 
     function mouseOut(e) {
         // alert(e.clientY + document.body.scrollTop);
-        if (e.clientY + document.body.scrollTop <= 2268) {
-            map.className = "scrollOff";
-        }
-        else if (e.clientY + document.body.scrollTop >= 2406) {
-            map.className = "scrollOff";
-        }
-        else if (e.clientX <= window.innerWidth * .1) {
+        if (e.clientX <= window.innerWidth * .1) {
             map.className = "scrollOff";
         }
         else if (e.clientX >= window.innerWidth * .9 - 15) {

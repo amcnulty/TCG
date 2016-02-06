@@ -117,7 +117,7 @@ nav div:hover {
 }
 
 #info {
-    height: 400px;
+    height: 580px;
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -139,6 +139,10 @@ nav div:hover {
     font-size: 1.3em;
 }
 
+#aboutLeft img {
+    cursor: pointer;
+}
+
 #aboutUs {
     margin-left: 35px;
     text-align: center;
@@ -149,6 +153,10 @@ nav div:hover {
     width: 50%;
     float: left;
     overflow: hidden;
+}
+
+#aboutRight img {
+    margin-top: 80px;
 }
 
 .beforeChange {
@@ -208,7 +216,7 @@ nav div:hover {
 }
 
 #locationsContain {
-    height: 250px;
+    height: 300px;
     width: 100%;
 }
 
@@ -299,14 +307,8 @@ nav div:hover {
 
 @media (max-width: 1000px) {
     #locationsContain {
-        height: 500px;
+        height: 600px;
         width: 100%;
-    }
-    
-    #lenexa {
-       height: 50%;
-        width: 50%;
-        float: left;
     }
 
     #dennisOlathe {
@@ -317,6 +319,12 @@ nav div:hover {
 
     #olathe169hwy {
         height: 50%;
+        width: 50%;
+        float: left;
+    }
+    
+    #lenexa {
+       height: 50%;
         width: 50%;
         float: left;
         margin-top: 20px;
@@ -374,6 +382,6 @@ nav div:hover {
     color: whitesmoke;
 }
 
-#footerBottom a:hover {
+#footerBottom a:hover, .gold:hover {
     color: gold;
 }

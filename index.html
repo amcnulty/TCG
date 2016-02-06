@@ -13,62 +13,100 @@
         <link rel="stylesheet" type="text/css" href="style/style.css">
         <script type="text/javascript">
             function initMap() {
+                // The map starting location and zoom level
                 var map;
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 38.9175412, lng: -94.7569592},
                     zoom: 12
                 });
-                
-                var marker = new google.maps.Marker({
-                    position: {lat: 38.898784, lng: -94.6836929},
-                    map: map,
-                    title: "8400 W 127th St, Overland Park, KS"
-                });
-                var infoWindow = new google.maps.InfoWindow({
-                    content: '<p>Overland Park, <a href="html/overlandPark.html">'+
-                    'Learn more about this location</a> '
-                });
-                marker.addListener("click", function(){
-                    infoWindow.open(map, marker);
-                });
-                
-                var marker2 = new google.maps.Marker({
-                    position: {lat: 38.8424099, lng: -94.8139672},
-                    map: map,
-                    title: "15735 S US169 Highway, Olathe, KS"
-                });
-                var infoWindow2 = new google.maps.InfoWindow({
-                    content: '<p>Olathe, <a href="html/169hwyOlathe.html">'+
-                    'Learn more about this location</a> '
-                });
-                marker2.addListener("click", function(){
-                    infoWindow2.open(map, marker2);
-                });
-                
-                var marker3 = new google.maps.Marker({
-                    position: {lat: 38.952483, lng: -94.749759},
-                    map: map,
-                    title: "14100 Santa Fe Trail Dr., Lenexa, KS"
-                });
-                var infoWindow3 = new google.maps.InfoWindow({
-                    content: '<p>Lenexa, <a href="html/lenexa.html">'+
-                    'Learn more about this location</a> '
-                });
-                marker3.addListener("click", function(){
-                    infoWindow3.open(map, marker3);
-                });
-                
-                var marker4 = new google.maps.Marker({
+                // The different map markers
+                var redMarker = "res/icon/redMarker.png";
+                var purpleMarker = "res/icon/purpleMarker.png";
+                var greenMarker = "res/icon/greenMarker.png";
+                // Marker for the dennis street location
+                var dennisMarker = new google.maps.Marker({
                     position: {lat: 38.869868, lng: -94.8126852},
                     map: map,
-                    title: "636 E Dennis Ave, Olathe, KS"
+                    title: "636 E Dennis Ave, Olathe, KS",
+                    icon: redMarker
                 });
-                var infoWindow4 = new google.maps.InfoWindow({
-                    content: '<p>Olathe, <a href="html/dennisOlathe.html">'+
-                    'Learn more about this location</a> '
+                // Info box about the dennis street location
+                var dennisInfoWindow = new google.maps.InfoWindow({
+                    content: "<h3>Garage I</h3>"+
+                            "<p>636 E Dennis Ave, Olathe, KS</p>"+
+                            "<a href='html/dennisOlathe.html'><img src='res/images/dennisOlathe/small.jpeg' alt='Dennis Olathe Location'></a><br>"+
+                            "<a href='html/dennisOlathe.html'>Learn More About This Location</a>"
                 });
-                marker4.addListener("click", function(){
-                    infoWindow4.open(map, marker4);
+                dennisMarker.addListener("click", function(){
+                    dennisInfoWindow.open(map, dennisMarker);
+                });
+                // Marker for 169 Highway Location
+                var hwyMarker = new google.maps.Marker({
+                    position: {lat: 38.8424099, lng: -94.8139672},
+                    map: map,
+                    title: "15735 S US169 Highway, Olathe, KS",
+                    icon: redMarker
+                });
+                // Info box about 169 hwy location
+                var hwyInfoWindow = new google.maps.InfoWindow({
+                    content: "<h3>Garage II</h3>"+
+                            "<p>15735 S US169 Highway, Olathe, KS</p>"+
+                            "<a href='html/169hwyOlathe.html'><img src='res/images/169hwyOlathe/small.jpeg' alt='169 hwy Olathe Location'></a><br>"+
+                            "<a href='html/169hwyOlathe.html'>Learn More About This Location</a>"
+                });
+                hwyMarker.addListener("click", function(){
+                    hwyInfoWindow.open(map, hwyMarker);
+                });
+                // Marker for the Lenexa location
+                var lenexaMarker = new google.maps.Marker({
+                    position: {lat: 38.952483, lng: -94.749759},
+                    map: map,
+                    title: "14100 Santa Fe Trail Dr., Lenexa, KS",
+                    icon: redMarker
+                });
+                // Info bow about Lenxa location
+                var lenexaInfoWindow = new google.maps.InfoWindow({
+                    content: "<h3>Garage III</h3>"+
+                            "<p>14100 Santa Fe Trail Dr., Lenexa, KS</p>"+
+                            "<a href='html/lenexa.html'><img src='res/images/lenexa/small.jpeg' alt='Lenexa Location'></a><br>"+
+                            "<a href='html/lenexa.html'>Learn More About This Location</a>"
+                });
+                lenexaMarker.addListener("click", function(){
+                    lenexaInfoWindow.open(map, lenexaMarker);
+                });
+                // Marker for Overland Park location
+                var OPMarker = new google.maps.Marker({
+                    position: {lat: 38.898784, lng: -94.6836929},
+                    map: map,
+                    title: "8400 W 127th St, Overland Park, KS",
+                    icon: purpleMarker
+                });
+                // Info box about Overland Park location
+                var OPInfoWindow = new google.maps.InfoWindow({
+                    content: "<h3>Garage IV (Currently Under Construction)</h3>"+
+                            "<p>8400 W 127th St, Overland Park, KS</p>"+
+                            "<a href='html/overlandPark.html'><img src='res/images/overlandPark/small.jpeg' alt='Overland Park Location'></a><br>"+
+                            "<a href='html/overlandPark.html'>Learn More About This Location</a>"
+                });
+                OPMarker.addListener("click", function(){
+                    OPInfoWindow.open(map, OPMarker);
+                });
+                // Marker for the Mahaffie location
+                var mahaffieMarker = new google.maps.Marker({
+                    position: {lat: 38.840675, lng: -94.8025281},
+                    map: map,
+                    title: "15845 S Mahaffie St, Olathe, KS",
+                    icon: greenMarker 
+                });
+                // Info box about the Mahaffie location
+                var mahaffieInfoWindow = new google.maps.InfoWindow({
+                    content: "<h3>Planned Future Location</h3>"+
+                            "<p>15845 S Mahaffie St, Olathe, KS</p>"+
+                            "<p>Anticipated completion summer 2017.  Units will be 20'x50' (1000 sq. ft.) "+
+                             "with a store front and rear loading, bathroom and hvac in each unit.</p>"
+                });
+                mahaffieMarker.addListener("click", function(){
+                   mahaffieInfoWindow.open(map, mahaffieMarker); 
                 });
             }
         </script>
@@ -77,7 +115,7 @@
         <div id="header">
             <div id="headerLeft">
                 <img  id="headerLogoImg" src="res/logo/logo.png" alt="Contractors Garage Logo">
-                <h3 id="phoneNumber">913-568-1134</h3>
+                <a id="phoneNumber" href="tel:913-568-1134">Give Us A Call - 913-568-1134</a>
             </div>
             <div id="headerRight">
                 <div id="companySloganContain">
@@ -90,7 +128,7 @@
                         <a>HOME</a>
                     </div>
                     <div id="aboutNavButton">
-                        <a>ABOUT-US</a>
+                        <a>ABOUT US</a>
                     </div>
                     <div id="locationsNavButton">
                         <a>LOCATIONS</a>
@@ -110,7 +148,12 @@
             <div id="aboutLeft">
                 <p id="aboutUs">
                     The Contractor's Garage offers large usable industrial storage space in the heart of Johnson County Kansas designed exclusively for entrepreneurs and hobbyists including but not limited to landscapers, plumbers, electricians, specialty vehicles, or about anyone needing something larger than mini storage but smaller and less expensive than traditional incubator industrial space.<br><br>
-                    We currently have three locations and a fourth being built. All of our units have large drive-in doors and are very spacious. Unlike personal storage spaces, our units are built with the contractor in mind!
+                    We currently have three locations and a fourth being built. All of our units have large drive-in doors and are very spacious. Unlike personal storage spaces, our units are built with the contractor in mind!<br><br>
+                    Developed, owned-in-part, and leased by:<br>
+                    Kevin Combs, CCIM - Commercial/Industrial Real Estate Broker and Developer.<br>
+                    <a href="http://www.insightcommercial.net/"><img src="res/logo/insightLogo.png" alt="Insight Commercial Logo"></a><br>
+                    <a class="gold" href="mailto:kcombs@insightcommercial.net">Email Us</a><br>
+                    <a class="gold" href="http://www.insightcommercial.net/">Insight Commercial Webpage</a>
                 </p>
             </div>
             <div id="aboutRight">
@@ -126,16 +169,9 @@
             </div>
             <h1 id="mapSectionHeader">Our Locations</h1>
             <div id="locationsContain">
-                <div id="lenexa">
-                    <div id="lenexaInner">
-                        <div class="locationsLink">
-                            <a href="html/lenexa.html">14100 Santa Fe Trail Dr., Lenexa, KS</a>
-                        </div>
-                        <img id="lPic" class="locationPic" src="res/images/lenexa/small.jpeg" alt="Lenexa Location">
-                    </div>
-                </div>
                 <div id="dennisOlathe">
                     <div id="dennisInner">
+                        <h3>Garage I</h3>
                         <div class="locationsLink">
                             <a href="html/dennisOlathe.html">636 E Dennis Ave, Olathe, KS</a>
                         </div>
@@ -144,14 +180,25 @@
                 </div>
                 <div id="olathe169hwy">
                     <div id="olathe169Inner">
+                        <h3>Garage II</h3>
                         <div class="locationsLink">
                             <a href="html/169hwyOlathe.html">15735 S US169 Highway, Olathe, KS</a>
                         </div>
                         <img id="Pic1" class="locationPic" src="res/images/169hwyOlathe/small.jpeg" alt="169 highway Location">
                     </div>
                 </div>
+                <div id="lenexa">
+                    <div id="lenexaInner">
+                        <h3>Garage III</h3>
+                        <div class="locationsLink">
+                            <a href="html/lenexa.html">14100 Santa Fe Trail Dr., Lenexa, KS</a>
+                        </div>
+                        <img id="lPic" class="locationPic" src="res/images/lenexa/small.jpeg" alt="Lenexa Location">
+                    </div>
+                </div>
                 <div id="overlandPark">
                     <div id="overlandInner">
+                        <h3>Garage IV</h3>
                         <div class="locationsLink">
                             <a href="html/overlandPark.html">8400 W 127th St, Overland Park, KS</a>
                         </div>
@@ -159,8 +206,17 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <h4 id="mapInstructions">Click on map to activate</h4>
+            <div id="mapInstructions">
+                <div id="mapKey">
+                    <h2>Map Key</h2>
+                    <img src="res/icon/redMarker.png" alt="Red Map Marker">
+                    <h3 style="display: inline">- Curently Open</h3><br><br>
+                    <img src="res/icon/purpleMarker.png" alt="Purple Map Marker">
+                    <h3 style="display: inline">- Under Construction</h3><br><br>
+                    <img src="res/icon/greenMarker.png" alt="Green Map Marker">
+                    <h3 style="display: inline">- Future Location</h3>
+                </div>
+                <h4>Click on map to activate</h4>
             </div>
             <div id="mapCanvas">
                 <div class="scrollOff" id="map"></div>
@@ -172,8 +228,8 @@
             </div>
             <div id="footerBottom">
                 <img src="res/logo/insightLogo.png" alt="Insight Commercial Logo"><br>
-                <a href="mailto:info@thecontractorsgarage.com">Email Us</a><br>
-                <a href="http://www.insightcommercial.net/">Insight Commerial Webpage</a>
+                <a href="mailto:kcombs@insightcommercial.net">Email Us</a><br>
+                <a href="http://www.insightcommercial.net/">Insight Commercial Webpage</a>
             </div>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
