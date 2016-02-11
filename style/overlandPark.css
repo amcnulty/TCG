@@ -61,27 +61,13 @@
 
 #buttonContain {
     position: relative;
-    width: 60%;
+    width: 25%;
     height: 100px;
-    left: 20%;
+    left: 37.5%;
 }
 
 #smallButton {
-    width: 33.33%;
-    height: 100%;
-    float: left;
-    background-color: rgb(152, 152, 152);
-}
-
-#medButton {
-    width: 33.33%;
-    height: 100%;
-    float: left;
-    background-color: rgb(152, 152, 152);
-}
-
-#largeButton {
-    width: 33.34%;
+    width: 100%;
     height: 100%;
     float: left;
     background-color: rgb(152, 152, 152);

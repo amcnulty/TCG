@@ -3,20 +3,6 @@ window.onload = function() {
         switch (id) {
             case "small":
                 document.getElementById(id).className = "selected";
-                document.getElementById("med").className = "innerButton";
-                document.getElementById("large").className = "innerButton";
-                showUnit(id);
-            break;
-            case "med":
-                document.getElementById(id).className = "selected";
-                document.getElementById("small").className = "innerButton";
-                document.getElementById("large").className = "innerButton";
-                showUnit(id);
-            break;
-            case "large":
-                document.getElementById(id).className = "selected";
-                document.getElementById("small").className = "innerButton";
-                document.getElementById("med").className = "innerButton";
                 showUnit(id);
             break;
         }
@@ -29,25 +15,11 @@ window.onload = function() {
         var description = document.getElementById("unitDescription");
         switch (id) {
             case "small":
-                size.innerHTML = "15'x40'";
-                pic.src = "../res/images/lenexa/15x40.jpeg";
-                price.innerHTML = "Rent: $525 Monthly (No Vacancy)";
-                description.innerHTML = "There are four units of this size at the Lenexa location. It is a single unit with " +
-                "one drive-in door. Total interior size is 600 square feet.";
-            break;
-            case "med":
-                size.innerHTML = "20'x40'";
-                pic.src = "../res/images/lenexa/20x40.jpeg";
-                price.innerHTML = "Rent: $675 Monthly (No Vacancy)"; 
-                description.innerHTML ="There are eight units of this size at the Lenexa location. It is a single unit with " +
-                "one drive-in door and one man door. Total interior size is 800 square feet."; 
-            break;
-            case "large":
-                size.innerHTML = "30'x40'";
-                pic.src = "../res/images/lenexa/30x40.jpeg";
-                price.innerHTML = "Rent: $1000 Monthly (No Vacancy)"; 
-                description.innerHTML ="There are two units of this size at the Lenexa location. It is a double unit with " +
-                "no partition wall and two drive-in doors. Total interior size is 1200 square feet.";
+                size.innerHTML = "20'x45'";
+                pic.src = "../res/images/overlandPark/comingSoon.jpeg";
+                price.innerHTML = "Rent: $700 Monthly (No Vacancy)";
+                description.innerHTML = "There are twenty-four units of this size at the Overland Park location. It is a single unit with " +
+                "one drive-in door with an adjacent man door for easy access.";
             break;
         }
     }
@@ -62,8 +34,19 @@ window.onload = function() {
     
     var homeButton = document.getElementById("homeNavButton");
     var logoImg = document.getElementById("headerLogoImg");
+    var unitsButton = document.getElementById("unitsNavButton");
+    var small = document.getElementById("small");
     
     homeButton.addEventListener("click", goHome, false);
     
     logoImg.addEventListener("click", goHome, false);
+    
+    unitsButton.addEventListener("click", goToUnits, false);
+    
+    small.addEventListener("click", function() {
+        $('html, body').animate({scrollTop: $("#buttonSection").offset().top - 160}, 600);
+        highlightButton("small");
+    }, false);
+    
+    highlightButton("small");
 }
