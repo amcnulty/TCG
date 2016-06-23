@@ -221,9 +221,11 @@ nav div:hover {
 }
 
 #locationContainBottom {
+    position: relative;
     margin-top: 30px;
     height: 300px;
-    width: 100%;
+    width: 60%;
+    left: 20%;
 }
 
 .locationWrapper {
@@ -246,7 +248,7 @@ nav div:hover {
 
 #lenexa {
     height: 100%;
-    width: 25%;
+    width: 33.31%;
     float: left;
 }
 
@@ -263,7 +265,7 @@ nav div:hover {
 
 #dennisOlathe {
     height: 100%;
-    width: 25%;
+    width: 33.31%;
     float: left;
 }
 
@@ -280,7 +282,7 @@ nav div:hover {
 
 #olathe169hwy {
     height: 100%;
-    width: 25%;
+    width: 33.31%;
     float: left;
 }
 
@@ -296,9 +298,17 @@ nav div:hover {
 }
 
 #overlandPark {
+    position: relative;
     height: 100%;
-    width: 25%;
+    width: 33.31%;
+    left: 33.31%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
     float: left;
+    margin-top: 20px;
 }
 
 #overlandInner {
@@ -315,8 +325,15 @@ nav div:hover {
 #mahaffieOlathe {
     position: relative;
     height: 100%;
-    width: 25%;
-    left: 37.5%;
+    width: 33.31%;
+    left: 33.31%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    float: left;
+    margin-top: 20px;
 }
 
 #mahaffieInner {
@@ -347,7 +364,7 @@ nav div:hover {
     cursor: pointer;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     #landing {
         position: relative;
         height: 600px;
@@ -375,9 +392,11 @@ nav div:hover {
     }
 
     #locationContainBottom {
+        position: relative;
         margin-top: 40px;
         height: 300px;
         width: 100%;
+        left: 0px;
     }
 
     #dennisOlathe {
@@ -393,24 +412,31 @@ nav div:hover {
     }
     
     #lenexa {
-       height: 50%;
-        width: 50%;
-        float: left;
-        margin-top: 20px;
-    }
-
-    #overlandPark {
         height: 50%;
         width: 50%;
         float: left;
         margin-top: 20px;
     }
 
-    #mahaffieOlathe {
-        position: relative;
-        height: 100%;
+    #overlandPark {
+        position: static;
+        height: 50%;
         width: 50%;
-        left: 25%;
+        -webkit-transform: unset;
+        -moz-transform: unset;
+        -ms-transform: unset;
+        -o-transform: unset;
+        transform: unset;
+        float: left;
+        margin-top: 20px;
+    }
+
+    #mahaffieOlathe {
+        height: 50%;
+        width: 50%;
+        left: 50%;
+        float: left;
+        margin-top: 20px;
     }
 }
 
