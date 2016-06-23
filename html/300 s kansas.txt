@@ -1,0 +1,23 @@
+				<tr bgcolor="#4F4F4F">
+					<td valign="top">
+						<p class="indent-topa"><span class="style1"><strong> 300 S Kansas Ave.<br /></strong></span>Olathe, KS  66061</p>
+						<br><br>
+						        <ul>
+                                  				<li>For Sale or Lease</li>
+                                  				<li>2,048 sq. ft. available</li>
+                                  				<li>7,300 Sq. ft. fenced lot</li>
+								<li>500 +/- sq. ft. sales office</li>				  
+				  				<li>C3 zoning - very flexible</li>
+				  				<li>3 repair bays one is drive through</li>
+				  				<li>Ideal for auto sales, repair, detailing, or many industrial uses</li>
+					          	</ul>
+						<br><br>
+						<p class="indent-topa"><a href="properties/300skansas/300skansasFLYER.pdf" target="new">Download printable flyer (.pdf)</a></p>
+						<br><br>  
+					</td>
+					<td></td>
+					<td>
+						<a href="properties/300skansas/300skansas.jpg"><img src="properties/300skansas/300skansas_thumb.jpg" width="250" /></a></td>
+						<br><br>
+					</td>
+				</tr>

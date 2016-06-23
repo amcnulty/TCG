@@ -1,4 +1,13 @@
-window.onload = function() {
+if (window.attachEvent) {window.attachEvent('onload', load);}
+else if (window.addEventListener) {window.addEventListener('load', load, false);}
+else {document.addEventListener('load', load, false);}
+function load() {
+    function init() {
+        highlightButton("small");
+        document.getElementsByClassName("textHidden")[0].className = "textVisible";
+        document.getElementsByClassName("imgHidden")[0].className = "imgVisible";
+    }
+
     function highlightButton(id) {
         switch (id) {
             case "small":
@@ -53,7 +62,7 @@ window.onload = function() {
     }
     
     function goHome() {
-        window.location.href = "../index.html";
+        window.location.href = "http://www.contractorsgarage.net";
     }
     
     function goToUnits() {
@@ -88,5 +97,5 @@ window.onload = function() {
         highlightButton("large");
     }, false);
     
-    highlightButton("small");
+    init();
 }

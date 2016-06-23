@@ -220,6 +220,30 @@ nav div:hover {
     width: 100%;
 }
 
+#locationContainBottom {
+    margin-top: 30px;
+    height: 300px;
+    width: 100%;
+}
+
+.locationWrapper {
+    width: 100%;
+    height: 100%;
+}
+
+#stampWrapper {
+    position: relative;
+    width: 100%;
+    height: 1%;
+    top: -100%;
+}
+
+.stamp {
+    position: absolute;
+    right: 0px;
+    top: -50px;
+}
+
 #lenexa {
     height: 100%;
     width: 25%;
@@ -288,6 +312,24 @@ nav div:hover {
     border-image-slice: 1;
 }
 
+#mahaffieOlathe {
+    position: relative;
+    height: 100%;
+    width: 25%;
+    left: 37.5%;
+}
+
+#mahaffieInner {
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    border: 5px outset rgb(51, 51, 51);
+    -moz-border-image: -moz-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    -webkit-border-image: -webkit-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image: linear-gradient(to bottom right, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
+    border-image-slice: 1;
+}
+
 .locationsLink {
     width: 100%;
     font-size: 1.4em;
@@ -332,6 +374,12 @@ nav div:hover {
         width: 100%;
     }
 
+    #locationContainBottom {
+        margin-top: 40px;
+        height: 300px;
+        width: 100%;
+    }
+
     #dennisOlathe {
         height: 50%;
         width: 50%;
@@ -357,6 +405,13 @@ nav div:hover {
         float: left;
         margin-top: 20px;
     }
+
+    #mahaffieOlathe {
+        position: relative;
+        height: 100%;
+        width: 50%;
+        left: 25%;
+    }
 }
 
 #mapInstructions {
@@ -375,14 +430,13 @@ nav div:hover {
 }
 
 #footer {
-    height: 120px;
+    height: 150px;
     width: 100%;
     background-color: rgb(51, 51, 51);
     color: whitesmoke;
     border-top: 5px solid grey;
     border-top-right-radius: 8%;
     border-top-left-radius: 15%;
-    
 }
 
 #footerTop {

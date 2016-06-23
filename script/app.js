@@ -1,4 +1,7 @@
-window.onload = function() {
+if (window.attachEvent) {window.attachEvent('onload', load);}
+else if (window.addEventListener) {window.addEventListener('load', load, false);}
+else {document.addEventListener('load', load, false);}
+function load() {
     function setScroll() {
         if (window.scrollY >= 50) {
             document.getElementById("grassPic").className = "change";
@@ -24,30 +27,8 @@ window.onload = function() {
         $('html, body').animate({scrollTop: $("#mapSection").offset().top - 160}, 600);
     }
 
-    function mouseOut(e) {
-        // alert(e.clientY + document.body.scrollTop);
-        if (e.clientX <= window.innerWidth * .1) {
-            map.className = "scrollOff";
-        }
-        else if (e.clientX >= window.innerWidth * .9 - 15) {
-            map.className = "scrollOff";
-        }
-    }
-    
-    function goToLenexa() {
-        window.location.href = "html/lenexa.html";
-    }
-    
-    function goToDennis() {
-        window.location.href = "html/dennisOlathe.html";
-    }
-    
-    function goToHwy() {
-        window.location.href = "html/169hwyOlathe.html";
-    }
-    
-    function goToOP() {
-        window.location.href = "html/overlandPark.html";
+    function scrollOff(e) {
+        map.className = "scrollOff";
     }
     
     var mapCanvas = document.getElementById("mapCanvas"); 
@@ -55,14 +36,10 @@ window.onload = function() {
     var map = document.getElementById("map");
     
     mapCanvas.addEventListener("click", mapClicked, false);
-    map.addEventListener("mouseout", mouseOut, false);
+    map.addEventListener("mouseleave", scrollOff, false);
     document.addEventListener("scroll", setScroll, false);
     document.getElementById("homeNavButton").addEventListener("click", scrollToTop, false);
     document.getElementById("aboutNavButton").addEventListener("click", scrollToAbout, false);
     document.getElementById("locationsNavButton").addEventListener("click", scrollToLocations, false);
     document.getElementById("headerLogoImg").addEventListener("click", scrollToTop, false);
-    document.getElementById("lPic").addEventListener("click", goToLenexa, false);
-    document.getElementById("dPic").addEventListener("click", goToDennis, false);
-    document.getElementById("Pic1").addEventListener("click", goToHwy, false);
-    document.getElementById("oPic").addEventListener("click", goToOP, false);
 }

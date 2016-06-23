@@ -1,4 +1,13 @@
-window.onload = function() {
+if (window.attachEvent) {window.attachEvent('onload', load);}
+else if (window.addEventListener) {window.addEventListener('load', load, false);}
+else {document.addEventListener('load', load, false);}
+function load() {
+    function init() {
+        highlightButton("small");
+        document.getElementsByClassName("textHidden")[0].className = "textVisible";
+        document.getElementsByClassName("imgHidden")[0].className = "imgVisible";
+    }
+
     function highlightButton(id) {
         switch (id) {
             case "small":
@@ -17,7 +26,7 @@ window.onload = function() {
             case "small":
                 size.innerHTML = "20'x45'";
                 pic.src = "../res/images/overlandPark/comingSoon.jpeg";
-                price.innerHTML = "Rent: $700 Monthly (No Vacancy)";
+                price.innerHTML = "Rent: $700 Monthly - Property is now about 50 percent pre-leased.  Reserve your unit now before they are gone";
                 description.innerHTML = "There are twenty-four units of this size at the Overland Park location. It is a single unit with " +
                 "one drive-in door with an adjacent man door for easy access.";
             break;
@@ -25,7 +34,7 @@ window.onload = function() {
     }
     
     function goHome() {
-        window.location.href = "../index.html";
+        window.location.href = "http://www.contractorsgarage.net";
     }
     
     function goToUnits() {
@@ -48,5 +57,5 @@ window.onload = function() {
         highlightButton("small");
     }, false);
     
-    highlightButton("small");
+    init();
 }

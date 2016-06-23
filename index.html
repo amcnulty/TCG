@@ -34,8 +34,8 @@
                 var dennisInfoWindow = new google.maps.InfoWindow({
                     content: "<h3>Garage I</h3>"+
                             "<p>636 E Dennis Ave, Olathe, KS</p>"+
-                            "<a href='html/dennisOlathe.html'><img src='res/images/dennisOlathe/small.jpeg' alt='Dennis Olathe Location'></a><br>"+
-                            "<a href='html/dennisOlathe.html'>Learn More About This Location</a>"
+                            "<a href='http://www.contractorsgarage.net/dennis-olathe'><img src='res/images/dennisOlathe/small.jpeg' alt='Dennis Olathe Location'></a><br>"+
+                            "<a href='http://www.contractorsgarage.net/dennis-olathe'>Learn More About This Location</a>"
                 });
                 dennisMarker.addListener("click", function(){
                     dennisInfoWindow.open(map, dennisMarker);
@@ -51,8 +51,8 @@
                 var hwyInfoWindow = new google.maps.InfoWindow({
                     content: "<h3>Garage II</h3>"+
                             "<p>15735 S US169 Highway, Olathe, KS</p>"+
-                            "<a href='html/169hwyOlathe.html'><img src='res/images/169hwyOlathe/small.jpeg' alt='169 hwy Olathe Location'></a><br>"+
-                            "<a href='html/169hwyOlathe.html'>Learn More About This Location</a>"
+                            "<a href='http://www.contractorsgarage.net/169highway-olathe'><img src='res/images/169hwyOlathe/small.jpeg' alt='169 hwy Olathe Location'></a><br>"+
+                            "<a href='http://www.contractorsgarage.net/169highway-olathe'>Learn More About This Location</a>"
                 });
                 hwyMarker.addListener("click", function(){
                     hwyInfoWindow.open(map, hwyMarker);
@@ -68,8 +68,8 @@
                 var lenexaInfoWindow = new google.maps.InfoWindow({
                     content: "<h3>Garage III</h3>"+
                             "<p>14100 Santa Fe Trail Dr., Lenexa, KS</p>"+
-                            "<a href='html/lenexa.html'><img src='res/images/lenexa/small.jpeg' alt='Lenexa Location'></a><br>"+
-                            "<a href='html/lenexa.html'>Learn More About This Location</a>"
+                            "<a href='http://www.contractorsgarage.net/lenexa'><img src='res/images/lenexa/small.jpeg' alt='Lenexa Location'></a><br>"+
+                            "<a href='http://www.contractorsgarage.net/lenexa'>Learn More About This Location</a>"
                 });
                 lenexaMarker.addListener("click", function(){
                     lenexaInfoWindow.open(map, lenexaMarker);
@@ -85,8 +85,8 @@
                 var OPInfoWindow = new google.maps.InfoWindow({
                     content: "<h3>Garage IV (Currently Under Construction)</h3>"+
                             "<p>8400 W 127th St, Overland Park, KS</p>"+
-                            "<a href='html/overlandPark.html'><img src='res/images/overlandPark/small.jpeg' alt='Overland Park Location'></a><br>"+
-                            "<a href='html/overlandPark.html'>Learn More About This Location</a>"
+                            "<a href='http://www.contractorsgarage.net/overland-park'><img src='res/images/overlandPark/small.jpeg' alt='Overland Park Location'></a><br>"+
+                            "<a href='http://www.contractorsgarage.net/overland-park'>Learn More About This Location</a>"
                 });
                 OPMarker.addListener("click", function(){
                     OPInfoWindow.open(map, OPMarker);
@@ -96,14 +96,16 @@
                     position: {lat: 38.840675, lng: -94.8025281},
                     map: map,
                     title: "15845 S Mahaffie St, Olathe, KS",
-                    icon: greenMarker 
+                    icon: purpleMarker 
                 });
                 // Info box about the Mahaffie location
                 var mahaffieInfoWindow = new google.maps.InfoWindow({
-                    content: "<h3>Planned Future Location</h3>"+
-                            "<p>15845 S Mahaffie St, Olathe, KS</p>"+
+                    content: "<h3>Garage V (Currently Under Construction)</h3>"+
+                            "<p>15845 S Mahaffie St. Olathe, KS</p>"+
                             "<p>Anticipated completion summer 2017.  Units will be 20'x50' (1000 sq. ft.) "+
-                             "with a store front and rear loading, bathroom and hvac in each unit.</p>"
+                             "with a store front and rear loading, bathroom and hvac in each unit.</p>"+
+                             "<a href='http://www.contractorsgarage.net/mahaffie-olathe'><img src='res/images/mahaffieOlathe/small.jpg' alt='Mahaffie Olathe Location'></a><br>"+
+                            "<a href='http://www.contractorsgarage.net/mahaffie-olathe'>Learn More About This Location</a>"
                 });
                 mahaffieMarker.addListener("click", function(){
                    mahaffieInfoWindow.open(map, mahaffieMarker); 
@@ -171,38 +173,89 @@
             <div id="locationsContain">
                 <div id="dennisOlathe">
                     <div id="dennisInner">
-                        <h3>Garage I</h3>
-                        <div class="locationsLink">
-                            <a href="html/dennisOlathe.html">636 E Dennis Ave, Olathe, KS</a>
+                        <div class="locationWrapper">
+                            <h3>Garage I</h3>
+                            <div class="locationsLink">
+                                <a href="http://www.contractorsgarage.net/dennis-olathe">636 E Dennis Ave, Olathe, KS</a>
+                            </div>
+                            <a href="http://www.contractorsgarage.net/dennis-olathe">
+                                <img id="dPic" class="locationPic" src="res/images/dennisOlathe/small.jpeg" alt="Dennis Olathe Location">
+                            </a>
                         </div>
-                        <img id="dPic" class="locationPic" src="res/images/dennisOlathe/small.jpeg" alt="Dennis Olathe Location">
+                        <div id="stampWrapper">
+                            <!--Comment out or delete the line below to remove available now stamp-->
+                            <img class="stamp" src="res/icon/available.png">
+                        </div>
                     </div>
                 </div>
                 <div id="olathe169hwy">
                     <div id="olathe169Inner">
-                        <h3>Garage II</h3>
-                        <div class="locationsLink">
-                            <a href="html/169hwyOlathe.html">15735 S US169 Highway, Olathe, KS</a>
+                        <div class="locationWrapper">
+                            <h3>Garage II</h3>
+                            <div class="locationsLink">
+                                <a href="http://www.contractorsgarage.net/169highway-olathe">15735 S US169 Highway, Olathe, KS</a>
+                            </div>
+                            <a href="http://www.contractorsgarage.net/169highway-olathe">
+                                <img id="Pic1" class="locationPic" src="res/images/169hwyOlathe/small.jpeg" alt="169 highway Location">
+                            </a>
                         </div>
-                        <img id="Pic1" class="locationPic" src="res/images/169hwyOlathe/small.jpeg" alt="169 highway Location">
+                        <div id="stampWrapper">
+                            <!--Comment out or delete the line below to remove available now stamp-->
+                            <!--<img class="stamp" src="res/icon/available.png">-->
+                        </div>
                     </div>
                 </div>
                 <div id="lenexa">
                     <div id="lenexaInner">
-                        <h3>Garage III</h3>
-                        <div class="locationsLink">
-                            <a href="html/lenexa.html">14100 Santa Fe Trail Dr., Lenexa, KS</a>
+                        <div class="locationWrapper">
+                            <h3>Garage III</h3>
+                            <div class="locationsLink">
+                                <a href="http://www.contractorsgarage.net/lenexa">14100 Santa Fe Trail Dr., Lenexa, KS</a>
+                            </div>
+                            <a href="http://www.contractorsgarage.net/lenexa">
+                                <img id="lPic" class="locationPic" src="res/images/lenexa/small.jpeg" alt="Lenexa Location">
+                            </a>
                         </div>
-                        <img id="lPic" class="locationPic" src="res/images/lenexa/small.jpeg" alt="Lenexa Location">
+                        <div id="stampWrapper">
+                            <!--Comment out or delete the line below to remove available now stamp-->
+                            <!--<img class="stamp" src="res/icon/available.png">-->
+                        </div>
                     </div>
                 </div>
                 <div id="overlandPark">
                     <div id="overlandInner">
-                        <h3>Garage IV</h3>
-                        <div class="locationsLink">
-                            <a href="html/overlandPark.html">8400 W 127th St, Overland Park, KS</a>
+                        <div class="locationWrapper">
+                            <h3>Garage IV</h3>
+                            <div class="locationsLink">
+                                <a href="http://www.contractorsgarage.net/overland-park">8400 W 127th St, Overland Park, KS</a>
+                            </div>
+                            <a href="http://www.contractorsgarage.net/overland-park">
+                                <img id="oPic" class="locationPic" src="res/images/overlandPark/small.jpeg" alt="overland park location">
+                            </a>
                         </div>
-                        <img id="oPic" class="locationPic" src="res/images/overlandPark/small.jpeg" alt="overland park location">
+                        <div id="stampWrapper">
+                            <!--Comment out or delete the line below to remove available now stamp-->
+                            <img class="stamp" src="res/icon/available.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="locationContainBottom">
+                <div id="mahaffieOlathe">
+                    <div id="mahaffieInner">
+                        <div class="locationWrapper">
+                            <h3>Garage V</h3>
+                            <div class="locationsLink">
+                                <a href="http://www.contractorsgarage.net/mahaffie-olathe">15845 S Mahaffie St. Olathe, KS</a>
+                            </div>
+                            <a href="http://www.contractorsgarage.net/mahaffie-olathe">
+                                <img id="oPic" class="locationPic" src="res/images/mahaffieOlathe/small.jpg" alt="mahaffie olathe location">
+                            </a>
+                        </div>
+                        <div id="stampWrapper">
+                            <!--Comment out or delete the line below to remove available now stamp-->
+                            <img class="stamp" src="res/icon/available.png">
+                        </div>
                     </div>
                 </div>
             </div>

@@ -30,18 +30,18 @@ function load() {
         var description = document.getElementById("unitDescription");
         switch (id) {
             case "small":
-                size.innerHTML = "15'x45'";
+                size.innerHTML = "20'x 50'";
                 pic.src = "../res/images/169hwyOlathe/15x45.jpeg";
-                price.innerHTML = "Rent: $550 Monthly (Unit 7 available August 1)";
-                description.innerHTML = "There are twenty units of this size at the 169 hwy Olathe location. It is a single unit with " +
-                "one drive-in door. Total interior size is 675 square feet.";
+                price.innerHTML = "Rent: $1300/mo-Front building; $1100/mo-Back building";
+                description.innerHTML = "There are six units of this size at the Mahaffie Olathe location with three units per building. " +
+                "The front building has visibility to 159th street. This unit has a smaller retail area than the larger unit.";
             break;
             case "med":
-                size.innerHTML = "20'x45'";
+                size.innerHTML = "20'x 55'";
                 pic.src = "../res/images/169hwyOlathe/20x45.jpeg";
-                price.innerHTML = "Rent: $700 Monthly - (No vacancy)"; 
-                description.innerHTML ="There are fifteen units of this size at the Lenexa location. It is a single unit with " +
-                "one drive-in door and one man door. Total interior size is 900 square feet."; 
+                price.innerHTML = "Rent: $1400/mo-Front Building; $1200/mo-Back building"; 
+                description.innerHTML ="There are sixteen units of this size at the Mahaffie Olathe location with 8 units per building. " +
+                "The front building has visibility to 159th street. This unit has a larger retail area than the smaller unit."; 
             break;
         }
     }
