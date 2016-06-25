@@ -3,11 +3,16 @@ else if (window.addEventListener) {window.addEventListener('load', load, false);
 else {document.addEventListener('load', load, false);}
 function load() {
     function setScroll() {
-        if (window.scrollY >= 50) {
+        if (window.pageYOffset >= 50) {
             document.getElementById("grassPic").className = "change";
         }
-        else if (window.scrollY < 50) {
+        else if (window.pageYOffset < 50) {
             document.getElementById("grassPic").className = "beforeChange";
+        }
+        if (window.pageYOffset > $mapSection.scrollTop - 300) {
+            for (var i = 0; i < stamps.length; i++) {
+                stamps[i].className = "stamp-grow";
+            }
         }
     }
     
@@ -34,6 +39,10 @@ function load() {
     var mapCanvas = document.getElementById("mapCanvas"); 
     
     var map = document.getElementById("map");
+
+    var $mapSection = {scrollTop: $('#mapSection').offset().top};
+
+    var stamps = document.getElementsByClassName("stamp");
     
     mapCanvas.addEventListener("click", mapClicked, false);
     map.addEventListener("mouseleave", scrollOff, false);

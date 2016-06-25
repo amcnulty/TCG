@@ -249,6 +249,19 @@ nav div:hover {
     position: absolute;
     right: 0px;
     top: -50px;
+    transform: rotateZ(90deg) scale(0);
+}
+
+.stamp-grow {
+    position: absolute;
+    right: 0px;
+    top: -50px;
+    transform: rotateZ(0deg) scale(1);
+    -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    -ms-transition: all .8s ease;
+    -o-transition: all .8s ease;
+    transition: all .8s ease;
 }
 
 #lenexa {
