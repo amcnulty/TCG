@@ -39,7 +39,7 @@ function load() {
             case "med":
                 size.innerHTML = "22'x45'";
                 pic.src = "../res/images/dennisOlathe/22x45.jpg";
-                price.innerHTML = "Rent: $700 Monthly - (Unit Available)"; 
+                price.innerHTML = "Rent: $700 Monthly - (No Vacancy)"; 
                 description.innerHTML ="There is one units of this size at the dennis Olathe location. It is a double unit with " +
                 "two drive-in doors."; 
             break;

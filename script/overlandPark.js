@@ -26,7 +26,7 @@ function load() {
             case "small":
                 size.innerHTML = "20'x45'";
                 pic.src = "../res/images/overlandPark/overlandPark.jpeg";
-                price.innerHTML = "Rent: $700 Monthly - Property is now about 50 percent pre-leased.  Reserve your unit now before they are gone";
+                price.innerHTML = "Rent: $700 Monthly - No Vacancy";
                 description.innerHTML = "There are twenty-four units of this size at the Overland Park location. It is a single unit with " +
                 "one drive-in door with an adjacent man door for easy access.";
             break;
