@@ -116,8 +116,31 @@ nav div:hover {
     margin-top: 400px;
 }
 
+#infoTop {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    top: -60px;
+    background-image: background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(152, 152, 152, 0)), to(rgba(152, 152, 152, 1)));
+    background-image: -webkit-linear-gradient(top, rgba(152, 152, 152, 0), rgba(152, 152, 152, 1));
+    background-image: -moz-linear-gradient(top, rgba(152, 152, 152, 0), rgba(152, 152, 152, 1));
+    background-image: linear-gradient(to bottom, rgba(152, 152, 152, 0), rgba(152, 152, 152, 1));
+}
+
+#infoBottom {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    bottom: -60px;
+    
+    background-image: background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(152, 152, 152, 1)), to(rgba(152, 152, 152, 0)));
+    background-image: -webkit-linear-gradient(top, rgba(152, 152, 152, 1), rgba(152, 152, 152, 0));
+    background-image: -moz-linear-gradient(top, rgba(152, 152, 152, 1), rgba(152, 152, 152, 0));
+    background-image: linear-gradient(to bottom, rgba(152, 152, 152, 1), rgba(152, 152, 152, 0));
+}
+
 #info {
-    height: 580px;
+    position: relative;
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -131,32 +154,28 @@ nav div:hover {
 }
 
 #aboutLeft {
-    height: 100%;
     width: 50%;
-    float: left;
+    display: inline-block;
     color: whitesmoke;
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     font-size: 1.3em;
+    margin-left: 35px;
+    text-align: center;
 }
 
 #aboutLeft img {
     cursor: pointer;
 }
 
-#aboutUs {
-    margin-left: 35px;
-    text-align: center;
-}
-
 #aboutRight {
-    height: 100%;
-    width: 50%;
-    float: left;
+    width: 40%;
+    float: right;
     overflow: hidden;
+    margin-right: 25px;
 }
 
 #aboutRight img {
-    margin-top: 80px;
+    max-width: 100%;
 }
 
 .beforeChange {

@@ -59,7 +59,7 @@
 
 #textShadowBox {
     width: 95%;
-    height: 85%;
+    padding: 15px 5px 30px 0px;
     -webkit-box-shadow: 3px 3px 3px 4px #222222;
     -moz-box-shadow: 3px 3px 3px 4px #222222;
     -ms-box-shadow: 3px 3px 3px 4px #222222;
