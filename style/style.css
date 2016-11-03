@@ -153,25 +153,43 @@ nav div:hover {
     color: whitesmoke;
 }
 
-#aboutLeft {
-    width: 50%;
-    display: inline-block;
-    color: whitesmoke;
-    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
-    font-size: 1.3em;
-    margin-left: 35px;
-    text-align: center;
+@media (min-device-width: 769px) {
+    #aboutLeft {
+        width: 50%;
+        display: inline-block;
+        color: whitesmoke;
+        font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+        font-size: 1.3em;
+        margin-left: 35px;
+        text-align: center;
+    }
+
+    #aboutRight {
+        width: 40%;
+        float: right;
+        overflow: hidden;
+        margin-right: 25px;
+    }
 }
 
 #aboutLeft img {
     cursor: pointer;
 }
 
-#aboutRight {
-    width: 40%;
-    float: right;
-    overflow: hidden;
-    margin-right: 25px;
+@media (min-device-width: 200px) and (max-device-width: 768px) {
+    #aboutLeft {
+        display: inline-block;
+        color: whitesmoke;
+        font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+        font-size: 1.6em;
+        margin-left: 35px;
+        margin-right: 35px;
+        text-align: center;
+    }
+
+    #aboutRight {
+        display: none;
+    }
 }
 
 #aboutRight img {

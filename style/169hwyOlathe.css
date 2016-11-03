@@ -9,7 +9,7 @@
     background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0), rgba(155, 155, 155, 1));
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(155, 155, 155, 1));
     width: 100%;
-    height: 550px;
+    height: 600px;
 }
 
 #image {
