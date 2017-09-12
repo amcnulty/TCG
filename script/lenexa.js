@@ -40,7 +40,7 @@ function load() {
             case "small":
                 size.innerHTML = "15'x40'";
                 pic.src = "../res/images/lenexa/15x40.jpeg";
-                price.innerHTML = "Rent: $550 Monthly (No Vacancy)";
+                price.innerHTML = "Rent: $500 Monthly (No Vacancy)";
                 description.innerHTML = "There are four units of this size at the Lenexa location. It is a single unit with " +
                 "one drive-in door. Total interior size is 600 square feet.";
             break;

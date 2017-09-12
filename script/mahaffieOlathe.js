@@ -31,14 +31,14 @@ function load() {
         switch (id) {
             case "small":
                 size.innerHTML = "20'x 50'";
-                pic.src = "../res/images/mahaffieOlathe/comingSoon.jpg";
+                pic.src = "../res/images/mahaffieOlathe/interior20x50.jpg";
                 price.innerHTML = "Rent: $1300/mo-Front building; $1100/mo-Back building";
                 description.innerHTML = "There are six units of this size at the Mahaffie Olathe location with three units per building. " +
                 "The front building has visibility to 159th street. This unit has a smaller retail area than the larger unit.";
             break;
             case "med":
                 size.innerHTML = "20'x 55'";
-                pic.src = "../res/images/mahaffieOlathe/comingSoon.jpg";
+                pic.src = "../res/images/mahaffieOlathe/interior20x55.jpg";
                 price.innerHTML = "Rent: $1400/mo-Front Building; $1200/mo-Back building"; 
                 description.innerHTML ="There are sixteen units of this size at the Mahaffie Olathe location with 8 units per building. " +
                 "The front building has visibility to 159th street. This unit has a larger retail area than the smaller unit."; 
