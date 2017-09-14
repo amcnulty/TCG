@@ -12,4 +12,5 @@ A website for The Contractor's Garage industrial storage company located in John
 
 ## Link
 Here is the link to the live site.
-[The Contractor's Garage]("http://www.contractorsgarage.net/" "Industrial Storage Space In Johnson County")
+
+[The Contractor's Garage](http://www.contractorsgarage.net/ "Industrial Storage Space In Johnson County")
