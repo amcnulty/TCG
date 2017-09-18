@@ -33,7 +33,7 @@ function load() {
         switch (id) {
             case "small":
                 size.innerHTML = "20'x 50'";
-                pic1.src = "../res/images/mahaffieOlathe/interior20x50.jpg";
+                pic1.src = "../res/images/mahaffieOlathe/interior20x55.jpg";
                 pic1.parentElement.href = pic1.src;
                 pic2.src = "../res/images/mahaffieOlathe/interior20x50.jpg";
                 pic2.parentElement.href = pic2.src;
@@ -47,7 +47,7 @@ function load() {
                 size.innerHTML = "20'x 55'";
                 pic1.src = "../res/images/mahaffieOlathe/interior20x55.jpg";
                 pic1.parentElement.href = pic1.src;
-                pic2.src = "../res/images/mahaffieOlathe/interior20x55.jpg";
+                pic2.src = "../res/images/mahaffieOlathe/interior20x50.jpg";
                 pic2.parentElement.href = pic2.src;
                 pic3.src = "../res/images/mahaffieOlathe/front_20x55.jpg";
                 pic3.parentElement.href = pic3.src;
