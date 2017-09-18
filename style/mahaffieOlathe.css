@@ -198,8 +198,18 @@
     color: rgb(51, 51, 51);
 }
 
+#infoSection a {
+    text-decoration: none;
+    margin: 0px 8px 0px 8px;
+}
+
 #infoSection img {
-    width: 400px;
+    max-height: 250px;
+    transition: all .3s;
+}
+
+#infoSection img:hover {
+    transform: scale(1.05);
 }
 
 #infoSection h1 {

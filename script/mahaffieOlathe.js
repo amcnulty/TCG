@@ -25,20 +25,32 @@ function load() {
     
     function showUnit(id) {
         var size = document.getElementById("size");
-        var pic = document.getElementById("unitPic");
+        var pic1 = document.getElementById("unitPic1");
+        var pic2 = document.getElementById("unitPic2");
+        var pic3 = document.getElementById("unitPic3");
         var price = document.getElementById("price");
         var description = document.getElementById("unitDescription");
         switch (id) {
             case "small":
                 size.innerHTML = "20'x 50'";
-                pic.src = "../res/images/mahaffieOlathe/interior20x50.jpg";
+                pic1.src = "../res/images/mahaffieOlathe/interior20x50.jpg";
+                pic1.parentElement.href = pic1.src;
+                pic2.src = "../res/images/mahaffieOlathe/interior20x50.jpg";
+                pic2.parentElement.href = pic2.src;
+                pic3.src = "../res/images/mahaffieOlathe/front_20x50.jpg";
+                pic3.parentElement.href = pic3.src;
                 price.innerHTML = "Rent: $1300/mo-Front building; $1100/mo-Back building";
                 description.innerHTML = "There are six units of this size at the Mahaffie Olathe location with three units per building. " +
                 "The front building has visibility to 159th street. This unit has a smaller retail area than the larger unit.";
             break;
             case "med":
                 size.innerHTML = "20'x 55'";
-                pic.src = "../res/images/mahaffieOlathe/interior20x55.jpg";
+                pic1.src = "../res/images/mahaffieOlathe/interior20x55.jpg";
+                pic1.parentElement.href = pic1.src;
+                pic2.src = "../res/images/mahaffieOlathe/interior20x55.jpg";
+                pic2.parentElement.href = pic2.src;
+                pic3.src = "../res/images/mahaffieOlathe/front_20x55.jpg";
+                pic3.parentElement.href = pic3.src;
                 price.innerHTML = "Rent: $1400/mo-Front Building; $1200/mo-Back building"; 
                 description.innerHTML ="There are sixteen units of this size at the Mahaffie Olathe location with 8 units per building. " +
                 "The front building has visibility to 159th street. This unit has a larger retail area than the smaller unit."; 
