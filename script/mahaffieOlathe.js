@@ -39,9 +39,9 @@ function load() {
                 pic2.parentElement.href = pic2.src;
                 pic3.src = "../res/images/mahaffieOlathe/front_20x50.jpg";
                 pic3.parentElement.href = pic3.src;
-                price.innerHTML = "Rent: $1300/mo-Front building; $1100/mo-Back building";
+                price.innerHTML = "No availabilities.  Please call to be placed on waitlist";
                 description.innerHTML = "There are six units of this size at the Mahaffie Olathe location with three units per building. " +
-                "The front building has visibility to 159th street. This unit has a smaller retail area than the larger unit.";
+                "The front building has visibility to 159th street. This unit has a smaller front retail/office area than the larger unit.";
             break;
             case "med":
                 size.innerHTML = "20'x 55'";
@@ -51,9 +51,9 @@ function load() {
                 pic2.parentElement.href = pic2.src;
                 pic3.src = "../res/images/mahaffieOlathe/front_20x55.jpg";
                 pic3.parentElement.href = pic3.src;
-                price.innerHTML = "Rent: $1400/mo-Front Building; $1200/mo-Back building"; 
+                price.innerHTML = "No availabilities.  Please call to be placed on waitlist"; 
                 description.innerHTML ="There are sixteen units of this size at the Mahaffie Olathe location with 8 units per building. " +
-                "The front building has visibility to 159th street. This unit has a larger retail area than the smaller unit."; 
+                "The front building has visibility to 159th street. This unit has a larger front retail/office area than the smaller unit."; 
             break;
         }
     }

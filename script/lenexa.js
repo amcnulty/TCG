@@ -40,14 +40,14 @@ function load() {
             case "small":
                 size.innerHTML = "15'x40'";
                 pic.src = "../res/images/lenexa/15x40.jpeg";
-                price.innerHTML = "Rent: $500 Monthly (No Vacancy)";
+                price.innerHTML = "Rent: $500 Monthly (No Vacancy.  Call to be placed on wait list)";
                 description.innerHTML = "There are four units of this size at the Lenexa location. It is a single unit with " +
                 "one drive-in door. Total interior size is 600 square feet.";
             break;
             case "med":
                 size.innerHTML = "20'x40'";
                 pic.src = "../res/images/lenexa/20x40.jpeg";
-                price.innerHTML = "Rent: $700 Monthly (No Vacancy)"; 
+                price.innerHTML = "Rent: $700 Monthly (No Vacancy.  Call to be placed on wait list)"; 
                 description.innerHTML ="There are eight units of this size at the Lenexa location. It is a single unit with " +
                 "one drive-in door and one man door. Total interior size is 800 square feet."; 
             break;

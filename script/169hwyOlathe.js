@@ -32,14 +32,14 @@ function load() {
             case "small":
                 size.innerHTML = "15'x45'";
                 pic.src = "../res/images/169hwyOlathe/15x45.jpeg";
-                price.innerHTML = "Rent: $500 Monthly - (No vacancy.  Call to be placed on waitlist)";
+                price.innerHTML = "Rent: $525 Monthly - (No Vacancy - call to be placed on waitlist)";
                 description.innerHTML = "There are twenty units of this size at the 169 hwy Olathe location. It is a single unit with " +
                 "one drive-in door. Total interior size is 675 square feet.";
             break;
             case "med":
                 size.innerHTML = "20'x45'";
                 pic.src = "../res/images/169hwyOlathe/20x45.jpeg";
-                price.innerHTML = "Rent: $725 Monthly - (No vacancy.  Call to be placed on waitlist)"; 
+                price.innerHTML = "Rent: $700 Monthly - (No Vacancy - call to be placed on waitlist)"; 
                 description.innerHTML ="There are fifteen units of this size at the Lenexa location. It is a single unit with " +
                 "one drive-in door and one man door. Total interior size is 900 square feet."; 
             break;

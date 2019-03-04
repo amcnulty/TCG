@@ -26,7 +26,7 @@ function load() {
             case "small":
                 size.innerHTML = "20'x45'";
                 pic.src = "../res/images/overlandPark/overlandPark.jpeg";
-                price.innerHTML = "Rent: $725 Monthly - (No Vacancy.  Call to be placed on waitlist)";
+                price.innerHTML = "Rent: $725 Monthly - (Possible vacancies in spring/summer 2019.  Call to be placed on waitlist)";
                 description.innerHTML = "There are twenty-four units of this size at the Overland Park location. It is a single unit with " +
                 "one drive-in door with an adjacent man door for easy access.";
             break;
