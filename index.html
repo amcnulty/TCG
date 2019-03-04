@@ -16,8 +16,8 @@
                 // The map starting location and zoom level
                 var map;
                 map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: 38.9175412, lng: -94.7569592},
-                    zoom: 12
+                    center: {lat: 39.0175412, lng: -94.7569592},
+                    zoom: 10
                 });
                 // The different map markers
                 var redMarker = "res/icon/redMarker.png";
@@ -110,6 +110,26 @@
                 mahaffieMarker.addListener("click", function(){
                    mahaffieInfoWindow.open(map, mahaffieMarker); 
                 });
+                // Marker for KCMO location
+                var kcMoMarker = new google.maps.Marker({
+                    position: {lat: 39.233298, lng: -94.464581},
+                    map: map,
+                    title: "KCMO / Liberty off I-35",
+                    icon: greenMarker
+                });
+                // Info box about the KCMO location
+                var kcMoInfoWindow = new google.maps.InfoWindow({
+                    content: `
+                        <h3>Garage VI</h3>
+                        <p>KCMO / Libery off I-35</p>
+                        <p>Two unit sizes will be available in 20'X45' and 15'X45'. Each unit has individually metered electricity and is well insulated. This location also features a large parking lot for easy maneuvering large trailers.</p>
+                        <a href="http://www.contractorsgarage.net/kcmo-liberty"><img src="res/images/kcMo/small.jpg" alt="kcmo location"></a><br>
+                        <a href="http://www.contractorsgarage.net/kcmo-liberty">Learn More About This Location</a>
+                    `
+                });
+                kcMoMarker.addListener("click", function() {
+                    kcMoInfoWindow.open(map, kcMoMarker);
+                });
             }
         </script>
     </head>
@@ -177,8 +197,8 @@ expensive than traditional incubator industrial space.<br><br>
             <h1 id="mapSectionHeader">Our Locations</h1>
             <div id="locationBoxWrapper">
                 <div id="locationsContain">
-                    <div id="dennisOlathe">
-                        <div id="dennisInner">
+                    <div class="locationCardWrapper" id="dennisOlathez">
+                        <div class="locationCard" id="dennisInnerz">
                             <div class="locationWrapper">
                                 <h3>Garage I</h3>
                                 <div class="locationsLink">
@@ -188,14 +208,14 @@ expensive than traditional incubator industrial space.<br><br>
                                     <img id="dPic" class="locationPic" src="res/images/dennisOlathe/small.jpeg" alt="Dennis Olathe Location">
                                 </a>
                             </div>
-                            <div id="stampWrapper">
+                            <div class="stampWrapper">
                                 <!--Comment out or delete the line below to remove available now stamp-->
                                 <!--<img class="stamp" src="res/icon/available.png">-->
                             </div>
                         </div>
                     </div>
-                    <div id="olathe169hwy">
-                        <div id="olathe169Inner">
+                    <div class="locationCardWrapper" id="olathe169hwyz">
+                        <div class="locationCard" id="olathe169Innerz">
                             <div class="locationWrapper">
                                 <h3>Garage II</h3>
                                 <div class="locationsLink">
@@ -205,14 +225,14 @@ expensive than traditional incubator industrial space.<br><br>
                                     <img id="Pic1" class="locationPic" src="res/images/169hwyOlathe/small.jpeg" alt="169 highway Location">
                                 </a>
                             </div>
-                            <div id="stampWrapper">
+                            <div class="stampWrapper">
                                 <!--Comment out or delete the line below to remove available now stamp-->
                                 <!--<img class="stamp" src="res/icon/available.png">-->
                             </div>
                         </div>
                     </div>
-                    <div id="lenexa">
-                        <div id="lenexaInner">
+                    <div class="locationCardWrapper" id="lenexaz">
+                        <div class="locationCard" id="lenexaInnerz">
                             <div class="locationWrapper">
                                 <h3>Garage III</h3>
                                 <div class="locationsLink">
@@ -222,43 +242,60 @@ expensive than traditional incubator industrial space.<br><br>
                                     <img id="lPic" class="locationPic" src="res/images/lenexa/small.jpeg" alt="Lenexa Location">
                                 </a>
                             </div>
-                            <div id="stampWrapper">
+                            <div class="stampWrapper">
                                 <!--Comment out or delete the line below to remove available now stamp-->
                                 <!--<img class="stamp" src="res/icon/available.png">-->
                             </div>
                         </div>
                     </div>
-                    <div id="overlandPark">
-                        <div id="overlandInner">
+                    <div class="locationCardWrapper" id="overlandParkz">
+                        <div class="locationCard" id="overlandInnerz">
                             <div class="locationWrapper">
                                 <h3>Garage IV</h3>
                                 <div class="locationsLink">
                                     <a href="http://www.contractorsgarage.net/overland-park">8400 W 127th St, Overland Park, KS</a>
                                 </div>
                                 <a href="http://www.contractorsgarage.net/overland-park">
-                                    <img id="oPic" class="locationPic" src="res/images/overlandPark/small.jpeg" alt="overland park location">
+                                    <img class="locationPic" src="res/images/overlandPark/small.jpeg" alt="overland park location">
                                 </a>
                             </div>
-                            <div id="stampWrapper">
+                            <div class="stampWrapper">
                                 <!--Comment out or delete the line below to remove available now stamp-->
                                 <!--<img class="stamp" src="res/icon/available.png">-->
                             </div>
                         </div>
                     </div>
-                    <div id="mahaffieOlathe">
-                        <div id="mahaffieInner">
+                    <div class="locationCardWrapper" id="mahaffieOlathez">
+                        <div class="locationCard" id="mahaffieInnerz">
                             <div class="locationWrapper">
                                 <h3>Garage V</h3>
                                 <div class="locationsLink">
                                     <a href="http://www.contractorsgarage.net/mahaffie-olathe">15845 S Mahaffie St. Olathe, KS</a>
                                 </div>
                                 <a href="http://www.contractorsgarage.net/mahaffie-olathe">
-                                    <img id="oPic" class="locationPic" src="res/images/mahaffieOlathe/small.jpg" alt="mahaffie olathe location">
+                                    <img class="locationPic" src="res/images/mahaffieOlathe/small.jpg" alt="mahaffie olathe location">
                                 </a>
                             </div>
-                            <div id="stampWrapper">
+                            <div class="stampWrapper">
                                 <!--Comment out or delete the line below to remove available now stamp-->
                                 <!--<img class="stamp" src="res/icon/available.png">-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locationCardWrapper" id="kcMoz">
+                        <div class="locationCard" id="kcMoInnerz">
+                            <div class="locationWrapper">
+                                <h3>Garage VI</h3>
+                                <div class="locationsLink">
+                                    <a href="http://www.contractorsgarage.net/kcmo-liberty">South of 152 & west of I-35, Kansas City, MO</a>
+                                </div>
+                                <a href="http://www.contractorsgarage.net/kcmo-liberty">
+                                    <img class="locationPic" src="res/images/kcMo/small.jpg" alt="kc mo location">
+                                </a>
+                            </div>
+                            <div class="stampWrapper">
+                                <!--Comment out or delete the line below to remove available now stamp-->
+                                <!-- <img class="stamp" src="res/icon/available.png"> -->
                             </div>
                         </div>
                     </div>
@@ -282,7 +319,7 @@ expensive than traditional incubator industrial space.<br><br>
         </div>
         <div id="footer">
             <div id="footerTop">
-                <p>Content copyright &copy2016. The Contractors Garage - Contact: Kevin Combs - (913) 568-1134. All rights reserved.</p>
+                <p>Content copyright &copy2019. The Contractors Garage - Contact: Kevin Combs - (913) 568-1134. All rights reserved.</p>
             </div>
             <div id="footerBottom">
                 <img src="res/logo/insightLogo.png" alt="Insight Commercial Logo"><br>

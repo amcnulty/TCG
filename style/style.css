@@ -217,7 +217,7 @@ nav div:hover {
 #space {
     width: 100%;
     height: 500px;
-    background: url("../res/backgrounds/background2.jpeg") center center;
+    background: url("../res/images/169hwyOlathe/169hwyOlathe.jpeg") center center;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -275,7 +275,7 @@ nav div:hover {
     height: 100%;
 }
 
-#stampWrapper {
+.stampWrapper {
     position: relative;
     width: 100%;
     height: 1%;
@@ -301,97 +301,14 @@ nav div:hover {
     transition: all .8s ease;
 }
 
-#lenexa {
+.locationCardWrapper {
     height: 100%;
     width: 33.31%;
     float: left;
+    margin-bottom: 20px;
 }
 
-#lenexaInner {
-    width: 90%;
-    height: 100%;
-    margin-left: 5%;
-    border: 5px outset rgb(51, 51, 51);
-    -moz-border-image: -moz-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    -webkit-border-image: -webkit-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    border-image: linear-gradient(to bottom right, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    border-image-slice: 1;
-}
-
-#dennisOlathe {
-    height: 100%;
-    width: 33.31%;
-    float: left;
-}
-
-#dennisInner {
-    width: 90%;
-    height: 100%;
-    margin-left: 5%;
-    border: 5px outset rgb(51, 51, 51);
-    -moz-border-image: -moz-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    -webkit-border-image: -webkit-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    border-image: linear-gradient(to bottom right, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    border-image-slice: 1;
-}
-
-#olathe169hwy {
-    height: 100%;
-    width: 33.31%;
-    float: left;
-}
-
-#olathe169Inner {
-    width: 90%;
-    height: 100%;
-    margin-left: 5%;
-    border: 5px outset rgb(51, 51, 51);
-    -moz-border-image: -moz-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    -webkit-border-image: -webkit-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    border-image: linear-gradient(to bottom right, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    border-image-slice: 1;
-}
-
-#overlandPark {
-    position: relative;
-    height: 100%;
-    width: 33.31%;
-    left: 33.31%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-    float: left;
-    margin-top: 20px;
-}
-
-#overlandInner {
-    width: 90%;
-    height: 100%;
-    margin-left: 5%;
-    border: 5px outset rgb(51, 51, 51);
-    -moz-border-image: -moz-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    -webkit-border-image: -webkit-linear-gradient(top left, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    border-image: linear-gradient(to bottom right, rgb(192, 192, 192) 0%, rgb(52, 52, 52) 100%);
-    border-image-slice: 1;
-}
-
-#mahaffieOlathe {
-    position: relative;
-    height: 100%;
-    width: 33.31%;
-    left: 33.31%;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-    float: left;
-    margin-top: 20px;
-}
-
-#mahaffieInner {
+.locationCard {
     width: 90%;
     height: 100%;
     margin-left: 5%;
@@ -459,44 +376,11 @@ nav div:hover {
         left: 0px;
     }
 
-    #dennisOlathe {
+    .locationCardWrapper {
         height: 50%;
         width: 50%;
         float: left;
-    }
-
-    #olathe169hwy {
-        height: 50%;
-        width: 50%;
-        float: left;
-    }
-    
-    #lenexa {
-        height: 50%;
-        width: 50%;
-        float: left;
-        margin-top: 20px;
-    }
-
-    #overlandPark {
-        position: static;
-        height: 50%;
-        width: 50%;
-        -webkit-transform: unset;
-        -moz-transform: unset;
-        -ms-transform: unset;
-        -o-transform: unset;
-        transform: unset;
-        float: left;
-        margin-top: 20px;
-    }
-
-    #mahaffieOlathe {
-        height: 50%;
-        width: 50%;
-        left: 50%;
-        float: left;
-        margin-top: 20px;
+        margin-bottom: 20px;
     }
 }
 
