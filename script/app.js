@@ -16,10 +16,6 @@ function load() {
         }
     }
     
-    function mapClicked() {
-        map.className = "";
-    }
-    
     function scrollToTop() {
         $('html, body').animate({scrollTop: 0}, 600);
     }
@@ -32,20 +28,10 @@ function load() {
         $('html, body').animate({scrollTop: $("#mapSection").offset().top - 160}, 600);
     }
 
-    function scrollOff(e) {
-        map.className = "scrollOff";
-    }
-    
-    var mapCanvas = document.getElementById("mapCanvas"); 
-    
-    var map = document.getElementById("map");
-
     var $mapSection = {scrollTop: $('#mapSection').offset().top};
 
     var stamps = document.getElementsByClassName("stamp");
     
-    mapCanvas.addEventListener("click", mapClicked, false);
-    map.addEventListener("mouseleave", scrollOff, false);
     document.addEventListener("scroll", setScroll, false);
     document.getElementById("homeNavButton").addEventListener("click", scrollToTop, false);
     document.getElementById("aboutNavButton").addEventListener("click", scrollToAbout, false);
