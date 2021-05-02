@@ -1,37 +1,44 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
-
-const localHost = (process.env.NODE_ENV === 'production') ? '' : 'http://localhost:3005';
+import AboutUs from './routes/about-us/AboutUs';
+import DevelopmentServices from './routes/development-services/DevelopmentServices';
+import Directory from './routes/directory/Directory';
+import Home from './routes/home/Home';
+import Payment from './routes/payment/Payment';
 
 function App() {
 
-  const fetchServerData = () => {
-    fetch(localHost + '/api/')
-      .then(response => {
-        console.log('response :>> ', response);
-      });
-  }
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button onClick={fetchServerData}>
-          Test API
-        </button>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route
+          path='/'
+          exact
+          component={Home}
+        />
+        <Route
+          path='/about-us'
+          exact
+          component={AboutUs}
+        />
+        <Route
+          path='/development-services'
+          exact
+          component={DevelopmentServices}
+        />
+        <Route
+          path='/directory'
+          exact
+          component={Directory}
+        />
+        <Route
+          path='/payment'
+          exact
+          component={Payment}
+        />
+        <Redirect to='/'/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
