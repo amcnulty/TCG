@@ -4,6 +4,7 @@ import AboutUs from './routes/about-us/AboutUs';
 import DevelopmentServices from './routes/development-services/DevelopmentServices';
 import Directory from './routes/directory/Directory';
 import Home from './routes/home/Home';
+import LocationDetail from './routes/location-detail/LocationDetail';
 import Payment from './routes/payment/Payment';
 
 function App() {
@@ -35,6 +36,10 @@ function App() {
           path='/payment'
           exact
           component={Payment}
+        />
+        <Route
+          path='/location/:slug'
+          component={LocationDetail}
         />
         <Redirect to='/'/>
       </Switch>

@@ -6,6 +6,7 @@ const locationSchema = mongoose.Schema({
     enablePayments: Boolean,
     paymentMarkup: Number,
     coordinates: [Number],
+    slug: String
 });
 
 const Location = mongoose.model('Location', locationSchema);

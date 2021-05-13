@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { API } from '../../util/API';
 
 function EventComponent(props) {
     const map = useMapEvents({
@@ -13,6 +15,15 @@ function EventComponent(props) {
 
 function Directory(props) {
     const [zoom, setZoom] = useState(5);
+    const [locations, setLocations] = useState([]);
+
+    useEffect(() => {
+        console.log('getting all locations');
+        API.getAllLocations()
+        .then(setLocations)
+        .catch(Function.prototype);
+    }, []);
+
     return (
         <div>
             Directory Works!
@@ -33,11 +44,18 @@ function Directory(props) {
                     url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
                     opacity={zoom > 7 ? 1 : 0}
                 />
-                <Marker position={[39.087692, -94.611850]}>
-                    <Popup>
-                        A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                </Marker>
+                {
+                    locations.map(location => (
+                        <Marker
+                            key={location._id}
+                            position={location.coordinates}
+                        >
+                            <Popup>
+                                {location.name} <br /> <Link to={`/location/${location.slug}`}>View Location</Link>
+                            </Popup>
+                        </Marker>
+                    ))
+                }
             </MapContainer>
         </div>
     );

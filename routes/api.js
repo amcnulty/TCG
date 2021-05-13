@@ -30,7 +30,8 @@ router.post('/location', (req, res, next) => {
     paypalEmail: req.body.paypalEmail,
     enablePayments: req.body.enablePayments,
     paymentMarkup: parseFloat(req.body.paymentMarkup),
-    coordinates: req.body.coordinates
+    coordinates: req.body.coordinates,
+    slug: req.body.slug
   })
   .then(location => {
     console.log('location created :>> ', location);
