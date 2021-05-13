@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Button } from 'reactstrap';
 
 function Payment(props) {
     const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
@@ -11,6 +12,10 @@ function Payment(props) {
             amount: {
               value: "500.00",
             },
+            description: 'location 26',
+            payee: {
+              email_address: 'sb-ekrqr6182949@business.example.com'
+            }
           },
         ],
       });
@@ -32,3 +37,5 @@ function Payment(props) {
 }
 
 export default Payment;
+
+//4032039844977274
