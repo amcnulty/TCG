@@ -1,16 +1,22 @@
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import './App.css';
+import './App.sass';
 import AboutUs from './routes/about-us/AboutUs';
 import DevelopmentServices from './routes/development-services/DevelopmentServices';
 import Directory from './routes/directory/Directory';
 import Home from './routes/home/Home';
 import LocationDetail from './routes/location-detail/LocationDetail';
 import Payment from './routes/payment/Payment';
+import Footer from './shared/footer/Footer';
+import Header from './shared/header/Header';
 
 function App() {
 
   return (
     <BrowserRouter>
+      <Route
+        path='/'
+        component={Header}
+      />
       <Switch>
         <Route
           path='/'
@@ -43,6 +49,10 @@ function App() {
         />
         <Redirect to='/'/>
       </Switch>
+      <Route
+        path='/'
+        component={Footer}
+      />
     </BrowserRouter>
   );
 }

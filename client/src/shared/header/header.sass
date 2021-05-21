@@ -1,0 +1,28 @@
+@import 'variables'
+
+.Header
+    background-color: $headerColor
+
+    .navbar-collapse
+        flex-grow: unset
+    
+    .navbar-light .navbar-nav
+        .nav-link
+            color: $headerTextColor
+
+            &.active
+                color: $headerTextColorHover
+
+            &:hover, &:focus
+                color: $headerTextColorHover
+
+@media (min-width: 768px)
+    .Header
+        .navbar-light .navbar-nav
+            .nav-link
+                height: $headerHeight
+                line-height: 40px
+                margin-top: -8px
+                margin-bottom: -8px
+                &.active
+                    border-bottom: 6px solid $headerTextColorHover
