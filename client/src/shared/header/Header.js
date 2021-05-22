@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import './header.sass';
+import companyLogo from './images/companyLogo.jpg';
 
 const Header = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,9 +14,15 @@ const Header = (props) => {
 
     return (
         <div className='Header'>
+            <div className="backgroundContainer row position-absolute">
+                <div className="whiteSection col-12 col-md-7 col-lg-8"></div>
+                <div className="darkSection d-none d-md-block col-md-5 col-lg-4 gunMetalBackground"></div>
+            </div>
             <div className="container">
                 <Navbar light expand="md" className='justify-content-between'>
-                    <NavbarBrand href="/">CG Contractors Garage</NavbarBrand>
+                    <NavbarBrand className='p-0' href="/">
+                        <img src={companyLogo} alt="Contractors Garage" style={{height: '46px'}}/>
+                    </NavbarBrand>
                     <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="ml-auto" navbar>
