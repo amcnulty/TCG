@@ -25,7 +25,7 @@ const Footer = () => {
                                 <h6>Company</h6>
                                 <ul className="list-unstyled">
                                     <li><NavLink className="text-white-50" tag={Link} to='/development-services'>Development Services</NavLink></li>
-                                    <li><NavLink className="text-white-50" tag={Link} to='/privacy-policy'>Privary Policy</NavLink></li>
+                                    <li><NavLink className="text-white-50" tag={Link} to='/privacy-policy'>Privacy Policy</NavLink></li>
                                     <li><NavLink className="text-white-50" tag={Link} to='/terms-of-service'>Terms of Service</NavLink></li>
                                 </ul>
                             </div>

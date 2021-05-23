@@ -10,6 +10,7 @@ import collage from './images/collage.jpg';
 
 function Home(props) {
     const [currentIndex, setCurrentIndex] = useState(2);
+    const history = useHistory();
     const MAP_ICONS = ['fa-map-signs', 'fa-map-pin', 'fa-map-marker-alt', 'fa-directions', 'fa-road', 'fa-location-arrow', 'fa-map-marked-alt', 'fa-globe-americas'];
     useEffect(() => {
         setCurrentIndex(0);
@@ -23,19 +24,23 @@ function Home(props) {
     }];
     return (
         <div className='Home'>
-            <Carousel
-                className='Carousel'
-                images={images}
-                index={currentIndex}
-                isAutoPlaying={true}
-                hasMediaButton={false}
-                hasSizeButton={false}
-                hasIndexBoard={false}
-                hasThumbnails={false}
-                hasDotButtons={'bottom'}
-                shouldSwipeOnMouse={false}
-                hasTransition={false}
-            />
+            <div className='position-relative'>
+                <Carousel
+                    className='Carousel'
+                    images={images}
+                    index={currentIndex}
+                    isAutoPlaying={true}
+                    hasMediaButton={false}
+                    hasSizeButton={false}
+                    hasIndexBoard={false}
+                    hasThumbnails={false}
+                    hasDotButtons={'bottom'}
+                    shouldSwipeOnMouse={false}
+                    hasTransition={false}
+                    onIndexChange={({curIndex}) => setCurrentIndex(curIndex)}
+                />
+                <CarouselOverlay index={currentIndex}/>
+            </div>
             <div className="container aboutSection py-md-5">
                 <div className="row py-md-5">
                     <div className="col-md-6 d-flex justify-content-around order-1 order-md-0 pb-5 pb-md-0">
@@ -89,7 +94,7 @@ function Home(props) {
                         <div className="col text-center checkUsOutContainer">
                             <h2>Check Us Out</h2>
                             <p className='fst-italic'>We have many locations to serve your needs.</p>
-                            <button type='button' className="btn btn-primary">See Locations</button>
+                            <button type='button' className="btn btn-primary" onClick={() => history.push('/directory')}>See Locations</button>
                         </div>
                         <div className="pinsImageContainer position-absolute d-none d-lg-block">
                             <img src={pinsImage} alt="Locations" />
@@ -99,6 +104,29 @@ function Home(props) {
             </div>
         </div>
     );
+}
+
+const CarouselOverlay = (props) => {
+    const history = useHistory();
+    return (
+        <div className="CarouselOverlay position-absolute d-none d-md-block p-3">
+            <div className="container-fluid">
+                <div className="row text-center justify-content-center">
+                    {props.index === 0 && <h4>MULTIPLE CONVENIENT LOCATIONS</h4>}
+                    {props.index === 1 && <h4>LISTING SERVICES AVAILABLE</h4>}
+                    {props.index === 2 && <h4>WE ARE DESIGNED FOR BUSINESS</h4>}
+                    <span className='divider mt-3'></span>
+                </div>
+                <div className="row">
+                    <div className="col text-center">
+                        {props.index === 0 && <button className="btn btn-primary mt-3" onClick={() => history.push('/directory')}>See Locations</button>}
+                        {props.index === 1 && <button className="btn btn-primary mt-3" onClick={() => history.push('/development-services')}>List With Us</button>}
+                        {props.index === 2 && <button className="btn btn-primary mt-3" onClick={() => history.push('/about-us')}>Learn More</button>}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default Home;
