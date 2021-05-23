@@ -2,7 +2,7 @@
     
 .Home
     .Carousel
-        height: calc(100vh - #{$headerHeight})
+        height: calc(60vh - #{$headerHeight})
         > div > div > ul
             cursor: default
 
@@ -27,6 +27,10 @@
             .checkIcon
                 color: $contractorsGarageOrange
 
+        .collageImage
+            width: 100%
+            box-shadow: 0px 0px 20px 0px $gunMetalGrey
+
     .locationsSection
         overflow: hidden
         .checkUsOutContainer
@@ -49,3 +53,8 @@
             height: 220px
             top: 0px
             left: calc(50% + 160px)
+
+@media (min-width: 768px)
+    .Home
+        .Carousel
+            height: calc(100vh - #{$headerHeight})

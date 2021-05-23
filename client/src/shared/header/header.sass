@@ -40,15 +40,19 @@
     .navbar-collapse
         flex-grow: unset
     
-    .navbar-light .navbar-nav
-        .nav-link
-            color: $headerTextColor
+    .navbar-light
+        .navbar-brand
+            .CompanyLogo
+                height: $headerInnerHeight
+        .navbar-nav
+            .nav-link
+                color: $headerTextColor
 
-            &.active
-                color: $headerTextColorHover
+                &.active
+                    color: $headerTextColorHover
 
-            &:hover, &:focus
-                color: $headerTextColorHover
+                &:hover, &:focus
+                    color: $headerTextColorHover
 
 @media (min-width: 768px)
     .Header

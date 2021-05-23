@@ -6,6 +6,7 @@ import pinsImage from './images/pins.png';
 import img1 from './images/169hwyOlathe.jpeg';
 import img2 from './images/overlandParkMain.jpeg';
 import img3 from './images/rearloading.jpeg';
+import collage from './images/collage.jpg';
 
 function Home(props) {
     const [currentIndex, setCurrentIndex] = useState(2);
@@ -35,39 +36,45 @@ function Home(props) {
                 shouldSwipeOnMouse={false}
                 hasTransition={false}
             />
-            <div className="container aboutSection py-5">
-                <div className="row py-5">
-                    <div className="col-md-6 d-flex justify-content-around order-1 order-md-0">
+            <div className="container aboutSection py-md-5">
+                <div className="row py-md-5">
+                    <div className="col-md-6 d-flex justify-content-around order-1 order-md-0 pb-5 pb-md-0">
                         <div className="textSection">
                             <i className="fas fa-city homepageIcon"></i>
                             <h5 className='small pt-4'>INDUSTRIAL STORAGE SPACE</h5>
                             <h2><span className='themeText'>Access</span> Premium Storage Suitable For Commercial Use</h2>
-                            <p className='fst-italic'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum libero odit amet repellendus dignissimos voluptate, necessitatibus numquam reprehenderit! Eligendi consequuntur ad blanditiis vero et reprehenderit nihil maiores sed, facilis dignissimos?</p>
+                            <p className='fst-italic'>Contractors Garage is ideal for the small business owner or hobbyist who needs an affordable and flexible alternative to their home garage, restrictive mini-storage, or traditional industrial space that is often too large and expensive.</p>
                             <ul className='list-unstyled'>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Lorem, ipsum.</span>
+                                    <span className='ps-3'>6 Locations</span>
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Lorem, ipsum dolor.</span>
+                                    <span className='ps-3'>Well Insulated</span>
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Ipsum dolor sit.</span>
+                                    <span className='ps-3'>Electric service in every unit</span>
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Esit amet consectetur.</span>
+                                    <span className='ps-3'>Large drive-in doors</span>
+                                </li>
+                                <li className='pb-2 d-flex align-items-center'>
+                                    <i className="fas fa-check checkIcon"></i>
+                                    <span className='ps-3'>Huge parking lots</span>
                                 </li>
                                 <li className='d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Consectetur adipisicing.</span>
+                                    <span className='ps-3'>Storefronts available in select units</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div className="col-md-6 order-0 order-md-1">123123</div>
+                    <div className="col-md-6 order-0 order-md-1 py-5 py-md-0">
+                        <img className='collageImage' src={collage} alt="Designed For Business" />
+                    </div>
                 </div>
             </div>
             <div className='locationsSection themeBackground py-5 position-relative'>
