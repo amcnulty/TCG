@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Carousel from 'react-gallery-carousel';
+import { useHistory } from 'react-router-dom';
 import 'react-gallery-carousel/dist/index.css';
 import './home.sass';
 import pinsImage from './images/pins.png';
