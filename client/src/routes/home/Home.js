@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom';
 import 'react-gallery-carousel/dist/index.css';
 import './home.sass';
 import pinsImage from './images/pins.png';
-import img1 from './images/169hwyOlathe.jpeg';
+import img1 from './images/location6.jpg';
 import img2 from './images/overlandParkMain.jpeg';
-import img3 from './images/rearloading.jpeg';
+import img3 from './images/169hwyOlathe.jpeg';
 import collage from './images/collage.jpg';
 
 function Home(props) {
@@ -49,19 +49,19 @@ function Home(props) {
                             <i className="fas fa-city homepageIcon"></i>
                             <h5 className='small pt-4'>INDUSTRIAL STORAGE SPACE</h5>
                             <h2><span className='themeText'>Access</span> Premium Storage Suitable For Commercial Use</h2>
-                            <p className='fst-italic'>Contractors Garage is ideal for the small business owner or hobbyist who needs an affordable and flexible alternative to their home garage, restrictive mini-storage, or traditional industrial space that is often too large and expensive.</p>
+                            <p className='fst-italic'>Contractors Garage offers large functional industrial space designed exclusively for entrepreneurs and hobbyists including but not limited to landscapers, plumbers, electricians, specialty vehicles, or about anyone needing space larger than mini storage but smaller and less expensive than traditional incubator industrial space.</p>
                             <ul className='list-unstyled'>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>6 Locations</span>
+                                    <span className='ps-3'>Multiple locations in Kansas City Metro and may be expanding to a town near you</span>
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Well Insulated</span>
+                                    <span className='ps-3'>Insulated Units</span>
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Electric service in every unit</span>
+                                    <span className='ps-3'>Electric service in all units</span>
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
@@ -69,11 +69,11 @@ function Home(props) {
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Huge parking lots</span>
+                                    <span className='ps-3'>Huge parking lots for maximum trailer maneuverability</span>
                                 </li>
                                 <li className='d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Storefronts available in select units</span>
+                                    <span className='ps-3'>Storefronts, bathroom(s), water, outside storage, and/or mailboxes available at some locations</span>
                                 </li>
                             </ul>
                         </div>
@@ -114,8 +114,8 @@ const CarouselOverlay = (props) => {
             <div className="container-fluid">
                 <div className="row text-center justify-content-center">
                     {props.index === 0 && <h4>MULTIPLE CONVENIENT LOCATIONS</h4>}
-                    {props.index === 1 && <h4>LISTING SERVICES AVAILABLE</h4>}
-                    {props.index === 2 && <h4>WE ARE DESIGNED FOR BUSINESS</h4>}
+                    {props.index === 1 && <h4>LIST YOUR CONTRACTORS GARAGE WITH US</h4>}
+                    {props.index === 2 && <h4>DESIGNED WITH BUSINESSES IN MIND</h4>}
                     <span className='divider mt-3'></span>
                 </div>
                 <div className="row">

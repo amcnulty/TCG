@@ -24,7 +24,8 @@ const Footer = () => {
                             <div className="col-6 col-lg-4">
                                 <h6>Company</h6>
                                 <ul className="list-unstyled">
-                                    <li><NavLink className="text-white-50" tag={Link} to='/development-services'>Development Services</NavLink></li>
+                                    <li><NavLink className="text-white-50" tag={Link} target='_blank' to={{pathname: 'http://www.insightcommercial.net/construction.html'}}>Development Consulting Services</NavLink></li>
+                                    <li><NavLink className="text-white-50" tag={Link} to='/development-services'>List With Us</NavLink></li>
                                     <li><NavLink className="text-white-50" tag={Link} to='/privacy-policy'>Privacy Policy</NavLink></li>
                                     <li><NavLink className="text-white-50" tag={Link} to='/terms-of-service'>Terms of Service</NavLink></li>
                                 </ul>
