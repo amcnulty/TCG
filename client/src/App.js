@@ -8,6 +8,7 @@ import LocationDetail from './routes/location-detail/LocationDetail';
 import Payment from './routes/payment/Payment';
 import Footer from './shared/footer/Footer';
 import Header from './shared/header/Header';
+import ScrollToTop from './components/scrollToTop/ScrollToTop'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         path='/'
         component={Header}
       />
+      <ScrollToTop/>
       <Switch>
         <Route
           path='/'
