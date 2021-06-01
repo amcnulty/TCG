@@ -13,7 +13,7 @@ function AboutUs(props) {
         <div className='AboutUs'>
             <div className="landingSection py-5">
                 <div className="container">
-                    <h1 className='fw-light'>ABOUT</h1>
+                    <h1 className='fw-light text-uppercase'>ABOUT</h1>
                     <CompanyLogo textOnly/>
                 </div>
             </div>
