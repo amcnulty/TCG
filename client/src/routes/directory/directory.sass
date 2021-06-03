@@ -1,0 +1,27 @@
+@import 'variables'
+
+.Directory
+    .leaflet-container
+        z-index: 1
+        height: 60vh
+        div.leaflet-popup
+            text-align: left
+            .leaflet-popup-content-wrapper
+                color: $gunMetalGrey
+                border-radius: 4px
+                border-top: 22px solid $contractorsGarageOrange
+                .leaflet-popup-content
+                    display: flex
+                    flex-direction: column
+                    width: unset !important
+                    max-width: 300px
+            
+            .leaflet-popup-close-button
+                color: $gunMetalGrey
+
+
+        
+@media (min-width: 768px)
+    .Directory
+        .leaflet-container
+            height: 800px

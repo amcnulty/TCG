@@ -31,7 +31,11 @@ router.post('/location', (req, res, next) => {
     enablePayments: req.body.enablePayments,
     paymentMarkup: parseFloat(req.body.paymentMarkup),
     coordinates: req.body.coordinates,
-    slug: req.body.slug
+    slug: req.body.slug,
+    addressFirstLine: req.body.addressFirstLine,
+    addressSecondLine: req.body.addressSecondLine,
+    thumbnailImageUrl: req.body.thumbnailImageUrl,
+    shortDescription: req.body.shortDescription
   })
   .then(location => {
     console.log('location created :>> ', location);
@@ -40,6 +44,32 @@ router.post('/location', (req, res, next) => {
     res.json(location);
   })
   .catch(error => next(error));
+});
+
+/**
+ * Updates single existing location based on matching query
+ */
+router.put('/location', (req, res, next) => {
+  console.log('req.body :>> ', req.body);
+  Location.findOneAndUpdate(req.body.query, req.body.payload, { new: true})
+  .then(document => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(document);
+  });
+});
+
+/**
+ * Updates many existing locations based on matching query
+ */
+router.put('/locations', (req, res, next) => {
+  console.log('req.body :>> ', req.body);
+  Location.updateMany(req.body.query, req.body.payload, { new: true })
+  .then(documents => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(document);
+  });
 });
 
 module.exports = router;
