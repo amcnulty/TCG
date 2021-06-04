@@ -1,6 +1,9 @@
 @import 'variables'
 
 .Directory
+    .landingSection
+        h1
+            letter-spacing: 10px
     .leaflet-container
         z-index: 1
         height: 60vh
@@ -13,11 +16,27 @@
                 .leaflet-popup-content
                     display: flex
                     flex-direction: column
-                    width: unset !important
-                    max-width: 300px
+                    width: 300px !important
             
             .leaflet-popup-close-button
                 color: $gunMetalGrey
+   
+    .listingSection
+        overflow: hidden
+        .checkUsOutContainer
+            z-index: 2
+        .iconContainer
+            display: table
+            width: 2000px
+            top: -36px
+            left: 0px
+            z-index: 1
+            svg
+                color: $contractorsGarageOrangeLight1
+                width: 50px
+                height: 50px
+                flex-basis: 25%
+                margin: 20px 80px
 
 
         

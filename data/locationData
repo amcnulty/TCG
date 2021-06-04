@@ -1,0 +1,27 @@
+// This file is used for holding data about individual locations
+
+{
+    "name": "Garage 1",
+    "paypalEmail": "kevin@yahoo.com",
+    "enablePayments": true,
+    "paymentMarkup": ".029",
+    "coordinates": [38.869868, -94.8126852],
+    "slug": "garage-1",
+    "addressFirstLine": "636 E Dennis Ave",
+    "addressSecondLine": "Olathe, Kansas",
+    "thumbnailImageUrl": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764824/TCG/dennis-olathe-small.jpg",
+    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist"
+}
+
+{
+    "name": "Garage 2",
+    "paypalEmail": "kevin@yahoo.com",
+    "enablePayments": true,
+    "paymentMarkup": ".029",
+    "coordinates": [38.8424099, -94.8139672],
+    "slug": "garage-2",
+    "addressFirstLine": "15735 S US169 Highway",
+    "addressSecondLine": "Olathe, Kansas",
+    "thumbnailImageUrl": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764895/TCG/garage2small.jpg",
+    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist"
+}
