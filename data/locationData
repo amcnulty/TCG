@@ -10,7 +10,84 @@
     "addressFirstLine": "636 E Dennis Ave",
     "addressSecondLine": "Olathe, Kansas",
     "thumbnailImageUrl": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764824/TCG/dennis-olathe-small.jpg",
-    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist"
+    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
+    "longDescription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos aliquid laboriosam, excepturi qui nihil nemo voluptatum dicta laudantium velit sint reprehenderit consequatur unde facilis exercitationem ab, aliquam quisquam rerum animi libero dignissimos quidem. Possimus excepturi, impedit debitis fugiat qui exercitationem minima hic tempore! Officiis iure impedit itaque velit iusto. Nisi.",
+    "detailPageImages": [
+        "https://contractorsgarage.net/res/images/dennisOlathe/dennisOlathe.jpeg"
+    ],
+    "features": [
+        "24 Hour access to fenced/gated property.",
+        "Electricity - Individually metered units with customizable breaker, outlets, and lights.",
+        "10'w x 12'h drive-in overhead door with opener.",
+        "Insulated.",
+        "Large parking lot for easy trailer maneuvering.",
+        "Fenced.",
+        "Outside storage (no vacancy).",
+        "Access to water",
+        "Neighboring amenities include a self serve car wash (different ownership) and daily parking in neighbor's large parking lots with their permission."
+    ],
+    "units": [
+        {
+            "monthlyRent": 700.25,
+            "available": false,
+            "width": 12,
+            "depth": 45
+        },
+        {
+            "monthlyRent": 700.25,
+            "available": false,
+            "width": 12,
+            "depth": 45
+        },
+        {
+            "monthlyRent": 700.25,
+            "available": false,
+            "width": 12,
+            "depth": 45
+        },
+        {
+            "monthlyRent": 700.25,
+            "available": false,
+            "width": 12,
+            "depth": 45
+        },
+        {
+            "monthlyRent": 700.25,
+            "available": false,
+            "width": 12,
+            "depth": 45
+        },
+        {
+            "monthlyRent": 700.25,
+            "available": false,
+            "width": 12,
+            "depth": 45
+        },
+        {
+            "monthlyRent": 1300,
+            "available": false,
+            "width": 22,
+            "depth": 45
+        },
+        {
+            "monthlyRent": 1300,
+            "available": false,
+            "width": 22,
+            "depth": 45
+        },
+        {
+            "monthlyRent": 1300,
+            "available": false,
+            "width": 22,
+            "depth": 45
+        },
+        {
+            "monthlyRent": 1300,
+            "available": false,
+            "width": 22,
+            "depth": 45
+        }
+    ]
 }
 
 {

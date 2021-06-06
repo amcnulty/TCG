@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const unitSchema = require('./Unit');
 
 const locationSchema = mongoose.Schema({
     // Primary display name
@@ -26,7 +27,21 @@ const locationSchema = mongoose.Schema({
     shortDescription: {
         type: String,
         maxLength: 140
-    }
+    },
+    // A long description to show on the detail page
+    longDescription: String,
+    // Location images to show on the detail page
+    detailPageImages: [String],
+    // List of features to show on detail page
+    features: [String],
+    // Unit information
+    units: [unitSchema],
+    // Contact name
+    contactName: String,
+    // Contact email
+    contactEmail: String,
+    // Contact phone number
+    contactPhone: String
 });
 
 const Location = mongoose.model('Location', locationSchema);

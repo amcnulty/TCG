@@ -1,0 +1,57 @@
+@import 'variables'
+
+.LocationDetail
+    .loadingSection
+        height: 50vh
+    .landingSection
+        h1
+            letter-spacing: 10px
+    .featuresSection
+        color: whitesmoke
+    .unitInfoSection
+        a.nav-link
+            color: $gunMetalGrey
+            font-weight: bold
+            cursor: pointer
+        .availableUnitsTableWrapper
+            background-color: $backgroundColor
+        .availableUnitsTable
+            min-width: 600px
+
+    .paymentPopup
+        cursor: pointer
+        background-color: $backgroundColor
+        width: 90%
+        left: 5%
+        bottom: 0px
+        border: 2px solid $contractorsGarageOrange
+        border-bottom: 0px
+        border-radius: 8px 8px 0px 0px
+        transition: transform .3s ease
+
+        &.collapsed
+            transform: translateY(70px)
+
+        &.expanded
+            transform: translateY(0px)
+            .chevronIcon
+                transform: rotateX(180deg)
+
+        .chevronIcon
+            right: 16px
+            top: 8px
+            transition: transform .6s ease
+
+
+@media (min-width: 768px)
+    .LocationDetail
+        .unitInfoSection
+            .availableUnitsTableWrapper
+                background-color: initial
+
+        .paymentPopup
+            background-color: $backgroundColor
+            width: 300px
+            right: 5%
+            left: unset
+            

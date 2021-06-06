@@ -21,6 +21,20 @@ router.get('/locations', (req, res, next) => {
 });
 
 /**
+ * Get location from slug
+ */
+router.get('/location/:slug', (req, res, next) => {
+  console.log('req.params :>> ', req.params);
+  Location.findOne({ slug: req.params.slug })
+  .then(location => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(location);
+  })
+  .catch(next);
+});
+
+/**
  * Create a new location
  */
 router.post('/location', (req, res, next) => {
@@ -35,7 +49,11 @@ router.post('/location', (req, res, next) => {
     addressFirstLine: req.body.addressFirstLine,
     addressSecondLine: req.body.addressSecondLine,
     thumbnailImageUrl: req.body.thumbnailImageUrl,
-    shortDescription: req.body.shortDescription
+    shortDescription: req.body.shortDescription,
+    longDescription: req.body.longDescription,
+    detailPageImages: req.body.detailPageImages,
+    features: req.body.features,
+    units: req.body.units,
   })
   .then(location => {
     console.log('location created :>> ', location);
