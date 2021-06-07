@@ -48,12 +48,17 @@ router.post('/location', (req, res, next) => {
     slug: req.body.slug,
     addressFirstLine: req.body.addressFirstLine,
     addressSecondLine: req.body.addressSecondLine,
-    thumbnailImageUrl: req.body.thumbnailImageUrl,
+    thumbnailImage: req.body.thumbnailImage,
     shortDescription: req.body.shortDescription,
     longDescription: req.body.longDescription,
     detailPageImages: req.body.detailPageImages,
     features: req.body.features,
     units: req.body.units,
+    unitSummary: req.body.unitSummary,
+    contactName: req.body.contactName,
+    contactEmail: req.body.contactEmail,
+    contactPhone: req.body.contactPhone,
+    bannerImage: req.body.bannerImage
   })
   .then(location => {
     console.log('location created :>> ', location);

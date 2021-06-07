@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const unitSchema = require('./Unit');
+const imageSchema = require('./Image');
 
 const locationSchema = mongoose.Schema({
     // Primary display name
@@ -22,7 +23,7 @@ const locationSchema = mongoose.Schema({
     // Second line of the display address
     addressSecondLine: String,
     // Address of thumbnail image
-    thumbnailImageUrl: String,
+    thumbnailImage: imageSchema,
     // A short description to be shown on the map popover
     shortDescription: {
         type: String,
@@ -31,17 +32,21 @@ const locationSchema = mongoose.Schema({
     // A long description to show on the detail page
     longDescription: String,
     // Location images to show on the detail page
-    detailPageImages: [String],
+    detailPageImages: [imageSchema],
     // List of features to show on detail page
     features: [String],
     // Unit information
     units: [unitSchema],
+    // Summary of units
+    unitSummary: [unitSchema],
     // Contact name
     contactName: String,
     // Contact email
     contactEmail: String,
     // Contact phone number
-    contactPhone: String
+    contactPhone: String,
+    // Optional banner image for detail page
+    bannerImage: imageSchema
 });
 
 const Location = mongoose.model('Location', locationSchema);

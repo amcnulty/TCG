@@ -9,11 +9,28 @@
     "slug": "garage-1",
     "addressFirstLine": "636 E Dennis Ave",
     "addressSecondLine": "Olathe, Kansas",
-    "thumbnailImageUrl": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764824/TCG/dennis-olathe-small.jpg",
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764824/TCG/dennis-olathe-small.jpg",
+        "alt": "Garage 1"
+    },
     "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
     "longDescription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos aliquid laboriosam, excepturi qui nihil nemo voluptatum dicta laudantium velit sint reprehenderit consequatur unde facilis exercitationem ab, aliquam quisquam rerum animi libero dignissimos quidem. Possimus excepturi, impedit debitis fugiat qui exercitationem minima hic tempore! Officiis iure impedit itaque velit iusto. Nisi.",
     "detailPageImages": [
-        "https://contractorsgarage.net/res/images/dennisOlathe/dennisOlathe.jpeg"
+        {
+            "src": "https://contractorsgarage.net/res/images/dennisOlathe/dennisOlathe.jpeg",
+            "thumbnail": "https://contractorsgarage.net/res/images/dennisOlathe/dennisOlathe.jpeg",
+            "alt": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ipsum, nisi temporibus numquam ratione necessitatibus minima rerum dolorem nobis voluptatem, nemo, delectus distinctio! Ipsa, facere!"
+        },
+        {
+            "src": "https://contractorsgarage.net/res/images/dennisOlathe/12x45.jpeg",
+            "thumbnail": "https://contractorsgarage.net/res/images/dennisOlathe/12x45.jpeg",
+            "alt": "Lorem ipsum, dolor sit amet casi voluptatum corrupti cupiditate? Ipsum, nisi temporibus numquam ratione necessitatibus minima rerum dolorem nobis voluptatem, nemo, delectus distinctio! Ipsa, facere!"
+        },
+        {
+            "src": "https://contractorsgarage.net/res/images/dennisOlathe/22x45.jpg",
+            "thumbnail": "https://contractorsgarage.net/res/images/dennisOlathe/22x45.jpg",
+            "alt": "Lorem ipsum, dolor sit amet elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ratione necessitatibus distinctio! Ipsa, facere!"
+        }
     ],
     "features": [
         "24 Hour access to fenced/gated property.",
@@ -29,7 +46,7 @@
     "units": [
         {
             "monthlyRent": 700.25,
-            "available": false,
+            "available": true,
             "width": 12,
             "depth": 45
         },
@@ -71,7 +88,7 @@
         },
         {
             "monthlyRent": 1300,
-            "available": false,
+            "available": true,
             "width": 22,
             "depth": 45
         },
@@ -87,7 +104,26 @@
             "width": 22,
             "depth": 45
         }
-    ]
+    ],
+    "unitSummary": [
+        {
+            "unitName": "Single Door",
+            "monthlyRent": 700.25,
+            "width": 12,
+            "depth": 45,
+            "numberOfUnitsByType": 6
+        },
+        {
+            "unitName": "Double Door",
+            "monthlyRent": 1300,
+            "width": 22,
+            "depth": 45,
+            "numberOfUnitsByType": 4
+        }
+    ],
+    "contactName": "Kevin Combs",
+    "contactEmail": "kcombs@insightcommercial.net",
+    "contactPhone": "913-568-1134"
 }
 
 {
@@ -99,6 +135,123 @@
     "slug": "garage-2",
     "addressFirstLine": "15735 S US169 Highway",
     "addressSecondLine": "Olathe, Kansas",
-    "thumbnailImageUrl": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764895/TCG/garage2small.jpg",
-    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist"
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764895/TCG/garage2small.jpg",
+        "alt": "Garage 2"
+    },
+    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
+    "longDescription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos aliquid laboriosam, excepturi qui nihil nemo voluptatum dicta laudantium velit sint reprehenderit consequatur unde facilis exercitationem ab, aliquam quisquam rerum animi libero dignissimos quidem. Possimus excepturi, impedit debitis fugiat qui exercitationem minima hic tempore! Officiis iure impedit itaque velit iusto. Nisi.",
+    "detailPageImages": [
+        {
+            "src": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathe.jpeg",
+            "thumbnail": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathe.jpeg",
+            "alt": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ipsum, nisi temporibus numquam ratione necessitatibus minima rerum dolorem nobis voluptatem, nemo, delectus distinctio! Ipsa, facere!"
+        },
+        {
+            "src": "https://contractorsgarage.net/res/images/169hwyOlathe/20x45.jpeg",
+            "thumbnail": "https://contractorsgarage.net/res/images/169hwyOlathe/20x45.jpeg",
+            "alt": "Lorem ipsum, dolor sit amet casi voluptatum corrupti cupiditate? Ipsum, nisi temporibus numquam ratione necessitatibus minima rerum dolorem nobis voluptatem, nemo, delectus distinctio! Ipsa, facere!"
+        },
+        {
+            "src": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathePhase1.jpeg",
+            "thumbnail": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathePhase1.jpeg",
+            "alt": "Lorem ipsum, dolor sit amet elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ratione necessitatibus distinctio! Ipsa, facere!"
+        },
+        {
+            "src": "https://contractorsgarage.net/res/images/169hwyOlathe/15x45.jpeg",
+            "thumbnail": "https://contractorsgarage.net/res/images/169hwyOlathe/15x45.jpeg",
+            "alt": "Lorem ipsum, dolor sit amet elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ratione necessitatibus distinctio! Ipsa, facere!"
+        }
+    ],
+    "features": [
+        "24 Hour access to fenced property with an electric gate.",
+        "Property under 24 hour video surveillance.",
+        "Electricity - Individually metered units with customizable breaker, outlets, and lights.",
+        "Large 12'w x 12'h or 12'w x 14'h drive-in overhead doors.",
+        "Huge parking lot for easy trailer maneuvering.",
+        "Fenced outside storage ($100/mo average for a camper sized space, if available).",
+        "Access to mail receptacle.",
+        "Access to water",
+        "Man doors on each 20'x45' unit for easy access..",
+        "Insulated.",
+        "HVAC available with fee.",
+        "Neighboring amenities include a self serve car wash next door and Quick Trip across the highway."
+    ],
+    "units": [
+        {
+            "unitName": "Unit 02",
+            "monthlyRent": 800.25,
+            "available": true,
+            "width": 15,
+            "depth": 45,
+            "squareFeet": 675
+        },
+        {
+            "unitName": "Unit 18",
+            "monthlyRent": 800.25,
+            "available": true,
+            "width": 15,
+            "depth": 45,
+            "squareFeet": 675
+        },
+        {
+            "unitName": "Unit 12",
+            "monthlyRent": 800.25,
+            "available": true,
+            "width": 15,
+            "depth": 45,
+            "squareFeet": 675
+        },
+        {
+            "unitName": "Unit 09",
+            "monthlyRent": 1200.25,
+            "available": true,
+            "width": 20,
+            "depth": 45,
+            "squareFeet": 900
+        },
+        {
+            "unitName": "Unit 22",
+            "monthlyRent": 1200.25,
+            "available": false,
+            "width": 20,
+            "depth": 45,
+            "squareFeet": 900
+        },
+        {
+            "unitName": "Unit 31",
+            "monthlyRent": 1200.25,
+            "available": true,
+            "width": 20,
+            "depth": 45,
+            "squareFeet": 900
+        }
+    ],
+    "unitSummary": [
+        {
+            "unitName": "A1",
+            "monthlyRent": 800.25,
+            "available": true,
+            "width": 15,
+            "depth": 45,
+            "squareFeet": 675,
+            "numberOfUnitsByType": 20
+        },
+        {
+            "unitName": "A2",
+            "monthlyRent": 1200.25,
+            "available": true,
+            "width": 20,
+            "depth": 45,
+            "squareFeet": 900,
+            "numberOfUnitsByType": 15
+        }
+    ],
+    "contactName": "Kevin Combs",
+    "contactEmail": "kcombs@insightcommercial.net",
+    "contactPhone": "913-568-1134",
+    "bannerImage": {
+        "src": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathe.jpeg",
+        "alt": "Garage 2 banner image"
+    }
 }

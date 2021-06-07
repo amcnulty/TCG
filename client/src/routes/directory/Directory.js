@@ -57,6 +57,7 @@ function Directory(props) {
                             <Marker
                                 key={location._id}
                                 position={location.coordinates}
+                                riseOnHover={true}
                             >
                                 <Popup>
                                     <h6
@@ -80,7 +81,7 @@ function Directory(props) {
                                     <p>
                                         {location.shortDescription}
                                     </p>
-                                    {location.thumbnailImageUrl && <img src={location.thumbnailImageUrl} alt={location.name}/>}
+                                    {location.thumbnailImage && <img src={location.thumbnailImage.src} alt={location.thumbnailImage.alt}/>}
                                     <Link className='btn btn-outline-primary mt-3 text-nowrap' to={`/location/${location.slug}`}>View Location <i className="fas fa-arrow-right"></i></Link>
                                         
                                 </Popup>

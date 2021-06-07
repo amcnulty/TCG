@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import Carousel from 'react-gallery-carousel';
 import classnames from 'classnames';
 import './locationDetail.sass';
 import { API } from '../../util/API';
@@ -10,6 +12,7 @@ const LocationDetail = (props) => {
     const [popupState, setPopupState] = useState('collapsed');
 
     const UNIT_COLUMNS = ['unitName', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet'];
+    const UNIT_SUMMARY_COLUMNS = ['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet'];
 
     const toggle = tab => {
         if(activeTab !== tab) setActiveTab(tab);
@@ -17,7 +20,9 @@ const LocationDetail = (props) => {
 
     useEffect(() => {
         API.getLocationBySlug(props.match.params.slug)
-        .then(setLocation)
+        .then(locations => {
+            setLocation(locations);
+        })
         .catch(Function.prototype);
     }, []);
 
@@ -51,10 +56,64 @@ const LocationDetail = (props) => {
     }
     return (
         <div className='LocationDetail'>
+            {
+                location.bannerImage && <div className="bannerImage">
+                    <img src={location.bannerImage.src} alt={location.bannerImage.alt} />
+                    <div className="vale"></div>
+                </div>
+            }
             <div className="landingSection py-5">
                 <div className="container">
-                    <h1 className='mb-5 fw-light'>{location.name}</h1>
-                    <p>{location.longDescription}</p>
+                    <div className="row">
+                        <div className="col-12 col-md-6 mb-3 mb-md-0">
+                            <h1 className='mb-5 fw-light'>{location.name}</h1>
+                            <p>{location.longDescription}</p>
+                            {(location.contactEmail || location.contactPhone) && <div className="contactInfoBox themeBackground p-3">
+                                <h5>Contact Information:</h5>
+                                {location.contactName && (
+                                    <div className='ms-4'>
+                                        <label className='fw-bold'>Contact:</label>&nbsp;<span>{location.contactName}</span>
+                                    </div>
+                                )}
+                                {location.contactEmail && (
+                                    <div className='ms-4'>
+                                        <label className='fw-bold'>Email:</label>&nbsp;<span>{location.contactEmail}</span>
+                                    </div>
+                                )}
+                                {location.contactPhone && (
+                                    <div className='ms-4'>
+                                        <label className='fw-bold'>Phone:</label>&nbsp;<a href={`tel:${location.contactPhone}`}>{location.contactPhone}</a>
+                                    </div>
+                                )}
+                            </div>}
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <MapContainer
+                                center={location.coordinates}
+                                zoom={15}
+                                scrollWheelZoom={true}
+                                dragging={false}
+                                zoomControl={false}
+                                doubleClickZoom={false}
+                                scrollWheelZoom={false}
+                            >
+                                <TileLayer
+                                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                                    url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+                                />
+                                <Marker
+                                    position={location.coordinates}
+                                >
+                                    <Popup>
+                                        <address>
+                                            <div>{location.addressFirstLine}</div>
+                                            <div>{location.addressSecondLine}</div>
+                                        </address>
+                                    </Popup>
+                                </Marker>
+                            </MapContainer>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="featuresSection gunMetalBackground py-5">
@@ -94,8 +153,37 @@ const LocationDetail = (props) => {
                     </Nav>
                     <TabContent activeTab={activeTab}>
                         <TabPane tabId='1'>
-                            <div className="py-4">
-                                asdf
+                            <div className="unitSummaryTableWrapper py-4 table-responsive bg-sm-light">
+                                <table className="unitSummaryTable table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th># Units At Site</th>
+                                            <th>Rent (monthly)</th>
+                                            <th>Width</th>
+                                            <th>Height</th>
+                                            <th>Depth</th>
+                                            <th>Square Feet</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            location.unitSummary.map((unit, index) => (
+                                                <tr key={index}>
+                                                    {
+                                                        UNIT_SUMMARY_COLUMNS.map((key, index) => {
+                                                            return (
+                                                                <td key={index}>
+                                                                    {getValueForCell(unit, key)}
+                                                                </td>
+                                                            )
+                                                        })
+                                                    }
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
                             </div>
                         </TabPane>
                         <TabPane tabId='2'>
@@ -134,12 +222,22 @@ const LocationDetail = (props) => {
                     </TabContent>
                 </div>
             </div>
-            <div className="gallerySection py-5">
+            {location.detailPageImages && <div className="gallerySection py-5">
                 <div className="container">
                     <h3 className='text-center'>Location Images</h3>
-
+                    <Carousel
+                        className='Carousel'
+                        images={location.detailPageImages}
+                        hasMediaButton={false}
+                        hasSizeButton='bottomRight'
+                        hasIndexBoard={false}
+                        hasCaptions='top'
+                        hasDotButtons='bottom'
+                        shouldSwipeOnMouse={false}
+                        objectFit='contain'
+                    />
                 </div>
-            </div>
+            </div>}
             <div className={`paymentPopup position-fixed ${popupState}`}>
                 <div 
                     className="popupHeader"

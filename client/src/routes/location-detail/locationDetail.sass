@@ -1,22 +1,51 @@
 @import 'variables'
 
 .LocationDetail
+    .bannerImage
+        position: relative
+        width: 100%
+        overflow: hidden
+        height: 30vh
+        img
+            width: 100%
+        .vale
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            background-color: rgba(0,0,0,.5)
     .loadingSection
         height: 50vh
+
     .landingSection
         h1
             letter-spacing: 10px
+        .leaflet-container
+            z-index: 1
+            height: 400px
+
     .featuresSection
         color: whitesmoke
+
     .unitInfoSection
         a.nav-link
             color: $gunMetalGrey
             font-weight: bold
             cursor: pointer
-        .availableUnitsTableWrapper
+        .availableUnitsTableWrapper,
+        .unitSummaryTableWrapper
             background-color: $backgroundColor
-        .availableUnitsTable
+        .availableUnitsTable,
+        .unitSummaryTable
             min-width: 600px
+
+            
+    .gallerySection
+        .Carousel
+            height: 40vh
+            figcaption
+                display: none
 
     .paymentPopup
         cursor: pointer
@@ -46,8 +75,17 @@
 @media (min-width: 768px)
     .LocationDetail
         .unitInfoSection
-            .availableUnitsTableWrapper
+            .availableUnitsTableWrapper,
+            .unitSummaryTableWrapper
                 background-color: initial
+
+        .gallerySection
+            .Carousel
+                height: 80vh
+                figcaption
+                    display: block
+                    span
+                        padding: 0
 
         .paymentPopup
             background-color: $backgroundColor
