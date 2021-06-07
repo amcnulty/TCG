@@ -222,7 +222,7 @@ const LocationDetail = (props) => {
                     </TabContent>
                 </div>
             </div>
-            {location.detailPageImages && <div className="gallerySection py-5">
+            {(location.detailPageImages.length > 0) && <div className="gallerySection py-5">
                 <div className="container">
                     <h3 className='text-center'>Location Images</h3>
                     <Carousel
