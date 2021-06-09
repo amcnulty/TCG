@@ -310,12 +310,12 @@ const LocationDetail = (props) => {
                             </table>
                         </div>}
                     </div>
-                    {paymentAmount && <Payment
+                    <Payment
                         amount={calculateTotal()}
                         description={`Payment for ${location.name}`}
                         email={location.paypalEmail}
                         onApprove={() => {setPaymentApproved(true); setPaymentAmount();}}
-                    />}
+                    />
                 </ModalBody>
             </Modal>
         </div>
