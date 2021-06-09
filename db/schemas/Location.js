@@ -10,7 +10,9 @@ const locationSchema = mongoose.Schema({
     // If true will display a PayPal button on location page and will use associated PayPal Email
     enablePayments: Boolean,
     // Payment percentage expressed as a decimal. Example 2.9% is .029
-    paymentMarkup: Number,
+    paymentMarkupPercent: Number,
+    // Payment fixed price per transaction markup express as dollars and cents. Example 30 cents is .30
+    paymentMarkupFixed: Number,
     // Latitude and longitude points where this location will be marked on the map. Example [39.0175412, -94.7569592]
     coordinates: [Number],
     // Url slug that will load this record. (Must be unique)

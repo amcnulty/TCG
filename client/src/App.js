@@ -5,7 +5,7 @@ import DevelopmentServices from './routes/development-services/DevelopmentServic
 import Directory from './routes/directory/Directory';
 import Home from './routes/home/Home';
 import LocationDetail from './routes/location-detail/LocationDetail';
-import Payment from './routes/payment/Payment';
+import Payment from './components/payment/Payment';
 import Footer from './shared/footer/Footer';
 import Header from './shared/header/Header';
 import ScrollToTop from './components/scrollToTop/ScrollToTop'
@@ -39,11 +39,6 @@ function App() {
           path='/directory'
           exact
           component={Directory}
-        />
-        <Route
-          path='/payment'
-          exact
-          component={Payment}
         />
         <Route
           path='/location/:slug'

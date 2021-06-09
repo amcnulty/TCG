@@ -1,18 +1,24 @@
 import { useEffect, useState } from 'react';
-import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import { Alert, Modal, ModalBody, ModalHeader, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import Carousel from 'react-gallery-carousel';
 import classnames from 'classnames';
 import './locationDetail.sass';
 import { API } from '../../util/API';
+import Payment from '../../components/payment/Payment';
 
 const LocationDetail = (props) => {
     const [location, setLocation] = useState();
     const [activeTab, setActiveTab] = useState('1');
     const [popupState, setPopupState] = useState('collapsed');
+    const [showModal, setShowModal] = useState(false);
+    const [paymentAmount, setPaymentAmount] = useState();
+    const [paymentApproved, setPaymentApproved] = useState(false);
 
     const UNIT_COLUMNS = ['unitName', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet'];
     const UNIT_SUMMARY_COLUMNS = ['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet'];
+
+    const toggleModal = () => setShowModal(!showModal);
 
     const toggle = tab => {
         if(activeTab !== tab) setActiveTab(tab);
@@ -41,6 +47,16 @@ const LocationDetail = (props) => {
             default:
                 return unit[key];
         }
+    }
+
+    const calculateFees = () => {
+        return (parseFloat(calculateTotal()) - parseFloat(paymentAmount)).toFixed(2);
+    }
+
+    const calculateTotal = () => {
+        const markupPercentage = location.paymentMarkupPercent ? location.paymentMarkupPercent : 0;
+        const fixedMarkup = location.paymentMarkupFixed ? location.paymentMarkupFixed : 0;
+        return ((parseFloat(paymentAmount) + fixedMarkup) / (1 - markupPercentage)).toFixed(2);
     }
 
     if (!location) {
@@ -250,11 +266,58 @@ const LocationDetail = (props) => {
                     <div className="col d-flex justify-content-center py-3">
                         <button
                             className="btn btn-primary"
-                            onClick={() => {}}
+                            onClick={toggleModal}
                         >Make Payment</button>
                     </div>
                 </div>
             </div>
+            <Modal
+                isOpen={showModal}
+                toggle={toggleModal}
+                className='paymentModal'
+                centered={true}
+                size='lg'
+            >
+                <ModalHeader toggle={toggleModal}>
+                    Payment To {location.name}
+                </ModalHeader>
+                <ModalBody>
+                    {paymentApproved && <Alert color='success'>Thank you for your payment!</Alert>}
+                    <div className="paymentAmountSection p-4">
+                        <label className='form-label h5' htmlFor="amount">Total Rent:</label>
+                        <input
+                            className='form-control'
+                            type="number"
+                            step='0.01'
+                            value={paymentAmount}
+                            onChange={event => setPaymentAmount(event.target.value)}
+                        />
+                        {paymentAmount && <div className="paymentSummary mt-4">
+                            <label className='form-label h5'>Payment Summary</label>
+                            <table>
+                                <tr>
+                                    <td className='fw-bold pe-5'>Rent</td>
+                                    <td className='float-end'>${parseFloat(paymentAmount).toFixed(2)}</td>
+                                </tr>
+                                <tr className='border-bottom'>
+                                    <td className='fw-bold pe-5'>Fees</td>
+                                    <td className='float-end'>${calculateFees()}</td>
+                                </tr>
+                                <tr>
+                                    <td className='fw-bold pe-5'>Total</td>
+                                    <td className='float-end'>${calculateTotal()}</td>
+                                </tr>
+                            </table>
+                        </div>}
+                    </div>
+                    {paymentAmount && <Payment
+                        amount={calculateTotal()}
+                        description={`Payment for ${location.name}`}
+                        email={location.paypalEmail}
+                        onApprove={() => {setPaymentApproved(true); setPaymentAmount();}}
+                    />}
+                </ModalBody>
+            </Modal>
         </div>
     );
 };

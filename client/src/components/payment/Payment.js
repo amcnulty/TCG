@@ -1,20 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from 'reactstrap';
+import './payment.sass';
 
 function Payment(props) {
     const PayPalButton = window.paypal.Buttons.driver("react", { React, ReactDOM });
 
     const createOrder = (data, actions) =>{
+      console.log('order object', {
+        purchase_units: [
+          {
+            amount: {
+              value: `${props.amount}`,
+            },
+            description: props.description,
+            payee: {
+              email_address: props.email
+            }
+          },
+        ],
+      });
       return actions.order.create({
         purchase_units: [
           {
             amount: {
-              value: "500.00",
+              value: `${props.amount}`,
             },
-            description: 'location 26',
+            description: props.description,
             payee: {
-              email_address: 'sb-ekrqr6182949@business.example.com'
+              email_address: props.email
             }
           },
         ],
@@ -22,12 +35,12 @@ function Payment(props) {
     };
   
     const onApprove = (data, actions) => {
+      props.onApprove();
       return actions.order.capture();
     };
 
     return (
-        <div>
-            Payment Works!
+        <div className='Payment'>
             <PayPalButton
                 createOrder={(data, actions) => createOrder(data, actions)}
                 onApprove={(data, actions) => onApprove(data, actions)}
