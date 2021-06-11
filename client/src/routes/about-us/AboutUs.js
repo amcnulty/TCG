@@ -1,7 +1,6 @@
 import CompanyLogo from '../../components/companyLogo/CompanyLogo';
 import HighlightBox from '../../components/highlightBox/HighlightBox';
 import './aboutUs.sass';
-import testimg from '../../components/companyLogo/squareDarkTransparent.svg';
 import locationsImage from './images/locationsImage.png';
 import pinsImage from './images/pins.png';
 import { useHistory } from 'react-router';
@@ -55,7 +54,6 @@ function AboutUs(props) {
                     <div className="row">
                         <div className="col col-md-6 col-lg-4 d-flex justify-content-center">
                             <HighlightBox
-                                thumbnail={testimg}
                                 iconName='fas fa-arrows-alt-h'
                                 label='Large drive-in doors'
                             />
