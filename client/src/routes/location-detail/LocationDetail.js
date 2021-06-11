@@ -59,6 +59,20 @@ const LocationDetail = (props) => {
         return ((parseFloat(paymentAmount) + fixedMarkup) / (1 - markupPercentage)).toFixed(2);
     }
 
+    const scramble = (value) => {
+        const parts = [];
+        for (let i = 2; i <= value.length; i++) {
+            if (i % 2 === 0) {
+                parts.push(value.substring(i - 2, i));
+            }
+            else if (i === value.length) {
+                parts.push(value.substring(i - 1));
+            }
+        }
+        console.log(parts);
+        return parts;
+    }
+
     if (!location) {
         return (
             <div className="LocationDetail">
@@ -93,12 +107,12 @@ const LocationDetail = (props) => {
                                 )}
                                 {location.contactEmail && (
                                     <div className='ms-4'>
-                                        <label className='fw-bold'>Email:</label>&nbsp;<span>{location.contactEmail}</span>
+                                        <label className='fw-bold'>Email:</label>&nbsp;<span>{scramble(location.contactEmail).map(value => <span>{value}</span>)}</span>
                                     </div>
                                 )}
                                 {location.contactPhone && (
                                     <div className='ms-4'>
-                                        <label className='fw-bold'>Phone:</label>&nbsp;<a href={`tel:${location.contactPhone}`}>{location.contactPhone}</a>
+                                        <label className='fw-bold'>Phone:</label>&nbsp;<span>{scramble(location.contactPhone).map(value => <span>{value}</span>)}</span>
                                     </div>
                                 )}
                             </div>}

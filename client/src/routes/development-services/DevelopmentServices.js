@@ -33,26 +33,6 @@ function DevelopmentServices(props) {
                             <li><span className='fw-bold'>Property #2:</span>  $1,000 additional per year ($3500 total)</li>
                             <li><span className='fw-bold'>Property #3+:</span>  $500 additional per year per additional property added</li>
                         </ul>
-                        <table className='table my-4'>
-                            <thead>
-                                <th>Number Of Properties</th>
-                                <th>Cost Per Year</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>$2500 per year</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>$1,000 additional per year ($3500 total)</td>
-                                </tr>
-                                <tr>
-                                    <td>3+</td>
-                                    <td>$500 additional per year per additional property added</td>
-                                </tr>
-                            </tbody>
-                        </table>
                         <p className='my-4'><span className='fw-bold'>5 year minimum term</span> with automatic year-to-year renewal.</p>
                     </div>
                     <div className="noteBox p-4 themeBackground">
