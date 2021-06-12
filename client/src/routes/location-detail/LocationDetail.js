@@ -87,8 +87,16 @@ const LocationDetail = (props) => {
     return (
         <div className='LocationDetail'>
             {
-                location.bannerImage && <div className="bannerImage">
-                    <img src={location.bannerImage.src} alt={location.bannerImage.alt} />
+                location.bannerImage && <div
+                    className="bannerImage"
+                    style={{
+                        backgroundImage: `url(${location.bannerImage.src})`,
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'cover'
+                    }}
+                >
+                    {/* <img src={location.bannerImage.src} alt={location.bannerImage.alt} /> */}
                     <div className="vale"></div>
                 </div>
             }

@@ -1,7 +1,7 @@
 // This file is used for holding data about individual locations
 
 {
-    "name": "Garage 1",
+    "name": "Garage I",
     "paypalEmail": "kevin@yahoo.com",
     "enablePayments": true,
     "paymentMarkupPercent": ".029",
@@ -12,25 +12,25 @@
     "addressSecondLine": "Olathe, Kansas",
     "thumbnailImage": {
         "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764824/TCG/dennis-olathe-small.jpg",
-        "alt": "Garage 1"
+        "alt": "Garage I"
     },
     "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
-    "longDescription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos aliquid laboriosam, excepturi qui nihil nemo voluptatum dicta laudantium velit sint reprehenderit consequatur unde facilis exercitationem ab, aliquam quisquam rerum animi libero dignissimos quidem. Possimus excepturi, impedit debitis fugiat qui exercitationem minima hic tempore! Officiis iure impedit itaque velit iusto. Nisi.",
+    "longDescription": "",
     "detailPageImages": [
         {
-            "src": "https://contractorsgarage.net/res/images/dennisOlathe/dennisOlathe.jpeg",
-            "thumbnail": "https://contractorsgarage.net/res/images/dennisOlathe/dennisOlathe.jpeg",
-            "alt": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ipsum, nisi temporibus numquam ratione necessitatibus minima rerum dolorem nobis voluptatem, nemo, delectus distinctio! Ipsa, facere!"
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623508188/TCG/dennisOlathe.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623508188/TCG/dennisOlathe.jpg",
+            "alt": ""
         },
         {
-            "src": "https://contractorsgarage.net/res/images/dennisOlathe/12x45.jpeg",
-            "thumbnail": "https://contractorsgarage.net/res/images/dennisOlathe/12x45.jpeg",
-            "alt": "Lorem ipsum, dolor sit amet casi voluptatum corrupti cupiditate? Ipsum, nisi temporibus numquam ratione necessitatibus minima rerum dolorem nobis voluptatem, nemo, delectus distinctio! Ipsa, facere!"
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623508412/TCG/dennisOlathe-12x45.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623508412/TCG/dennisOlathe-12x45.jpg",
+            "alt": "Unit Size: 12' X 45'"
         },
         {
-            "src": "https://contractorsgarage.net/res/images/dennisOlathe/22x45.jpg",
-            "thumbnail": "https://contractorsgarage.net/res/images/dennisOlathe/22x45.jpg",
-            "alt": "Lorem ipsum, dolor sit amet elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ratione necessitatibus distinctio! Ipsa, facere!"
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623508592/TCG/22x45.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623508592/TCG/22x45.jpg",
+            "alt": "Unit Size: 22' X 45'"
         }
     ],
     "features": [
@@ -47,63 +47,19 @@
     "units": [
         {
             "monthlyRent": 700.25,
-            "available": true,
-            "width": 12,
-            "depth": 45
-        },
-        {
-            "monthlyRent": 700.25,
             "available": false,
             "width": 12,
-            "depth": 45
-        },
-        {
-            "monthlyRent": 700.25,
-            "available": false,
-            "width": 12,
-            "depth": 45
-        },
-        {
-            "monthlyRent": 700.25,
-            "available": false,
-            "width": 12,
-            "depth": 45
-        },
-        {
-            "monthlyRent": 700.25,
-            "available": false,
-            "width": 12,
-            "depth": 45
-        },
-        {
-            "monthlyRent": 700.25,
-            "available": false,
-            "width": 12,
-            "depth": 45
+            "depth": 45,
+            "squareFeet": 540,
+            "height": 12
         },
         {
             "monthlyRent": 1300,
             "available": false,
             "width": 22,
-            "depth": 45
-        },
-        {
-            "monthlyRent": 1300,
-            "available": true,
-            "width": 22,
-            "depth": 45
-        },
-        {
-            "monthlyRent": 1300,
-            "available": false,
-            "width": 22,
-            "depth": 45
-        },
-        {
-            "monthlyRent": 1300,
-            "available": false,
-            "width": 22,
-            "depth": 45
+            "depth": 45,
+            "squareFeet": 990,
+            "height": 14
         }
     ],
     "unitSummary": [
@@ -112,6 +68,8 @@
             "monthlyRent": 700.25,
             "width": 12,
             "depth": 45,
+            "squareFeet": 540,
+            "height": 12,
             "numberOfUnitsByType": 6
         },
         {
@@ -119,6 +77,8 @@
             "monthlyRent": 1300,
             "width": 22,
             "depth": 45,
+            "squareFeet": 990,
+            "height": 14,
             "numberOfUnitsByType": 4
         }
     ],
@@ -128,7 +88,7 @@
 }
 
 {
-    "name": "Garage 2",
+    "name": "Garage II",
     "paypalEmail": "kevin@yahoo.com",
     "enablePayments": true,
     "paymentMarkupPercent": ".029",
@@ -139,30 +99,30 @@
     "addressSecondLine": "Olathe, Kansas",
     "thumbnailImage": {
         "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764895/TCG/garage2small.jpg",
-        "alt": "Garage 2"
+        "alt": "Garage II"
     },
     "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
-    "longDescription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos aliquid laboriosam, excepturi qui nihil nemo voluptatum dicta laudantium velit sint reprehenderit consequatur unde facilis exercitationem ab, aliquam quisquam rerum animi libero dignissimos quidem. Possimus excepturi, impedit debitis fugiat qui exercitationem minima hic tempore! Officiis iure impedit itaque velit iusto. Nisi.",
+    "longDescription": "",
     "detailPageImages": [
         {
-            "src": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathe.jpeg",
-            "thumbnail": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathe.jpeg",
-            "alt": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ipsum, nisi temporibus numquam ratione necessitatibus minima rerum dolorem nobis voluptatem, nemo, delectus distinctio! Ipsa, facere!"
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510467/TCG/169hwyOlathe.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510467/TCG/169hwyOlathe.jpg",
+            "alt": ""
         },
         {
-            "src": "https://contractorsgarage.net/res/images/169hwyOlathe/20x45.jpeg",
-            "thumbnail": "https://contractorsgarage.net/res/images/169hwyOlathe/20x45.jpeg",
-            "alt": "Lorem ipsum, dolor sit amet casi voluptatum corrupti cupiditate? Ipsum, nisi temporibus numquam ratione necessitatibus minima rerum dolorem nobis voluptatem, nemo, delectus distinctio! Ipsa, facere!"
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510529/TCG/20x45.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510529/TCG/20x45.jpg",
+            "alt": "Unit Size: 20' X 45'"
         },
         {
-            "src": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathePhase1.jpeg",
-            "thumbnail": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathePhase1.jpeg",
-            "alt": "Lorem ipsum, dolor sit amet elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ratione necessitatibus distinctio! Ipsa, facere!"
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510597/TCG/169hwyOlathePhase1.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510597/TCG/169hwyOlathePhase1.jpg",
+            "alt": ""
         },
         {
-            "src": "https://contractorsgarage.net/res/images/169hwyOlathe/15x45.jpeg",
-            "thumbnail": "https://contractorsgarage.net/res/images/169hwyOlathe/15x45.jpeg",
-            "alt": "Lorem ipsum, dolor sit amet elit. Omnis deleniti quasi voluptatum corrupti cupiditate? Ratione necessitatibus distinctio! Ipsa, facere!"
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510725/TCG/15x45.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510725/TCG/15x45.jpg",
+            "alt": "Unit Size: 15' X 45'"
         }
     ],
     "features": [
@@ -181,70 +141,40 @@
     ],
     "units": [
         {
-            "unitName": "Unit 02",
-            "monthlyRent": 800.25,
-            "available": true,
-            "width": 15,
-            "depth": 45,
-            "squareFeet": 675
-        },
-        {
-            "unitName": "Unit 18",
-            "monthlyRent": 800.25,
-            "available": true,
-            "width": 15,
-            "depth": 45,
-            "squareFeet": 675
-        },
-        {
             "unitName": "Unit 12",
-            "monthlyRent": 800.25,
-            "available": true,
+            "monthlyRent": 800.00,
+            "available": false,
             "width": 15,
             "depth": 45,
+            "height": 15,
             "squareFeet": 675
         },
         {
             "unitName": "Unit 09",
-            "monthlyRent": 1200.25,
-            "available": true,
-            "width": 20,
-            "depth": 45,
-            "squareFeet": 900
-        },
-        {
-            "unitName": "Unit 22",
-            "monthlyRent": 1200.25,
+            "monthlyRent": 1200.00,
             "available": false,
             "width": 20,
             "depth": 45,
-            "squareFeet": 900
-        },
-        {
-            "unitName": "Unit 31",
-            "monthlyRent": 1200.25,
-            "available": true,
-            "width": 20,
-            "depth": 45,
+            "height": 17,
             "squareFeet": 900
         }
     ],
     "unitSummary": [
         {
-            "unitName": "A1",
-            "monthlyRent": 800.25,
-            "available": true,
+            "unitName": "",
+            "monthlyRent": 800.00,
             "width": 15,
             "depth": 45,
+            "height": 15,
             "squareFeet": 675,
             "numberOfUnitsByType": 20
         },
         {
-            "unitName": "A2",
-            "monthlyRent": 1200.25,
-            "available": true,
+            "unitName": "",
+            "monthlyRent": 1200.00,
             "width": 20,
             "depth": 45,
+            "height": 17,
             "squareFeet": 900,
             "numberOfUnitsByType": 15
         }
@@ -253,7 +183,385 @@
     "contactEmail": "kcombs@insightcommercial.net",
     "contactPhone": "913-568-1134",
     "bannerImage": {
-        "src": "https://contractorsgarage.net/res/images/169hwyOlathe/169hwyOlathe.jpeg",
-        "alt": "Garage 2 banner image"
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510467/TCG/169hwyOlathe.jpg",
+        "alt": "Garage II banner image"
+    }
+}
+
+{
+    "name": "Garage III",
+    "paypalEmail": "kevin@yahoo.com",
+    "enablePayments": true,
+    "paymentMarkupPercent": ".029",
+    "paymentMarkupFixed": ".30",
+    "coordinates": [38.952483, -94.749759],
+    "slug": "garage-3",
+    "addressFirstLine": "14100 Santa Fe Trail Dr.",
+    "addressSecondLine": "Lenexa, Kansas",
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511332/TCG/small.jpg",
+        "alt": "Garage III"
+    },
+    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
+    "longDescription": "",
+    "detailPageImages": [
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511382/TCG/lenexa.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511382/TCG/lenexa.jpg",
+            "alt": ""
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511439/TCG/15x40.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511439/TCG/15x40.jpg",
+            "alt": "Unit Size: 15' X 40'"
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511517/TCG/20x40.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511517/TCG/20x40.jpg",
+            "alt": "Unit Size: 20' X 40'"
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511570/TCG/30x40.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511570/TCG/30x40.jpg",
+            "alt": "Unit Size: 30' X 40'"
+        }
+    ],
+    "features": [
+        "Electricity - Individually metered units with 100 amp breaker, outlets, and lights.",
+        "Large 12'w x 12'h or 12'w x 14'h drive-in overhead doors on all units.",
+        "Large parking lot for easy trailer maneuvering.",
+        "Access to mail receptacle.",
+        "Fully Insulated for optional heating/cooling.",
+        "Water available outside via hard hydrant.",
+        "Central location to metro via I-35 and I-435."
+    ],
+    "units": [
+        {
+            "unitName": "Unit 12",
+            "monthlyRent": 800.00,
+            "available": false,
+            "width": 15,
+            "depth": 45,
+            "height": 15,
+            "squareFeet": 675
+        },
+        {
+            "unitName": "Unit 09",
+            "monthlyRent": 1200.00,
+            "available": false,
+            "width": 20,
+            "depth": 45,
+            "height": 17,
+            "squareFeet": 900
+        }
+    ],
+    "unitSummary": [
+        {
+            "unitName": "",
+            "monthlyRent": 550,
+            "width": 15,
+            "depth": 40,
+            "height": 15,
+            "squareFeet": 600,
+            "numberOfUnitsByType": 6
+        },
+        {
+            "unitName": "",
+            "monthlyRent": 750,
+            "width": 20,
+            "depth": 40,
+            "height": 17,
+            "squareFeet": 800,
+            "numberOfUnitsByType": 6
+        },
+        {
+            "unitName": "",
+            "monthlyRent": 1100,
+            "width": 30,
+            "depth": 40,
+            "height": 17,
+            "squareFeet": 1200,
+            "numberOfUnitsByType": 4
+        }
+    ],
+    "contactName": "Kevin Combs",
+    "contactEmail": "kcombs@insightcommercial.net",
+    "contactPhone": "913-568-1134",
+    "bannerImage": null
+}
+
+{
+    "name": "Garage IV",
+    "paypalEmail": "kevin@yahoo.com",
+    "enablePayments": true,
+    "paymentMarkupPercent": ".029",
+    "paymentMarkupFixed": ".30",
+    "coordinates": [38.898784, -94.6836929],
+    "slug": "garage-4",
+    "addressFirstLine": "8400 W 127th St",
+    "addressSecondLine": "Overland Park, Kansas",
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623512675/TCG/garageIVsmall.jpg",
+        "alt": "Garage IV"
+    },
+    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
+    "longDescription": "",
+    "detailPageImages": [
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623512737/TCG/overlandParkMain.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623512737/TCG/overlandParkMain.jpg",
+            "alt": ""
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623512844/TCG/sitePlans.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623512844/TCG/sitePlans.jpg",
+            "alt": ""
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623513634/TCG/overlandPark20x45.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623513634/TCG/overlandPark20x45.jpg",
+            "alt": "Unit Size: 20' X 45'"
+        }
+    ],
+    "features": [
+        "Property under 24 hour video surveillance.",
+        "Electricity - Individually metered units with customizable 100 amp breaker, outlets, and lights.",
+        "Large 12'w x 14'h drive-in overhead doors with adjacent man-door for easy access.",
+        "Huge parking lot for easy trailer maneuvering into unit.",
+        "Access to mail receptacle.",
+        "Access to outside water.",
+        "Insulated space which can be conditioned.",
+        "Community restroom on premise."
+    ],
+    "units": [
+        {
+            "unitName": "Unit 12",
+            "monthlyRent": 1200,
+            "available": false,
+            "width": 20,
+            "depth": 45,
+            "height": 17,
+            "squareFeet": 900
+        }
+    ],
+    "unitSummary": [
+        {
+            "unitName": "",
+            "monthlyRent": 1200,
+            "width": 20,
+            "depth": 45,
+            "height": 17,
+            "squareFeet": 900,
+            "numberOfUnitsByType": 24
+        }
+    ],
+    "contactName": "Kevin Combs",
+    "contactEmail": "kcombs@insightcommercial.net",
+    "contactPhone": "913-568-1134",
+    "bannerImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623512737/TCG/overlandParkMain.jpg",
+        "alt": "Garage IV banner image"
+    }
+}
+
+{
+    "name": "Garage V",
+    "paypalEmail": "kevin@yahoo.com",
+    "enablePayments": true,
+    "paymentMarkupPercent": ".029",
+    "paymentMarkupFixed": ".30",
+    "coordinates": [38.840675, -94.8025281],
+    "slug": "garage-5",
+    "addressFirstLine": "15845 S Mahaffie St",
+    "addressSecondLine": "Olathe, Kansas",
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623514173/TCG/garage5small.jpg",
+        "alt": "Garage V"
+    },
+    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
+    "longDescription": "",
+    "detailPageImages": [
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623514286/TCG/exteriorelevations.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623514286/TCG/exteriorelevations.jpg",
+            "alt": ""
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623514956/TCG/rearloading.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623514956/TCG/rearloading.jpg",
+            "alt": ""
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515245/TCG/garage5interior20x55.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515245/TCG/garage5interior20x55.jpg",
+            "alt": "Unit Size: 20' X 55'"
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515395/TCG/interior20x50.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515395/TCG/interior20x50.jpg",
+            "alt": "Unit Size: 20' X 50'"
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515489/TCG/front_20x50.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515489/TCG/front_20x50.jpg",
+            "alt": "Unit Size: 20' X 50'"
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515562/TCG/front_20x55.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515562/TCG/front_20x55.jpg",
+            "alt": "Unit Size: 20' X 55'"
+        }
+    ],
+    "features": [
+        "Two buildings with two unit sizes to choose from: 20x50 or 20x55.",
+        "Professional storefront and parking to welcome customers and visitors.",
+        "Fully conditioned throughout the whole space.",
+        "Private restroom in each unit.",
+        "Polished concrete floors.",
+        "Rear 12x12 overhead door with large lot for maneuvering and adjacent man door for easy access to rear of unit for loading.",
+        "South building has retail visibility with frontage off of 159th St, easily accessible off Mahaffie St.",
+        "Lease rates are full service gross (including everything but utilities).",
+        "Completed September 1st 2017."
+    ],
+    "units": [
+        {
+            "unitName": "Unit 12",
+            "monthlyRent": 1800,
+            "available": false,
+            "width": 20,
+            "depth": 50,
+            "height": 17,
+            "squareFeet": 1000
+        },
+        {
+            "unitName": "Unit 12",
+            "monthlyRent": 2000,
+            "available": false,
+            "width": 20,
+            "depth": 55,
+            "height": 17,
+            "squareFeet": 1100
+        }
+    ],
+    "unitSummary": [
+        {
+            "unitName": "",
+            "monthlyRent": 1800,
+            "width": 20,
+            "depth": 50,
+            "height": 17,
+            "squareFeet": 1000,
+            "numberOfUnitsByType": 11
+        },
+        {
+            "unitName": "",
+            "monthlyRent": 2000,
+            "width": 20,
+            "depth": 55,
+            "height": 17,
+            "squareFeet": 1100,
+            "numberOfUnitsByType": 11
+        }
+    ],
+    "contactName": "Kevin Combs",
+    "contactEmail": "kcombs@insightcommercial.net",
+    "contactPhone": "913-568-1134",
+    "bannerImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623514956/TCG/rearloading.jpg",
+        "alt": "Garage V banner image"
+    }
+}
+
+{
+    "name": "Garage VI",
+    "paypalEmail": "kevin@yahoo.com",
+    "enablePayments": true,
+    "paymentMarkupPercent": ".029",
+    "paymentMarkupFixed": ".30",
+    "coordinates": [39.230311, -94.467111],
+    "slug": "garage-6",
+    "addressFirstLine": "9501 NE 76th St",
+    "addressSecondLine": "Kansas City, Missouri",
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515996/TCG/garage6small.jpg",
+        "alt": "Garage VI"
+    },
+    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
+    "longDescription": "",
+    "detailPageImages": [
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623516254/TCG/garage6main.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623516254/TCG/garage6main.jpg",
+            "alt": ""
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623516356/TCG/garage6smallunit.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623516356/TCG/garage6smallunit.jpg",
+            "alt": "Unit Size: 15' X 45'"
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623516447/TCG/garage6bigunit.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623516447/TCG/garage6bigunit.jpg",
+            "alt": "Unit Size: 20' X 45'"
+        }
+    ],
+    "features": [
+        "Electricity - Individually metered units with customizable 100 amp breaker. All units come standard with multiple 120v electrical outlets, one 240v 30 amp outlet, and LED lights. Electric at Tenant's expense, if desired.",
+        "Insulated space that may be heated at Tenant's expense.",
+        "Large 12'w x 14'h drive-in overhead doors.",
+        "Huge parking lot for easy trailer maneuvering.",
+        "Access to mail receptacle upon request.",
+        "Access to community water.",
+        "Access to community restroom.",
+        "Short 1 year lease terms (then month-to-month).",
+        "One designated outdoor parking space standard with every 20 ft wide unit. Additional parking, 9' wide by 22 to 40' long ($100 per month, if available).",
+        "Prices and sizes listed below. All prices are full-service, including everything except individual unit's power.."
+    ],
+    "units": [
+        {
+            "unitName": "Unit 12",
+            "monthlyRent": 600,
+            "available": false,
+            "width": 15,
+            "depth": 45,
+            "height": 15,
+            "squareFeet": 675
+        },
+        {
+            "unitName": "Unit 12",
+            "monthlyRent": 800,
+            "available": false,
+            "width": 20,
+            "depth": 45,
+            "height": 15,
+            "squareFeet": 900
+        }
+    ],
+    "unitSummary": [
+        {
+            "unitName": "",
+            "monthlyRent": 600,
+            "width": 15,
+            "depth": 45,
+            "height": 15,
+            "squareFeet": 675,
+            "numberOfUnitsByType": 25
+        },
+        {
+            "unitName": "",
+            "monthlyRent": 800,
+            "width": 20,
+            "depth": 45,
+            "height": 15,
+            "squareFeet": 900,
+            "numberOfUnitsByType": 25
+        }
+    ],
+    "contactName": "Kevin Combs",
+    "contactEmail": "kcombs@insightcommercial.net",
+    "contactPhone": "913-568-1134",
+    "bannerImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623516720/TCG/garage6banner.jpg",
+        "alt": "Garage VI banner image"
     }
 }
