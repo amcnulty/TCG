@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { API } from '../../util/API';
 import './directory.sass';
 
@@ -52,6 +53,7 @@ function Directory(props) {
                         url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
                         opacity={zoom > 7 ? 1 : 0}
                     />
+                    <MarkerClusterGroup>
                     {
                         locations.map(location => (
                             <Marker
@@ -88,6 +90,7 @@ function Directory(props) {
                             </Marker>
                         ))
                     }
+                    </MarkerClusterGroup>
                 </MapContainer>
             </div>
             <div className='listingSection themeBackground py-5 position-relative'>
