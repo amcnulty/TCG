@@ -14,9 +14,10 @@ const LocationDetail = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [paymentAmount, setPaymentAmount] = useState();
     const [paymentApproved, setPaymentApproved] = useState(false);
+    const [unitSummaryColumns, setUnitSummaryColumns] = useState(['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet']);
 
     const UNIT_COLUMNS = ['unitName', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet'];
-    const UNIT_SUMMARY_COLUMNS = ['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet'];
+    // let unitSummaryColumns = ['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet'];
 
     const toggleModal = () => setShowModal(!showModal);
 
@@ -26,11 +27,16 @@ const LocationDetail = (props) => {
 
     useEffect(() => {
         API.getLocationBySlug(props.match.params.slug)
-        .then(locations => {
-            setLocation(locations);
+        .then(location => {
+            detectUnitSummaryColumns(location.unitSummary);
+            setLocation(location);
         })
         .catch(Function.prototype);
     }, []);
+
+    const detectUnitSummaryColumns = (unitSummary) => {
+        setUnitSummaryColumns(unitSummaryColumns.filter(column => unitSummary.some(unit => unit[column])));
+    }
 
     const getValueForCell = (unit, key) => {
         if (!unit[key]) return '-';
@@ -69,7 +75,6 @@ const LocationDetail = (props) => {
                 parts.push(value.substring(i - 1));
             }
         }
-        console.log(parts);
         return parts;
     }
 
@@ -115,12 +120,12 @@ const LocationDetail = (props) => {
                                 )}
                                 {location.contactEmail && (
                                     <div className='ms-4'>
-                                        <label className='fw-bold'>Email:</label>&nbsp;<span>{scramble(location.contactEmail).map(value => <span>{value}</span>)}</span>
+                                        <label className='fw-bold'>Email:</label>&nbsp;<span>{scramble(location.contactEmail).map((value, index) => <span key={index}>{value}</span>)}</span>
                                     </div>
                                 )}
                                 {location.contactPhone && (
                                     <div className='ms-4'>
-                                        <label className='fw-bold'>Phone:</label>&nbsp;<span>{scramble(location.contactPhone).map(value => <span>{value}</span>)}</span>
+                                        <label className='fw-bold'>Phone:</label>&nbsp;<span>{scramble(location.contactPhone).map((value, index) => <span key={index}>{value}</span>)}</span>
                                     </div>
                                 )}
                             </div>}
@@ -195,13 +200,13 @@ const LocationDetail = (props) => {
                                 <table className="unitSummaryTable table">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th># Units At Site</th>
-                                            <th>Rent (monthly)</th>
-                                            <th>Width</th>
-                                            <th>Height</th>
-                                            <th>Depth</th>
-                                            <th>Square Feet</th>
+                                            {unitSummaryColumns.includes('unitName') && <th>Name</th>}
+                                            {unitSummaryColumns.includes('numberOfUnitsByType') && <th># Units At Site</th>}
+                                            {unitSummaryColumns.includes('monthlyRent') && <th>Rent (monthly)</th>}
+                                            {unitSummaryColumns.includes('width') && <th>Width</th>}
+                                            {unitSummaryColumns.includes('height') && <th>Height</th>}
+                                            {unitSummaryColumns.includes('depth') && <th>Depth</th>}
+                                            {unitSummaryColumns.includes('squareFeet') && <th>Square Feet</th>}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -209,7 +214,7 @@ const LocationDetail = (props) => {
                                             location.unitSummary.map((unit, index) => (
                                                 <tr key={index}>
                                                     {
-                                                        UNIT_SUMMARY_COLUMNS.map((key, index) => {
+                                                        unitSummaryColumns.map((key, index) => {
                                                             return (
                                                                 <td key={index}>
                                                                     {getValueForCell(unit, key)}
@@ -260,6 +265,34 @@ const LocationDetail = (props) => {
                     </TabContent>
                 </div>
             </div>
+            {location.extras.length > 0 && <div className="extrasSection themeBackground pb-5">
+                <div className="container">
+                    <h3 className="text-center">Extras</h3>
+                    <p className="text-center fst-italic">Additional options and charges available at this location.</p>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>Price</th>
+                                <th>Recurring</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                location.extras.map((extra, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td>${extra.price.toFixed(2)}</td>
+                                            <td>{extra.frequency}</td>
+                                            <td>{extra.details}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>}
             {(location.detailPageImages.length > 0) && <div className="gallerySection py-5">
                 <div className="container">
                     <h3 className='text-center'>Location Images</h3>

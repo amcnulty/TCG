@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const unitSchema = require('./Unit');
 const imageSchema = require('./Image');
+const extraSchema = require('./Extra');
 
 const locationSchema = mongoose.Schema({
     // Primary display name
@@ -48,7 +49,9 @@ const locationSchema = mongoose.Schema({
     // Contact phone number
     contactPhone: String,
     // Optional banner image for detail page
-    bannerImage: imageSchema
+    bannerImage: imageSchema,
+    // Pricing extras additional to unit rental
+    extras: [extraSchema]
 });
 
 const Location = mongoose.model('Location', locationSchema);

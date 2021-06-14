@@ -445,21 +445,15 @@
     ],
     "unitSummary": [
         {
-            "unitName": "",
-            "monthlyRent": 1800,
-            "width": 20,
-            "depth": 50,
+            "unitName": "North Building",
+            "monthlyRent": 1300,
             "height": 17,
-            "squareFeet": 1000,
             "numberOfUnitsByType": 11
         },
         {
-            "unitName": "",
-            "monthlyRent": 2000,
-            "width": 20,
-            "depth": 55,
+            "unitName": "South Building (Fronts 159th St.)",
+            "monthlyRent": 1400,
             "height": 17,
-            "squareFeet": 1100,
             "numberOfUnitsByType": 11
         }
     ],
@@ -563,5 +557,10 @@
     "bannerImage": {
         "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623516720/TCG/garage6banner.jpg",
         "alt": "Garage VI banner image"
-    }
+    },
+    "extras": [{
+        "price": 100,
+        "frequency": "monthly",
+        "details": "Extra outdoor parking space."
+    }]
 }
