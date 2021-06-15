@@ -309,7 +309,7 @@ const LocationDetail = (props) => {
                     />
                 </div>
             </div>}
-            <div className={`paymentPopup position-fixed ${popupState}`}>
+            {location.enablePayments && <div className={`paymentPopup position-fixed ${popupState}`}>
                 <div 
                     className="popupHeader"
                     onClick={() => setPopupState(popupState === 'collapsed' ? 'expanded' : 'collapsed')}
@@ -325,7 +325,7 @@ const LocationDetail = (props) => {
                         >Make Payment</button>
                     </div>
                 </div>
-            </div>
+            </div>}
             <Modal
                 isOpen={showModal}
                 toggle={toggleModal}

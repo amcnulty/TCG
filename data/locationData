@@ -3,7 +3,7 @@
 {
     "name": "Garage I",
     "paypalEmail": "kevin@yahoo.com",
-    "enablePayments": true,
+    "enablePayments": false,
     "paymentMarkupPercent": ".029",
     "paymentMarkupFixed": ".30",
     "coordinates": [38.869868, -94.8126852],
@@ -14,8 +14,8 @@
         "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764824/TCG/dennis-olathe-small.jpg",
         "alt": "Garage I"
     },
-    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
-    "longDescription": "",
+    "shortDescription": "This is our first location in central Olathe.  Units typically 12x45'.",
+    "longDescription": "Spaces are typically 12x45' (540sf) which includes a 10x12' overhead door with opener, 60 amps power with outlets and lighting, insulated, and access to community water, 24 hour access.  Price includes everything but your own electricity (if desired).  Address: 636 E Dennis Ave, Olathe, KS. Located just west of I-35, north of Old Hwy 56, east of US169 hwy (Harrison), and South of Santa Fe, behind the car wash and next to the Legion Hall.",
     "detailPageImages": [
         {
             "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623508188/TCG/dennisOlathe.jpg",
@@ -64,22 +64,13 @@
     ],
     "unitSummary": [
         {
-            "unitName": "Single Door",
-            "monthlyRent": 700.25,
+            "unitName": "",
+            "monthlyRent": 450,
             "width": 12,
             "depth": 45,
             "squareFeet": 540,
-            "height": 12,
-            "numberOfUnitsByType": 6
-        },
-        {
-            "unitName": "Double Door",
-            "monthlyRent": 1300,
-            "width": 22,
-            "depth": 45,
-            "squareFeet": 990,
-            "height": 14,
-            "numberOfUnitsByType": 4
+            "height": 13,
+            "numberOfUnitsByType": 10
         }
     ],
     "contactName": "Kevin Combs",
@@ -90,7 +81,7 @@
 {
     "name": "Garage II",
     "paypalEmail": "kevin@yahoo.com",
-    "enablePayments": true,
+    "enablePayments": false,
     "paymentMarkupPercent": ".029",
     "paymentMarkupFixed": ".30",
     "coordinates": [38.8424099, -94.8139672],
@@ -101,8 +92,8 @@
         "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1622764895/TCG/garage2small.jpg",
         "alt": "Garage II"
     },
-    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
-    "longDescription": "",
+    "shortDescription": "South Olathe.  Units 15x45' or 20x45'.  Gated with outside storage.",
+    "longDescription": "Spaces are 15x45' (675sf) or 20x45’ (900sf) with an adjacent man door, with 12x12' or 12x14’ tall overhead doors, 100 amps power with outlets and lighting, insulated, access to community water, an extra huge parking lot for easy trailer maneuvering, USPS mailbox receptacle, outside storage (available for extra fee) with access via an electrically operated gate with 24 hour access.  Prices include everything but your own electricity (if desired). Address: 15735 S US169 Highway, Olathe, KS. Located south of the I-35/151st St interchange, across the highway from Quick Trip, behind the car wash on the east side of Highway 169.",
     "detailPageImages": [
         {
             "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623510467/TCG/169hwyOlathe.jpg",
@@ -161,8 +152,8 @@
     ],
     "unitSummary": [
         {
-            "unitName": "",
-            "monthlyRent": 800.00,
+            "unitName": "Small Unit",
+            "monthlyRent": 550,
             "width": 15,
             "depth": 45,
             "height": 15,
@@ -170,8 +161,8 @@
             "numberOfUnitsByType": 20
         },
         {
-            "unitName": "",
-            "monthlyRent": 1200.00,
+            "unitName": "Big Unit",
+            "monthlyRent": 750,
             "width": 20,
             "depth": 45,
             "height": 17,
@@ -191,7 +182,7 @@
 {
     "name": "Garage III",
     "paypalEmail": "kevin@yahoo.com",
-    "enablePayments": true,
+    "enablePayments": false,
     "paymentMarkupPercent": ".029",
     "paymentMarkupFixed": ".30",
     "coordinates": [38.952483, -94.749759],
@@ -202,8 +193,8 @@
         "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511332/TCG/small.jpg",
         "alt": "Garage III"
     },
-    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
-    "longDescription": "",
+    "shortDescription": "Lenexa.  Units 15x40' or 20x40'.",
+    "longDescription": "Spaces are 15x40' (600sf) or 20x40’ (800sf) with an adjacent man door, with 12x12' or 12x14’ tall overhead doors, 100 amps power with outlets and lighting, insulated, access to community water, an large parking lot for easy trailer maneuvering, USPS mailbox receptacle, and 24 hour access.  Prices include everything but your own electricity (if desired). Address: 14100 Santa Fe Trail Dr., KS. Located around the 96th block on the west side of Santa Fe Trail (also known as Kansas City Rd in Olathe).",
     "detailPageImages": [
         {
             "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511382/TCG/lenexa.jpg",
@@ -257,31 +248,22 @@
     ],
     "unitSummary": [
         {
-            "unitName": "",
+            "unitName": "Small Unit",
             "monthlyRent": 550,
             "width": 15,
             "depth": 40,
             "height": 15,
             "squareFeet": 600,
-            "numberOfUnitsByType": 6
+            "numberOfUnitsByType": 8
         },
         {
-            "unitName": "",
+            "unitName": "Big Unit",
             "monthlyRent": 750,
             "width": 20,
             "depth": 40,
             "height": 17,
             "squareFeet": 800,
-            "numberOfUnitsByType": 6
-        },
-        {
-            "unitName": "",
-            "monthlyRent": 1100,
-            "width": 30,
-            "depth": 40,
-            "height": 17,
-            "squareFeet": 1200,
-            "numberOfUnitsByType": 4
+            "numberOfUnitsByType": 8
         }
     ],
     "contactName": "Kevin Combs",
@@ -293,7 +275,7 @@
 {
     "name": "Garage IV",
     "paypalEmail": "kevin@yahoo.com",
-    "enablePayments": true,
+    "enablePayments": false,
     "paymentMarkupPercent": ".029",
     "paymentMarkupFixed": ".30",
     "coordinates": [38.898784, -94.6836929],
@@ -304,8 +286,8 @@
         "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623512675/TCG/garageIVsmall.jpg",
         "alt": "Garage IV"
     },
-    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
-    "longDescription": "",
+    "shortDescription": "Overland Park.  All units 20'45' and community restroom onsite.",
+    "longDescription": "Spaces are all 20x45’ (900sf) with an adjacent man door, with 12x14’ tall overhead doors, 100 amps power with outlets and LED lighting, insulated, access to community water and restroom, an extra huge parking lot for easy trailer maneuvering, USPS mailbox receptacle, and 24 hour access.  Prices include everything but your own electricity (if desired).  Address: 8400 w 127th St, Overland Park, KS 66213, located NE of 127th and Antioch directly behind/east of CVS.",
     "detailPageImages": [
         {
             "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623512737/TCG/overlandParkMain.jpg",
@@ -347,7 +329,7 @@
     "unitSummary": [
         {
             "unitName": "",
-            "monthlyRent": 1200,
+            "monthlyRent": 800,
             "width": 20,
             "depth": 45,
             "height": 17,
@@ -367,7 +349,7 @@
 {
     "name": "Garage V",
     "paypalEmail": "kevin@yahoo.com",
-    "enablePayments": true,
+    "enablePayments": false,
     "paymentMarkupPercent": ".029",
     "paymentMarkupFixed": ".30",
     "coordinates": [38.840675, -94.8025281],
@@ -378,8 +360,8 @@
         "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623514173/TCG/garage5small.jpg",
         "alt": "Garage V"
     },
-    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
-    "longDescription": "",
+    "shortDescription": "Our first incubator in South Olathe with storefront, HVAC, and bathroom in each space.",
+    "longDescription": "Spaces are 20x50’ (1,000sf) or 20x55’ (1,100sf) with 12x12’ tall overhead doors, 100 amps power with outlets and LED lighting, insulated, HVAC and bathroom in each unit, polished concrete floors, storefront with extra front parking and rear loading, retail-like visibility off 159th St for some units, an extra huge parking lot for easy trailer maneuvering, USPS mailbox receptacle, basic (non-trade) community trash, and 24 hour access.  Prices include everything but your own electricity and gas.  Address: 15811-15899 S Mahaffie, KS 66062, located on the NE corner of 159th and Mahaffie St",
     "detailPageImages": [
         {
             "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623514286/TCG/exteriorelevations.jpg",
@@ -468,7 +450,7 @@
 
 {
     "name": "Garage VI",
-    "paypalEmail": "kevin@yahoo.com",
+    "paypalEmail": "kcombs@insightcommercial.net",
     "enablePayments": true,
     "paymentMarkupPercent": ".029",
     "paymentMarkupFixed": ".30",
@@ -480,8 +462,8 @@
         "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623515996/TCG/garage6small.jpg",
         "alt": "Garage VI"
     },
-    "shortDescription": "No Vacancy. Please call, text, or email to be placed on waitlist",
-    "longDescription": "",
+    "shortDescription": "North Kansas City.  Units 15x45' or 20x45'.  Community restroom onsite.",
+    "longDescription": "Spaces are 15x45’ (675sf) or 20x45’ (900sf) with an adjacent man door, all with 12x14’ tall overhead doors, 100 amps power with outlets and LED lighting and one 240v 30 amp pre-installed outlet, insulated, access to community water and restroom, an extra huge parking lot for easy trailer maneuvering, some limited outside parking (available for extra fee), USPS mailbox receptacle, and 24 hour access.  Prices include everything but your own electricity (if desired).  Address is 9501 NE 76th St, Kansas City, MO (east building located in Pleasant Valley), located along Church Rd west of I-35 and north of the new Flintlock overpass between the Pleasant Valley and Liberty exits.",
     "detailPageImages": [
         {
             "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623516254/TCG/garage6main.jpg",
@@ -533,22 +515,22 @@
     ],
     "unitSummary": [
         {
-            "unitName": "",
+            "unitName": "Small Unit",
             "monthlyRent": 600,
             "width": 15,
             "depth": 45,
             "height": 15,
             "squareFeet": 675,
-            "numberOfUnitsByType": 25
+            "numberOfUnitsByType": 14
         },
         {
-            "unitName": "",
+            "unitName": "Big Unit",
             "monthlyRent": 800,
             "width": 20,
             "depth": 45,
-            "height": 15,
+            "height": 17,
             "squareFeet": 900,
-            "numberOfUnitsByType": 25
+            "numberOfUnitsByType": 36
         }
     ],
     "contactName": "Kevin Combs",
