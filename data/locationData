@@ -546,3 +546,143 @@
         "details": "Extra outdoor parking space."
     }]
 }
+
+{
+    "name": "Garage VII",
+    "paypalEmail": "kcombs@insightcommercial.net",
+    "enablePayments": false,
+    "paymentMarkupPercent": ".029",
+    "paymentMarkupFixed": ".30",
+    "coordinates": [38.881824, -94.804413],
+    "slug": "garage-7",
+    "addressFirstLine": "815 E Park St",
+    "addressSecondLine": "Olathe, Kansas 66061",
+    "thumbnailImage": {},
+    "shortDescription": "Central Olathe incubators 20x50' with HVAC and bathroom in each space.  Anticipated completion 9/2021",
+    "longDescription": "Spaces are 20x50' with 12x12' tall overhead doors, 100 amps power with outlets and LED lighting, insulated, HVAC and bathroom in each unit, polished concrete floors, some limited outside parking (available for extra fee), retail-like visibility off Park St., a large parking lot for easy trailer maneuvering, USPS mailbox receptacle, basic community trash, and 24 hour access.  Prices include everything but your own electricity and gas.  Address: 815 E Park St, Olathe, KS 66061",
+    "detailPageImages": [],
+    "features": [],
+    "units": [],
+    "unitSummary": [
+        {
+            "monthlyRent": 1600,
+            "width": 20,
+            "depth": 50,
+            "height": 12,
+            "squareFeet": 1000,
+            "numberOfUnitsByType": 4
+        }
+    ],
+    "contactName": "Kevin Combs",
+    "contactEmail": "kcombs@insightcommercial.net",
+    "contactPhone": "913-568-1134",
+    "bannerImage": null,
+    "extras": [{
+        "price": 100,
+        "frequency": "monthly",
+        "details": "Extra 10x40' outdoor parking space."
+    }]
+}
+
+{
+    "name": "Garage VIII",
+    "paypalEmail": "kcombs@insightcommercial.net",
+    "enablePayments": false,
+    "paymentMarkupPercent": ".029",
+    "paymentMarkupFixed": ".30",
+    "coordinates": [38.905901, -94.781136],
+    "slug": "garage-8",
+    "addressFirstLine": "Kansas City Rd and 123rd St.",
+    "addressSecondLine": "Olathe, Kansas",
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623773333/TCG/garage8plans.jpg",
+        "alt": "Garage VIII"
+    },
+    "shortDescription": "North Olathe off Kansas City Rd and 123rd St.  In planning stages",
+    "longDescription": "In planning.  Spaces will all be 20x50' (1,000sf) with an adjacent man door, with 12x14' tall overhead doors, 100 amps power with outlets and LED lighting and one 240v 30 amp pre-installed outlet, insulated, access to community water and restroom, an extra huge parking lot for easy trailer maneuvering, outside parking (available for extra fee), USPS mailbox receptacle, and 24 hour access.  Prices include everything but your own electricity (if desired).  Address: Will be located in north Olathe, east side of Kansas City Rd, approximately at 123rd St, just north of the Johnson County Election Office.",
+    "detailPageImages": [
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623773333/TCG/garage8plans.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623773333/TCG/garage8plans.jpg",
+            "alt": ""
+        }
+    ],
+    "features": [],
+    "units": [],
+    "unitSummary": [],
+    "contactName": "Kevin Combs",
+    "contactEmail": "kcombs@insightcommercial.net",
+    "contactPhone": "913-568-1134",
+    "bannerImage": null,
+    "extras": []
+}
+
+{
+    "name": "Topeka",
+    "paypalEmail": "kcombs@insightcommercial.net",
+    "enablePayments": false,
+    "paymentMarkupPercent": ".029",
+    "paymentMarkupFixed": ".30",
+    "coordinates": [39.091680, -95.652696],
+    "slug": "topeka",
+    "addressFirstLine": "660 NE Hwy 24",
+    "addressSecondLine": "Topeka, Kansas",
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623774095/TCG/topekaPlans1.jpg",
+        "alt": "Topeka"
+    },
+    "shortDescription": "North Topeka at 660 NE Hwy 24.  In planning stages",
+    "longDescription": "In planning.",
+    "detailPageImages": [
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623774095/TCG/topekaPlans1.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623774095/TCG/topekaPlans1.jpg",
+            "alt": ""
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623774095/TCG/topekaPlans2.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623774095/TCG/topekaPlans2.jpg",
+            "alt": ""
+        }
+    ],
+    "features": [],
+    "units": [],
+    "unitSummary": [],
+    "contactName": "Kevin Combs",
+    "contactEmail": "kcombs@insightcommercial.net",
+    "contactPhone": "913-568-1134",
+    "bannerImage": null,
+    "extras": []
+}
+
+{
+    "name": "Collins Drive",
+    "paypalEmail": "",
+    "enablePayments": false,
+    "paymentMarkupPercent": ".029",
+    "paymentMarkupFixed": ".30",
+    "coordinates": [36.312222, -82.401181],
+    "slug": "collins-drive",
+    "addressFirstLine": "Collins Dr",
+    "addressSecondLine": "Johnson City, Tennessee",
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623770636/TCG/collinsDrivePlans.jpg",
+        "alt": "Collins Drive"
+    },
+    "shortDescription": "Address TBD.  In planning stages",
+    "longDescription": "In planning.  Details TBD soon.",
+    "detailPageImages": [
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623770636/TCG/collinsDrivePlans.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623770636/TCG/collinsDrivePlans.jpg",
+            "alt": ""
+        }
+    ],
+    "features": [],
+    "units": [],
+    "unitSummary": [],
+    "contactName": "Jonathan Landy",
+    "contactEmail": "jonathan.landy@gmail.com",
+    "contactPhone": "423-534-2088",
+    "bannerImage": null
+}

@@ -59,7 +59,8 @@ router.post('/location', (req, res, next) => {
     contactName: req.body.contactName,
     contactEmail: req.body.contactEmail,
     contactPhone: req.body.contactPhone,
-    bannerImage: req.body.bannerImage
+    bannerImage: req.body.bannerImage,
+    extras: req.body.extras
   })
   .then(location => {
     console.log('location created :>> ', location);
