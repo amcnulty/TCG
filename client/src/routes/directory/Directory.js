@@ -61,7 +61,7 @@ function Directory(props) {
                                 position={location.coordinates}
                                 riseOnHover={true}
                             >
-                                <Popup>
+                                <Popup keepInView={true}>
                                     <h6
                                         className='text-nowrap text-truncate'
                                         title={location.name}
