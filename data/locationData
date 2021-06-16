@@ -519,7 +519,7 @@
             "monthlyRent": 600,
             "width": 15,
             "depth": 45,
-            "height": 15,
+            "height": "15 - 17 ft",
             "squareFeet": 675,
             "numberOfUnitsByType": 14
         },
@@ -528,7 +528,7 @@
             "monthlyRent": 800,
             "width": 20,
             "depth": 45,
-            "height": 17,
+            "height": "15 - 17 ft",
             "squareFeet": 900,
             "numberOfUnitsByType": 36
         }
@@ -557,10 +557,29 @@
     "slug": "garage-7",
     "addressFirstLine": "815 E Park St",
     "addressSecondLine": "Olathe, Kansas 66061",
-    "thumbnailImage": {},
+    "thumbnailImage": {
+        "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623869344/TCG/garage7Plans1.jpg",
+        "alt": "Garage VII"
+    },
     "shortDescription": "Central Olathe incubators 20x50' with HVAC and bathroom in each space.  Anticipated completion 9/2021",
     "longDescription": "Spaces are 20x50' with 12x12' tall overhead doors, 100 amps power with outlets and LED lighting, insulated, HVAC and bathroom in each unit, polished concrete floors, some limited outside parking (available for extra fee), retail-like visibility off Park St., a large parking lot for easy trailer maneuvering, USPS mailbox receptacle, basic community trash, and 24 hour access.  Prices include everything but your own electricity and gas.  Address: 815 E Park St, Olathe, KS 66061",
-    "detailPageImages": [],
+    "detailPageImages": [
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623869344/TCG/garage7Plans1.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623869344/TCG/garage7Plans1.jpg",
+            "alt": ""
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623869344/TCG/garage7Plans3.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623869344/TCG/garage7Plans3.jpg",
+            "alt": ""
+        },
+        {
+            "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623869344/TCG/garage7Plans2.jpg",
+            "thumbnail": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623869344/TCG/garage7Plans2.jpg",
+            "alt": ""
+        }
+    ],
     "features": [],
     "units": [],
     "unitSummary": [
@@ -568,7 +587,7 @@
             "monthlyRent": 1600,
             "width": 20,
             "depth": 50,
-            "height": 12,
+            "height": 14,
             "squareFeet": 1000,
             "numberOfUnitsByType": 4
         }

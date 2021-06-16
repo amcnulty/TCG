@@ -14,10 +14,9 @@ const LocationDetail = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [paymentAmount, setPaymentAmount] = useState();
     const [paymentApproved, setPaymentApproved] = useState(false);
-    const [unitSummaryColumns, setUnitSummaryColumns] = useState(['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet']);
+    const [unitSummaryColumns, setUnitSummaryColumns] = useState(['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'depth', 'squareFeet', 'height']);
 
-    const UNIT_COLUMNS = ['unitName', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet'];
-    // let unitSummaryColumns = ['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'height', 'depth', 'squareFeet'];
+    const UNIT_COLUMNS = ['unitName', 'monthlyRent', 'width', 'depth', 'squareFeet', 'height'];
 
     const toggleModal = () => setShowModal(!showModal);
 
@@ -41,14 +40,16 @@ const LocationDetail = (props) => {
     const getValueForCell = (unit, key) => {
         if (!unit[key]) return '-';
         switch (key) {
-            case UNIT_COLUMNS[1]:
+            case 'monthlyRent':
                 return `$${unit[key].toFixed(2)}`;
-            case UNIT_COLUMNS[2]:
-            case UNIT_COLUMNS[3]:
-            case UNIT_COLUMNS[4]:
-                        
+            case 'width':
+            case 'depth':
+            case 'height':
+                if (typeof unit[key] === 'string' && !Number(unit[key])) {
+                    return unit[key];
+                }
                 return `${unit[key]} ft`;
-            case UNIT_COLUMNS[5]:
+            case 'squareFeet':
                 return `${unit[key]} sqft`;
             default:
                 return unit[key];
@@ -101,8 +102,6 @@ const LocationDetail = (props) => {
                         backgroundSize: 'cover'
                     }}
                 >
-                    {/* <img src={location.bannerImage.src} alt={location.bannerImage.alt} /> */}
-                    <div className="vale"></div>
                 </div>
             }
             <div className="landingSection py-5">
@@ -204,9 +203,9 @@ const LocationDetail = (props) => {
                                             {unitSummaryColumns.includes('numberOfUnitsByType') && <th># Units At Site</th>}
                                             {unitSummaryColumns.includes('monthlyRent') && <th>Rent (monthly)</th>}
                                             {unitSummaryColumns.includes('width') && <th>Width</th>}
-                                            {unitSummaryColumns.includes('height') && <th>Height</th>}
                                             {unitSummaryColumns.includes('depth') && <th>Depth</th>}
                                             {unitSummaryColumns.includes('squareFeet') && <th>Square Feet</th>}
+                                            {unitSummaryColumns.includes('height') && <th>Ceiling Height</th>}
                                         </tr>
                                     </thead>
                                     <tbody>

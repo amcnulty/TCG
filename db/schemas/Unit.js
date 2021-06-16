@@ -12,7 +12,7 @@ const unitSchema = mongoose.Schema({
     // Width in feet
     width: Number,
     // Height in feet
-    height: Number,
+    height: String,
     // Depth in feet
     depth: Number,
     // Square Footage
