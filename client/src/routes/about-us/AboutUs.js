@@ -23,7 +23,7 @@ function AboutUs(props) {
                         Though many have since imitated our concept in Kansas City, Contractors Garage is the genuine original brand for small incubator spaces in KC specifically tailored for business owners.  Today, rather than fighting our competition, we chose to help by sharing the brand with others through our new listing service at <a href='/development-services' target='_blank'>ContractorsGarage.com</a>.  If you have a similar property that would benefit from a national brand, your own personalized web page, optional credit card payments, among other features and benefits, we are here to help.
                     </p>
                     <p>
-                        Would you also like to leave the rat race and build passive income through commercial real estate investment?  Please see us at <a href='http://www.insightcommercial.net/construction.html'>www.insightcommercial.net/construction</a> for personalized one-on-one consulting.
+                        Would you also like to leave the rat race and build passive income through commercial real estate investment?  Please see us at <a href='http://www.insightcommercial.net/construction.html' target='_blank'>www.insightcommercial.net/construction</a> for personalized one-on-one consulting.
                     </p>
                 </div>
             </div>
