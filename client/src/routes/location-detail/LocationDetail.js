@@ -15,6 +15,7 @@ const LocationDetail = (props) => {
     const [paymentAmount, setPaymentAmount] = useState();
     const [paymentApproved, setPaymentApproved] = useState(false);
     const [unitSummaryColumns, setUnitSummaryColumns] = useState(['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'depth', 'squareFeet', 'height']);
+    const [unitColumns, setUnitColumns] = useState(['unitName', 'monthlyRent', 'width', 'depth', 'squareFeet', 'height']);
 
     const UNIT_COLUMNS = ['unitName', 'monthlyRent', 'width', 'depth', 'squareFeet', 'height'];
 
@@ -28,6 +29,7 @@ const LocationDetail = (props) => {
         API.getLocationBySlug(props.match.params.slug)
         .then(location => {
             detectUnitSummaryColumns(location.unitSummary);
+            detectUnitColumns(location.units);
             setLocation(location);
         })
         .catch(Function.prototype);
@@ -35,6 +37,10 @@ const LocationDetail = (props) => {
 
     const detectUnitSummaryColumns = (unitSummary) => {
         setUnitSummaryColumns(unitSummaryColumns.filter(column => unitSummary.some(unit => unit[column])));
+    }
+
+    const detectUnitColumns = (units) => {
+        setUnitColumns(unitColumns.filter(column => units.some(unit => unit[column])));
     }
 
     const getValueForCell = (unit, key) => {
@@ -230,35 +236,41 @@ const LocationDetail = (props) => {
                         </TabPane>
                         <TabPane tabId='2'>
                             <div className="availableUnitsTableWrapper py-4 table-responsive bg-sm-light">
-                                <table className='availableUnitsTable table'>
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Rent (monthly)</th>
-                                            <th>Width</th>
-                                            <th>Height</th>
-                                            <th>Depth</th>
-                                            <th>Square Feet</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            location.units.filter(unit => unit.available).map((unit, index) => (
-                                                <tr key={index}>
-                                                    {
-                                                        UNIT_COLUMNS.map((key, index) => {
-                                                            return (
-                                                                <td key={index}>
-                                                                    {getValueForCell(unit, key)}
-                                                                </td>
-                                                            )
-                                                        })
-                                                    }
-                                                </tr>
-                                            ))
-                                        }
-                                    </tbody>
-                                </table>
+                                {
+                                    location.units.length > 0
+                                    ?
+                                    <table className='availableUnitsTable table'>
+                                        <thead>
+                                            <tr>
+                                                {unitColumns.includes('unitName') && <th>Name</th> }
+                                                {unitColumns.includes('monthlyRent') && <th>Rent (monthly)</th> }
+                                                {unitColumns.includes('width') && <th>Width</th> }
+                                                {unitColumns.includes('depth') && <th>Depth</th> }
+                                                {unitColumns.includes('squareFeet') && <th>Square Feet</th> }
+                                                {unitColumns.includes('height') && <th>Ceiling Height</th> }
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                location.units.filter(unit => unit.available).map((unit, index) => (
+                                                    <tr key={index}>
+                                                        {
+                                                            unitColumns.map((key, index) => {
+                                                                return (
+                                                                    <td key={index}>
+                                                                        {getValueForCell(unit, key)}
+                                                                    </td>
+                                                                )
+                                                            })
+                                                        }
+                                                    </tr>
+                                                ))
+                                            }
+                                        </tbody>
+                                    </table>
+                                    :
+                                    <span className="fw-bold">No available units at this time. Please contact us to be placed on waitlist.</span>
+                                }
                             </div>
                         </TabPane>
                     </TabContent>

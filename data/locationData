@@ -194,7 +194,7 @@
         "alt": "Garage III"
     },
     "shortDescription": "Lenexa.  Units 15x40' or 20x40'.",
-    "longDescription": "Spaces are 15x40' (600sf) or 20x40’ (800sf) with an adjacent man door, with 12x12' or 12x14’ tall overhead doors, 100 amps power with outlets and lighting, insulated, access to community water, an large parking lot for easy trailer maneuvering, USPS mailbox receptacle, and 24 hour access.  Prices include everything but your own electricity (if desired). Address: 14100 Santa Fe Trail Dr., KS. Located around the 96th block on the west side of Santa Fe Trail (also known as Kansas City Rd in Olathe).",
+    "longDescription": "Spaces are 15x40' (600sf) or 20x40’ (800sf) with an adjacent man door, with 12x12' or 12x14’ tall overhead doors, 100 amps power with outlets and lighting, insulated, access to community water, large parking lot for easy trailer maneuvering, USPS mailbox receptacle, and 24 hour access.  Prices include everything but your own electricity (if desired). Address: 14100 Santa Fe Trail Dr., KS. Located around the 96th block on the west side of Santa Fe Trail (also known as Kansas City Rd in Olathe).",
     "detailPageImages": [
         {
             "src": "https://res.cloudinary.com/dz54puaeo/image/upload/v1623511382/TCG/lenexa.jpg",
@@ -491,26 +491,26 @@
         "Access to community restroom.",
         "Short 1 year lease terms (then month-to-month).",
         "One designated outdoor parking space standard with every 20 ft wide unit. Additional parking, 9' wide by 22 to 40' long ($100 per month, if available).",
-        "Prices and sizes listed below. All prices are full-service, including everything except individual unit's power.."
+        "Prices and sizes listed below. All prices are full-service, including everything except individual unit's power."
     ],
     "units": [
         {
-            "unitName": "Unit 12",
+            "unitName": "Small Unit",
             "monthlyRent": 600,
-            "available": false,
             "width": 15,
             "depth": 45,
-            "height": 15,
-            "squareFeet": 675
+            "height": "15 - 17 ft",
+            "squareFeet": 675,
+            "available": true
         },
         {
-            "unitName": "Unit 12",
+            "unitName": "Big Unit",
             "monthlyRent": 800,
-            "available": false,
             "width": 20,
             "depth": 45,
-            "height": 15,
-            "squareFeet": 900
+            "height": "15 - 17 ft",
+            "squareFeet": 900,
+            "available": true
         }
     ],
     "unitSummary": [
@@ -642,7 +642,7 @@
     "enablePayments": false,
     "paymentMarkupPercent": ".029",
     "paymentMarkupFixed": ".30",
-    "coordinates": [39.091680, -95.652696],
+    "coordinates": [39.091680, -95.650696],
     "slug": "topeka",
     "addressFirstLine": "660 NE Hwy 24",
     "addressSecondLine": "Topeka, Kansas",
