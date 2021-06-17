@@ -1,28 +1,37 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { API } from '../../util/API';
 import './directory.sass';
+import { MapContext } from '../../context/Store';
+import { UPDATE_MAP } from '../../context/ActionTypes';
 
 function EventComponent(props) {
+    const [state, dispatch] = useContext(MapContext);
+
     const map = useMapEvents({
-        zoom: (event) => {
-            props.setZoom(map.getZoom());
+        zoomend: (event) => {
+            dispatch({type: UPDATE_MAP, payload: {zoom: map.getZoom(), center: [map.getCenter().lat, map.getCenter().lng]}});
+        },
+        moveend: (event) => {
+            dispatch({type: UPDATE_MAP, payload: {zoom: map.getZoom(), center: [map.getCenter().lat, map.getCenter().lng]}});
         }
-    })
+    });
     
     return null;
 }
 
 function Directory(props) {
-    const [zoom, setZoom] = useState(5);
+    
+    const [state, dispatch] = useContext(MapContext);
+    const { zoom, center } = state;
+
     const [locations, setLocations] = useState([]);
     const history = useHistory();
     const MAP_ICONS = ['fa-map-signs', 'fa-map-pin', 'fa-map-marker-alt', 'fa-directions', 'fa-road', 'fa-location-arrow', 'fa-map-marked-alt', 'fa-globe-americas'];
 
     useEffect(() => {
-        console.log('getting all locations');
         API.getAllLocations()
         .then(setLocations)
         .catch(Function.prototype);
@@ -38,11 +47,11 @@ function Directory(props) {
             </div>
             <div className="container py-5">
                 <MapContainer
-                    center={[39.087692, -97.611850]}
-                    zoom={5}
+                    center={center}
+                    zoom={zoom}
                     scrollWheelZoom={true}
                 >
-                    <EventComponent setZoom={setZoom}/>
+                    <EventComponent/>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

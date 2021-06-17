@@ -9,10 +9,12 @@ import Payment from './components/payment/Payment';
 import Footer from './shared/footer/Footer';
 import Header from './shared/header/Header';
 import ScrollToTop from './components/scrollToTop/ScrollToTop'
+import Store from './context/Store';
 
 function App() {
 
   return (
+    <Store>
     <BrowserRouter>
       <Route
         path='/'
@@ -51,6 +53,7 @@ function App() {
         component={Footer}
       />
     </BrowserRouter>
+    </Store>
   );
 }
 
