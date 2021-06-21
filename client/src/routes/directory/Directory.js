@@ -39,13 +39,13 @@ function Directory(props) {
 
     return (
         <div className='Directory'>
-            <div className="landingSection pt-5">
+            <div className="landingSection pt-3">
                 <div className="container">
                     <h1 className='fw-light text-uppercase'>LOCATIONS</h1>
                     <p>View our many locations. Interact with the map below and click on map markers to see more information about a specific location.</p>
                 </div>
             </div>
-            <div className="container py-5">
+            <div className="container pb-5">
                 <MapContainer
                     center={center}
                     zoom={zoom}
