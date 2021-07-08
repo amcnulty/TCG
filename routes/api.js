@@ -1,11 +1,78 @@
 var express = require('express');
 var router = express.Router();
 const Location = require('../db/schemas/Location');
+const User = require('../db/schemas/User');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource from the super fancy api!!!');
+/*
+*          !!##########################!!
+*          !!                          !!
+*          !!          Users           !!
+*          !!                          !!
+*          !!##########################!!
+*/
+
+router.post('/user/login', (req, res) => {
+  console.log('here');
+  User.findOne({username: req.body.username}, (err, user) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send('Something went wrong!', err);
+    }
+    if (!user) return res.status(404).send('Username not found!');
+    user.comparePassword(req.body.password, (err, isMatch) => {
+      if (err) {
+        console.log(err);
+        return res.status(401).send('Invalid password!');
+      }
+      if (isMatch && isMatch === true) {
+        req.session.user = user;
+        return res.status(200).send(req.session.user);
+      }
+    });
+  });
 });
+
+router.post('/user/logout', (req, res) => {
+  req.session.destroy();
+  res.status(200).send();
+});
+
+router.post('/user/create', (req, res) => {
+  const newUser = new User({...req.body});
+
+  User.findOne({
+    username: newUser.username
+  }, (err, user) => {
+    if (err) {
+      const err = new Error('Something went wrong!');
+      err.status = 500;
+      return next(err);
+    }
+    if (user) {
+      const err = new Error('The requested username is already taken!!');
+      err.status = 202;
+      return next(err);
+    }
+    else {
+      newUser.save(err => {
+        if (err) {
+          const err = new Error('Something went wrong!');
+          err.status = 500;
+          return next(err);
+        }
+        return res.status(200).send();
+      });
+    }
+  });
+});
+
+/*
+*          !!##########################!!
+*          !!                          !!
+*          !!        Locations         !!
+*          !!                          !!
+*          !!##########################!!
+*/
 
 /**
  * Get all locations

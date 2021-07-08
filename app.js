@@ -7,6 +7,9 @@ require('dotenv').config();
 var mongoose = require('./db/connection');
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
+var portalRouter = require('./routes/portal');
+var session = require('express-session');
+var MongoStore = require('connect-mongo');
 
 var app = express();
 
@@ -19,6 +22,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('client/build'));
+app.use(session({
+  secret: process.env.secretKey,
+  saveUninitialized: false,
+  resave: false,
+  store: MongoStore.create({ mongoUrl: process.env.DB_URI })
+}));
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -28,7 +37,17 @@ app.use(function(req, res, next) {
   next();
 });
 
+function auth(req, res, next) {
+  if (!req.session.user) {
+    const err = new Error('Not authorized!');
+    err.status = 401;
+    return next(err);
+  }
+  next();  
+}
+
 app.use('/api', apiRouter);
+app.use('/portal', auth, portalRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
