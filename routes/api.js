@@ -12,7 +12,6 @@ const User = require('../db/schemas/User');
 */
 
 router.post('/user/login', (req, res) => {
-  console.log('here');
   User.findOne({username: req.body.username}, (err, user) => {
     if (err) {
       console.log(err);
@@ -64,6 +63,15 @@ router.post('/user/create', (req, res) => {
       });
     }
   });
+});
+
+router.get('/user/is-logged-in', (req, res, next) => {
+  if (req.session.user) {
+    res.status(200).send();
+  }
+  else {
+    res.status(401).send();
+  }
 });
 
 /*
