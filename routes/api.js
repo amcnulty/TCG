@@ -27,6 +27,9 @@ router.post('/user/login', (req, res) => {
         req.session.user = user;
         return res.status(200).send(req.session.user);
       }
+      else if (!isMatch) {
+        return res.status(401).send('Invalid password!');
+      }
     });
   });
 });
