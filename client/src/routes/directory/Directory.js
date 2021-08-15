@@ -45,7 +45,7 @@ function Directory(props) {
                     <p>View our many locations. Interact with the map below and click on map markers to see more information about a specific location.</p>
                 </div>
             </div>
-            <div className="container pb-5">
+            <div className="container">
                 <MapContainer
                     center={center}
                     zoom={zoom}
@@ -101,6 +101,25 @@ function Directory(props) {
                     }
                     </MarkerClusterGroup>
                 </MapContainer>
+            </div>
+            <div className="locationListSection py-5">
+                <div className="container">
+                    <div className="row">
+                    {
+                        locations.map(location => (
+                                <div key={location._id} className="col-12 col-md-6 mb-4">
+                                    <h3>
+                                        <Link to={`/location/${location.slug}`}>
+                                            {location.name}
+                                        </Link>
+                                    </h3>
+                                    {location.addressFirstLine && <p className='mb-0'>{location.addressFirstLine}</p>}
+                                    {location.addressSecondLine && <p className='mb-0'>{location.addressSecondLine}</p>}
+                                </div>
+                        ))
+                    }
+                    </div>
+                </div>
             </div>
             <div className='listingSection themeBackground py-5 position-relative'>
                 <div className="container">
