@@ -70,7 +70,7 @@ router.post('/user/create', (req, res) => {
 
 router.get('/user/is-logged-in', (req, res, next) => {
   if (req.session.user) {
-    res.status(200).send();
+    res.status(200).send({...req.session.user, password: ''});
   }
   else {
     res.status(401).send();

@@ -1,4 +1,5 @@
 var express = require('express');
+const Location = require('../db/schemas/Location');
 var router = express.Router();
 const User = require('../db/schemas/User');
 
@@ -53,7 +54,7 @@ router.post('/user/create', isAdmin, (req, res) => {
 });
 
 router.get('/user/get-all-users', isAdmin, (req, res, next) => {
-  User.find((err, users) => {
+  User.find({}, { password: 0 }, (err, users) => {
     if (err) {
       const err = new Error('Something went wrong!');
       err.status = 500;
@@ -79,6 +80,27 @@ router.delete('/user/:id', isAdmin, (req, res) => {
       return res.status(200).send();
     }
   });
+});
+/*
+*          !!##########################!!
+*          !!                          !!
+*          !!        Locations         !!
+*          !!                          !!
+*          !!##########################!!
+*/
+
+/**
+ * Get all locations for a user
+ */
+router.get('/locations', (req, res, next) => {
+  const query = req.session.user.isAdmin ? null : { /* query object to get locations for specific user */};
+  Location.find(query)
+  .then(locations => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(locations);
+  })
+  .catch(next)
 });
 
 module.exports = router;
