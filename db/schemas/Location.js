@@ -51,7 +51,14 @@ const locationSchema = mongoose.Schema({
     // Optional banner image for detail page
     bannerImage: imageSchema,
     // Pricing extras additional to unit rental
-    extras: [extraSchema]
+    extras: [extraSchema],
+    // Flag to check if this record is a draft
+    isDraft: Boolean,
+    // The user who created this record
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 const Location = mongoose.model('Location', locationSchema);

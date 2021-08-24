@@ -86,10 +86,10 @@ router.get('/user/is-logged-in', (req, res, next) => {
 */
 
 /**
- * Get all locations
+ * Get all locations that are not in draft state.
  */
 router.get('/locations', (req, res, next) => {
-  Location.find()
+  Location.find({ isDraft: false })
   .then(locations => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
@@ -102,8 +102,7 @@ router.get('/locations', (req, res, next) => {
  * Get location from slug
  */
 router.get('/location/:slug', (req, res, next) => {
-  console.log('req.params :>> ', req.params);
-  Location.findOne({ slug: req.params.slug })
+  Location.findOne({ slug: req.params.slug, isDraft: false })
   .then(location => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');

@@ -1,4 +1,5 @@
 var express = require('express');
+const mongoose = require('mongoose');
 const Location = require('../db/schemas/Location');
 var router = express.Router();
 const User = require('../db/schemas/User');
@@ -90,17 +91,48 @@ router.delete('/user/:id', isAdmin, (req, res) => {
 */
 
 /**
- * Get all locations for a user
+ * Get all locations and drafts for a user. Super admin gets all drafts and information on whos draft it is.
  */
 router.get('/locations', (req, res, next) => {
-  const query = req.session.user.isAdmin ? null : { /* query object to get locations for specific user */};
+  let query;
+  let popOptions = '';
+  if (req.session.user.isSuperAdmin) {
+    query = null;
+    popOptions = 'createdBy';
+  }
+  else if (req.session.user.isAdmin) {
+    query = { $or: [{ isDraft: false }, { createdBy: req.session.user._id }] };
+  }
+  else {
+    query = { createdBy: req.session.user._id };
+  }
   Location.find(query)
+  .populate(popOptions)
   .then(locations => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     res.json(locations);
   })
   .catch(next)
+});
+
+/**
+ * Get location from id. This is used when editing a draft location.
+ */
+ router.get('/location/:id', (req, res, next) => {
+  let query = { slug: req.params.id };
+  Location.findOne(query)
+  .then(location => {
+    if (!req.session.user.isSuperAdmin && location.isDraft && location.createdBy !== req.session.user._id) {
+      const err = new Error('Not authorized! Unable to edit a draft created by another user.');
+      err.status = 401;
+      next(err);
+    }
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(location);
+  })
+  .catch(next);
 });
 
 module.exports = router;

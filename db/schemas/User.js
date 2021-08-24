@@ -11,6 +11,7 @@ let userSchema = mongoose.Schema({
   },
   password: String,
   isAdmin: Boolean,
+  isSuperAdmin: Boolean,
   maxLocationAllowance: Number
 });
 
