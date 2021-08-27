@@ -26,13 +26,29 @@ const LocationDetail = (props) => {
     }
 
     useEffect(() => {
-        API.getLocationBySlug(props.match.params.slug)
-        .then(location => {
-            detectUnitSummaryColumns(location.unitSummary);
-            detectUnitColumns(location.units);
-            setLocation(location);
-        })
-        .catch(Function.prototype);
+        if (props.match.params.id) {
+            API.getPreviewLocation(props.match.params.id)
+            .then(locationJson => {
+                const location = JSON.parse(locationJson.data);
+                if (location.unitSummary) {
+                    detectUnitSummaryColumns(location.unitSummary);
+                }
+                if (location.units) {
+                    detectUnitColumns(location.units);
+                }
+                setLocation(location);
+            })
+            .catch(Function.prototype);
+        }
+        else {
+            API.getLocationBySlug(props.match.params.slug)
+            .then(location => {
+                detectUnitSummaryColumns(location.unitSummary);
+                detectUnitColumns(location.units);
+                setLocation(location);
+            })
+            .catch(Function.prototype);
+        }
     }, []);
 
     const detectUnitSummaryColumns = (unitSummary) => {
@@ -139,7 +155,6 @@ const LocationDetail = (props) => {
                             <MapContainer
                                 center={location.coordinates}
                                 zoom={15}
-                                scrollWheelZoom={true}
                                 dragging={false}
                                 zoomControl={false}
                                 doubleClickZoom={false}
@@ -169,11 +184,14 @@ const LocationDetail = (props) => {
                     <h3 className='text-center'>Location Features</h3>
                     <p className="text-center fst-italic">Unique features and amenities for this location include the following:</p>
                     <ul>
-                        {location.features.map((feature, index) => (
-                            <li key={index}>
-                                <h5 className="fw-bold mb-2">{feature}</h5>
-                            </li>
-                        ))}
+                        {
+                            location.features &&
+                            location.features.map((feature, index) => (
+                                <li key={index}>
+                                    <h5 className="fw-bold mb-2">{feature}</h5>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
             </div>
@@ -216,6 +234,7 @@ const LocationDetail = (props) => {
                                     </thead>
                                     <tbody>
                                         {
+                                            location.unitSummary &&
                                             location.unitSummary.map((unit, index) => (
                                                 <tr key={index}>
                                                     {
@@ -237,7 +256,7 @@ const LocationDetail = (props) => {
                         <TabPane tabId='2'>
                             <div className="availableUnitsTableWrapper py-4 table-responsive bg-sm-light">
                                 {
-                                    location.units.length > 0
+                                    location.units && location.units.length > 0
                                     ?
                                     <table className='availableUnitsTable table'>
                                         <thead>
@@ -276,35 +295,38 @@ const LocationDetail = (props) => {
                     </TabContent>
                 </div>
             </div>
-            {location.extras.length > 0 && <div className="extrasSection themeBackground pb-5">
-                <div className="container">
-                    <h3 className="text-center">Extras</h3>
-                    <p className="text-center fst-italic">Additional options and charges available at this location.</p>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Price</th>
-                                <th>Recurring</th>
-                                <th>Details</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                location.extras.map((extra, index) => {
-                                    return (
-                                        <tr key={index}>
-                                            <td>${extra.price.toFixed(2)}</td>
-                                            <td>{extra.frequency}</td>
-                                            <td>{extra.details}</td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </tbody>
-                    </table>
+            {
+                location.extras && 
+                location.extras.length > 0 && <div className="extrasSection themeBackground pb-5">
+                    <div className="container">
+                        <h3 className="text-center">Extras</h3>
+                        <p className="text-center fst-italic">Additional options and charges available at this location.</p>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th>Price</th>
+                                    <th>Recurring</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    location.extras.map((extra, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td>${extra.price.toFixed(2)}</td>
+                                                <td>{extra.frequency}</td>
+                                                <td>{extra.details}</td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>}
-            {(location.detailPageImages.length > 0) && <div className="gallerySection py-5">
+            }
+            {(location.detailPageImages && location.detailPageImages.length > 0) && <div className="gallerySection py-5">
                 <div className="container">
                     <h3 className='text-center'>Location Images</h3>
                     <Carousel

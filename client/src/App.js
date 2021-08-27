@@ -43,6 +43,10 @@ function App() {
           component={Directory}
         />
         <Route
+          path='/location/preview/:id'
+          component={LocationDetail}
+        />
+        <Route
           path='/location/:slug'
           component={LocationDetail}
         />

@@ -1,6 +1,7 @@
 var express = require('express');
 const mongoose = require('mongoose');
 const Location = require('../db/schemas/Location');
+const Preview = require('../db/schemas/Preview');
 var router = express.Router();
 const User = require('../db/schemas/User');
 
@@ -120,19 +121,70 @@ router.get('/locations', (req, res, next) => {
  * Get location from id. This is used when editing a draft location.
  */
  router.get('/location/:id', (req, res, next) => {
-  let query = { slug: req.params.id };
-  Location.findOne(query)
+  Location.findById(req.params.id)
   .then(location => {
-    if (!req.session.user.isSuperAdmin && location.isDraft && location.createdBy !== req.session.user._id) {
-      const err = new Error('Not authorized! Unable to edit a draft created by another user.');
-      err.status = 401;
-      next(err);
+    // If below super admin don't allow access to other people's drafts.
+    if (!req.session.user.isSuperAdmin && location.isDraft && !location.createdBy.equals(req.session.user._id)) {
+      res.status(401).send('Not authorized! Unable to edit a draft created by another user.');
     }
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json(location);
+    // If below admin don't allow access to other people's records.
+    else if (!req.session.user.isAdmin && !location.createdBy.equals(req.session.user._id)) {
+      res.status(401).send('You don\'t have access to this record!');
+    }
+    else {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(location);
+    }
   })
   .catch(next);
+});
+
+router.put('/location', (req, res, next) => {
+  if (!req.body._id) {
+    const err = new Error('_id field not found and is required for update operation.');
+    err.status = 400;
+    next(err);
+  }
+  // If you are a normal user make sure location belongs to you before updating
+  if (!req.session.user.isAdmin) {
+    Location.findOneAndUpdate({ _id: req.body._id, createdBy: req.session.user._id }, req.body)
+    .then(location => {
+      if (!location) {
+        res.status(401).send('You don\'t have access to this location!');
+      }
+      else {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(location);
+      }
+    }, err => {
+      console.log(err);
+      next(err);
+    });
+  }
+  else {
+    Location.findByIdAndUpdate(req.body._id, req.body)
+    .then(location => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(location);
+    }, err => {
+      console.log(err);
+      next(err);
+    });
+  }
+});
+
+router.post('/location/preview', (req, res, next) => {
+  console.log(req.body);
+  Preview.create(req.body)
+  .then(response => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(response);
+  })
+  .catch(error => next(error));
 });
 
 module.exports = router;

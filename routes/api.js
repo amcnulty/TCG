@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Location = require('../db/schemas/Location');
+const Preview = require('../db/schemas/Preview');
 const User = require('../db/schemas/User');
 
 /*
@@ -73,7 +74,7 @@ router.get('/user/is-logged-in', (req, res, next) => {
     res.status(200).send({...req.session.user, password: ''});
   }
   else {
-    res.status(401).send();
+    res.status(401).send('You are not logged in!');
   }
 });
 
@@ -104,6 +105,18 @@ router.get('/locations', (req, res, next) => {
 router.get('/location/:slug', (req, res, next) => {
   Location.findOne({ slug: req.params.slug, isDraft: false })
   .then(location => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(location);
+  })
+  .catch(next);
+});
+
+router.get('/location/preview/:id', (req, res, next) => {
+  console.log('here', req.params.id);
+  Preview.findById(req.params.id)
+  .then(location => {
+    console.log(location);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     res.json(location);

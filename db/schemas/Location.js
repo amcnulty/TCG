@@ -54,6 +54,8 @@ const locationSchema = mongoose.Schema({
     extras: [extraSchema],
     // Flag to check if this record is a draft
     isDraft: Boolean,
+    // Flag to check if this location is published
+    isPublished: Boolean,
     // The user who created this record
     createdBy: {
         type: mongoose.Schema.Types.ObjectId,

@@ -33,13 +33,22 @@ app.use(function(req, res, next) {
   const allowedOrigins = ['http://localhost:3000', 'https://portal.contractorsgarage.com'];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
-       res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Origin', origin);
   }
-  // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, XMLHttpRequest');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  next();
+  if (req.method === 'OPTIONS') {
+    // Send response to OPTIONS requests
+    res.set('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, XMLHttpRequest');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.set('Access-Control-Max-Age', '3600');
+    res.status(204).send('');
+  }
+  else {
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, XMLHttpRequest');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+  }
 });
 
 function auth(req, res, next) {

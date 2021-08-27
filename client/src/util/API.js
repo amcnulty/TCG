@@ -30,5 +30,18 @@ export const API = {
       console.log('from api: ', error);
       throw new Error(error);
     })
+  ),
+  /**
+   * Gets a preview of a location by the given id.
+   * @param {String} id The Id of the preview record that was created.
+   * @returns Promise that will resolve with the preview data
+   */
+  getPreviewLocation: (id) => (
+    axios.get(localHost + `/api/location/preview/${id}`)
+    .then(res => res.data)
+    .catch(error => {
+      console.log('from api: ', error);
+      throw new Error(error);
+    })
   )
 }
