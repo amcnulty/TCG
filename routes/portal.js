@@ -160,7 +160,12 @@ router.put('/location', (req, res, next) => {
       }
     }, err => {
       console.log(err);
-      next(err);
+      if (err.code === 11000 && err.codeName === 'DuplicateKey') {
+        res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
+      }
+      else {
+        next(err);
+      }
     });
   }
   else {
@@ -171,7 +176,12 @@ router.put('/location', (req, res, next) => {
       res.json(location);
     }, err => {
       console.log(err);
-      next(err);
+      if (err.code === 11000 && err.codeName === 'DuplicateKey') {
+        res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
+      }
+      else {
+        next(err);
+      }
     });
   }
 });
