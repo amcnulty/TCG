@@ -161,6 +161,9 @@ router.put('/location', (req, res, next) => {
           .map(item => item.src)
         );
       }
+      if (location.thumbnailImage && location.thumbnailImage.src !== (req.body.thumbnailImage && req.body.thumbnailImage.src)) {
+        imagesToBeDeleted.push(location.thumbnailImage.src);
+      }
       imagesToBeDeleted = imagesToBeDeleted.map(url => url.match(/TCG.[^.]*/)[0]);
 
       axios.delete(`https://${process.env.API_KEY}:${process.env.API_SECRET}@api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/resources/image/upload?${imagesToBeDeleted.map(url => 'public_ids[]=' + url).join('')}`)
@@ -207,6 +210,9 @@ router.put('/location', (req, res, next) => {
           location.detailPageImages.filter(image => !req.body.detailPageImages.find(requestImage => requestImage.src === image.src))
           .map(item => item.src)
         );
+      }
+      if (location.thumbnailImage && location.thumbnailImage.src !== (req.body.thumbnailImage && req.body.thumbnailImage.src)) {
+        imagesToBeDeleted.push(location.thumbnailImage.src);
       }
       imagesToBeDeleted = imagesToBeDeleted.map(url => url.match(/TCG.[^.]*/)[0]);
 
