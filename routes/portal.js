@@ -4,6 +4,7 @@ const Location = require('../db/schemas/Location');
 const Preview = require('../db/schemas/Preview');
 var router = express.Router();
 const User = require('../db/schemas/User');
+const axios = require('axios');
 
 router.get('/', (req, res, next) => {
   res.send('respond with a protected resource');
@@ -148,46 +149,97 @@ router.put('/location', (req, res, next) => {
   }
   // If you are a normal user make sure location belongs to you before updating
   if (!req.session.user.isAdmin) {
-    Location.findOneAndUpdate({ _id: req.body._id, createdBy: req.session.user._id }, req.body)
+    Location.findById(req.body._id)
     .then(location => {
-      if (!location) {
-        res.status(401).send('You don\'t have access to this location!');
+      let imagesToBeDeleted = [];
+      if (location.bannerImage && location.bannerImage.src !== (req.body.bannerImage && req.body.bannerImage.src)) {
+        imagesToBeDeleted.push(location.bannerImage.src);
       }
-      else {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json(location);
+      if (location.detailPageImages && req.body.detailPageImages) {
+        imagesToBeDeleted = imagesToBeDeleted.concat(
+          location.detailPageImages.filter(image => !req.body.detailPageImages.find(requestImage => requestImage.src === image.src))
+          .map(item => item.src)
+        );
       }
-    }, err => {
-      console.log(err);
-      if (err.code === 11000 && err.codeName === 'DuplicateKey') {
-        res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
-      }
-      else {
-        next(err);
-      }
+      imagesToBeDeleted = imagesToBeDeleted.map(url => url.match(/TCG.[^.]*/)[0]);
+
+      axios.delete(`https://${process.env.API_KEY}:${process.env.API_SECRET}@api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/resources/image/upload?${imagesToBeDeleted.map(url => 'public_ids[]=' + url).join('')}`)
+      .then(res => {
+        console.log('The Following Images Were Deleted:', imagesToBeDeleted);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+      Location.findOneAndUpdate({ _id: req.body._id, createdBy: req.session.user._id }, req.body)
+      .then(location => {
+        if (!location) {
+          res.status(401).send('You don\'t have access to this location!');
+        }
+        else {
+          res.statusCode = 200;
+          res.setHeader('Content-Type', 'application/json');
+          res.json(location);
+        }
+      }, err => {
+        console.log(err);
+        if (err.code === 11000 && err.codeName === 'DuplicateKey') {
+          res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
+        }
+        else {
+          res.status(err.status).send(err.message);
+        }
+      });
+    })
+    .catch(err => {
+      res.status(err.status).send(err.message);
     });
   }
   else {
-    Location.findByIdAndUpdate(req.body._id, req.body)
+    Location.findById(req.body._id)
     .then(location => {
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'application/json');
-      res.json(location);
-    }, err => {
-      console.log(err);
-      if (err.code === 11000 && err.codeName === 'DuplicateKey') {
-        res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
+      let imagesToBeDeleted = [];
+      if (location.bannerImage && location.bannerImage.src !== (req.body.bannerImage && req.body.bannerImage.src)) {
+        imagesToBeDeleted.push(location.bannerImage.src);
       }
-      else {
-        next(err);
+      if (location.detailPageImages && req.body.detailPageImages) {
+        imagesToBeDeleted = imagesToBeDeleted.concat(
+          location.detailPageImages.filter(image => !req.body.detailPageImages.find(requestImage => requestImage.src === image.src))
+          .map(item => item.src)
+        );
       }
+      imagesToBeDeleted = imagesToBeDeleted.map(url => url.match(/TCG.[^.]*/)[0]);
+
+      axios.delete(`https://${process.env.API_KEY}:${process.env.API_SECRET}@api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/resources/image/upload?${imagesToBeDeleted.map(url => 'public_ids[]=' + url).join('')}`)
+      .then(res => {
+        console.log('The Following Images Were Deleted:', imagesToBeDeleted);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+      Location.findByIdAndUpdate(req.body._id, req.body)
+      .then(location => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(location);
+      }, err => {
+        console.log(err);
+        if (err.code === 11000 && err.codeName === 'DuplicateKey') {
+          res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
+        }
+        else {
+          res.status(err.status).send(err.message);
+        }
+      });
+    })
+    .catch(err => {
+      res.status(err.status).send(err.message);
     });
   }
 });
 
 router.post('/location/preview', (req, res, next) => {
-  console.log(req.body);
   Preview.create(req.body)
   .then(response => {
     res.statusCode = 200;
@@ -195,6 +247,21 @@ router.post('/location/preview', (req, res, next) => {
     res.json(response);
   })
   .catch(error => next(error));
+});
+/*
+*          !!#########################!!
+*          !!                         !!
+*          !!         Images          !!
+*          !!                         !!
+*          !!#########################!!
+*/
+
+router.get('/image-upload-credentials', (req, res, next) => {
+  return res.status(200).send({
+    UPLOAD_PRESET: process.env.UPLOAD_PRESET,
+    API_KEY: process.env.API_KEY,
+    CLOUD_NAME: process.env.CLOUD_NAME
+  });
 });
 
 module.exports = router;
