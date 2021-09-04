@@ -132,6 +132,9 @@ router.get('/locations', (req, res, next) => {
     else if (!req.session.user.isAdmin && !location.createdBy.equals(req.session.user._id)) {
       res.status(401).send('You don\'t have access to this record!');
     }
+    else if (!location) {
+      res.status(404).send('No location found with that id!');
+    }
     else {
       res.statusCode = 200;
       res.setHeader('Content-Type', 'application/json');
@@ -141,11 +144,57 @@ router.get('/locations', (req, res, next) => {
   .catch(next);
 });
 
+router.post('/location', (req, res, next) => {
+  console.log('req.body :>> ', req.body);
+  Location.create({
+    ...(req.body.name && {name: req.body.name}),
+    ...(req.body.paypalEmail && {paypalEmail: req.body.paypalEmail}),
+    ...(req.body.enablePayments && {enablePayments: req.body.enablePayments}),
+    ...(req.body.paymentMarkupPercent && {paymentMarkupPercent: parseFloat(req.body.paymentMarkupPercent)}),
+    ...(req.body.paymentMarkupFixed && {paymentMarkupFixed: parseFloat(req.body.paymentMarkupFixed)}),
+    ...(req.body.coordinates && {coordinates: req.body.coordinates}),
+    ...(req.body.slug && {slug: req.body.slug}),
+    ...(req.body.addressFirstLine && {addressFirstLine: req.body.addressFirstLine}),
+    ...(req.body.addressSecondLine && {addressSecondLine: req.body.addressSecondLine}),
+    ...(req.body.thumbnailImage && {thumbnailImage: req.body.thumbnailImage}),
+    ...(req.body.shortDescription && {shortDescription: req.body.shortDescription}),
+    ...(req.body.longDescription && {longDescription: req.body.longDescription}),
+    ...(req.body.detailPageImages && {detailPageImages: req.body.detailPageImages}),
+    ...(req.body.features && {features: req.body.features}),
+    ...(req.body.units && {units: req.body.units}),
+    ...(req.body.unitSummary && {unitSummary: req.body.unitSummary}),
+    ...(req.body.contactName && {contactName: req.body.contactName}),
+    ...(req.body.contactEmail && {contactEmail: req.body.contactEmail}),
+    ...(req.body.contactPhone && {contactPhone: req.body.contactPhone}),
+    ...(req.body.bannerImage && {bannerImage: req.body.bannerImage}),
+    ...(req.body.extras && {extras: req.body.extras}),
+    ...(req.body.isDraft && {isDraft: true}),
+    ...(req.body.isPublished && {isPublished: false}),
+    ...(req.body.createdBy && {createdBy: req.session.user._i})
+  })
+  .then(location => {
+    console.log('location created :>> ', location);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(location);
+  })
+  .catch(error => {
+    console.log(error);
+    if (error.code === 11000) {
+      res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
+    }
+    else {
+      res.status(error.status ? error.status : 500).send(error.message ? error.message : 'There was a problem processing the request.');
+    }
+  });
+});
+
 router.put('/location', (req, res, next) => {
   if (!req.body._id) {
     const err = new Error('_id field not found and is required for update operation.');
     err.status = 400;
     next(err);
+    return
   }
   // If you are a normal user make sure location belongs to you before updating
   if (!req.session.user.isAdmin) {
@@ -190,12 +239,12 @@ router.put('/location', (req, res, next) => {
           res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
         }
         else {
-          res.status(err.status).send(err.message);
+          res.status(err.status ? err.status : 500).send(err.message ? err.message : 'There was an error processing this request.');
         }
       });
     })
     .catch(err => {
-      res.status(err.status).send(err.message);
+      res.status(err.status ? err.status : 500).send(err.message ? err.message : 'There was an error processing this request.');
     });
   }
   else {
