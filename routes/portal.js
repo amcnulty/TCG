@@ -124,16 +124,16 @@ router.get('/locations', (req, res, next) => {
  router.get('/location/:id', (req, res, next) => {
   Location.findById(req.params.id)
   .then(location => {
+    if (!location) {
+      res.status(404).send('No location found with that id!');
+    }
     // If below super admin don't allow access to other people's drafts.
-    if (!req.session.user.isSuperAdmin && location.isDraft && !location.createdBy.equals(req.session.user._id)) {
+    else if (!req.session.user.isSuperAdmin && location.isDraft && !location.createdBy.equals(req.session.user._id)) {
       res.status(401).send('Not authorized! Unable to edit a draft created by another user.');
     }
     // If below admin don't allow access to other people's records.
     else if (!req.session.user.isAdmin && !location.createdBy.equals(req.session.user._id)) {
       res.status(401).send('You don\'t have access to this record!');
-    }
-    else if (!location) {
-      res.status(404).send('No location found with that id!');
     }
     else {
       res.statusCode = 200;
@@ -170,7 +170,7 @@ router.post('/location', (req, res, next) => {
     ...(req.body.extras && {extras: req.body.extras}),
     ...(req.body.isDraft && {isDraft: true}),
     ...(req.body.isPublished && {isPublished: false}),
-    ...(req.body.createdBy && {createdBy: req.session.user._i})
+    createdBy: req.session.user._id
   })
   .then(location => {
     console.log('location created :>> ', location);
@@ -196,51 +196,69 @@ router.put('/location', (req, res, next) => {
     next(err);
     return
   }
-  // If you are a normal user make sure location belongs to you before updating
+  // If you are a normal user make sure location belongs to you before updating. Also check user's max location allowance if this is a publish operation.
   if (!req.session.user.isAdmin) {
     Location.findById(req.body._id)
     .then(location => {
-      let imagesToBeDeleted = [];
-      if (location.bannerImage && location.bannerImage.src !== (req.body.bannerImage && req.body.bannerImage.src)) {
-        imagesToBeDeleted.push(location.bannerImage.src);
+      // If this location is not published and user is trying to publish first check there location allowance.
+      let promise;
+      if (!location.isPublished && req.body.isPublished) {
+        promise = Location.count({createdBy: req.session.user._id, isPublished: true});
       }
-      if (location.detailPageImages && req.body.detailPageImages) {
-        imagesToBeDeleted = imagesToBeDeleted.concat(
-          location.detailPageImages.filter(image => !req.body.detailPageImages.find(requestImage => requestImage.src === image.src))
-          .map(item => item.src)
-        );
+      else {
+        promise = new Promise((resolve, reject) => resolve());
       }
-      if (location.thumbnailImage && location.thumbnailImage.src !== (req.body.thumbnailImage && req.body.thumbnailImage.src)) {
-        imagesToBeDeleted.push(location.thumbnailImage.src);
-      }
-      imagesToBeDeleted = imagesToBeDeleted.map(url => url.match(/TCG.[^.]*/)[0]);
-
-      axios.delete(`https://${process.env.API_KEY}:${process.env.API_SECRET}@api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/resources/image/upload?${imagesToBeDeleted.map(url => 'public_ids[]=' + url).join('')}`)
-      .then(res => {
-        console.log('The Following Images Were Deleted:', imagesToBeDeleted);
+      promise.then(count => {
+        if (count >= req.session.user.maxLocationAllowance) {
+          res.status(401).send('Unable to publish location maximum location allowance has been reached.');
+          return;
+        }
+        let imagesToBeDeleted = [];
+        if (location.bannerImage && location.bannerImage.src !== (req.body.bannerImage && req.body.bannerImage.src)) {
+          imagesToBeDeleted.push(location.bannerImage.src);
+        }
+        if (location.detailPageImages && req.body.detailPageImages) {
+          imagesToBeDeleted = imagesToBeDeleted.concat(
+            location.detailPageImages.filter(image => !req.body.detailPageImages.find(requestImage => requestImage.src === image.src))
+            .map(item => item.src)
+          );
+        }
+        if (location.thumbnailImage && location.thumbnailImage.src !== (req.body.thumbnailImage && req.body.thumbnailImage.src)) {
+          imagesToBeDeleted.push(location.thumbnailImage.src);
+        }
+        imagesToBeDeleted = imagesToBeDeleted.map(url => url.match(/TCG.[^.]*/)[0]);
+  
+        axios.delete(`https://${process.env.API_KEY}:${process.env.API_SECRET}@api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/resources/image/upload?${imagesToBeDeleted.map(url => 'public_ids[]=' + url).join('')}`)
+        .then(res => {
+          console.log('The Following Images Were Deleted:', imagesToBeDeleted);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+  
+        // Get location by id and check if it is created by the current user.
+        Location.findOneAndUpdate({ _id: req.body._id, createdBy: req.session.user._id }, req.body)
+        .then(location => {
+          if (!location) {
+            res.status(401).send('You don\'t have access to this location!');
+          }
+          else {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json(location);
+          }
+        }, err => {
+          console.log(err);
+          if (err.code === 11000 && err.codeName === 'DuplicateKey') {
+            res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
+          }
+          else {
+            res.status(err.status ? err.status : 500).send(err.message ? err.message : 'There was an error processing this request.');
+          }
+        });
       })
       .catch(err => {
-        console.log(err);
-      });
-
-      Location.findOneAndUpdate({ _id: req.body._id, createdBy: req.session.user._id }, req.body)
-      .then(location => {
-        if (!location) {
-          res.status(401).send('You don\'t have access to this location!');
-        }
-        else {
-          res.statusCode = 200;
-          res.setHeader('Content-Type', 'application/json');
-          res.json(location);
-        }
-      }, err => {
-        console.log(err);
-        if (err.code === 11000 && err.codeName === 'DuplicateKey') {
-          res.status(400).send('Current value already in use, url slug must be unique. Choose another value!');
-        }
-        else {
-          res.status(err.status ? err.status : 500).send(err.message ? err.message : 'There was an error processing this request.');
-        }
+        res.status(err.status ? err.status : 500).send(err.message ? err.message : 'The was an error processing this request.');
       });
     })
     .catch(err => {
@@ -302,6 +320,62 @@ router.post('/location/preview', (req, res, next) => {
     res.json(response);
   })
   .catch(error => next(error));
+});
+
+router.post('/location/hide/:id', (req, res, next) => {
+  if (!req.params.id) {
+    const err = new Error('_id field not found and is required for update operation.');
+    err.status = 400;
+    next(err);
+    return
+  }
+  Location.findById(req.params.id)
+  .then(location => {
+    // If below admin and location is not yours don't allow hide operation.
+    if (!req.session.user.isAdmin && !location.createdBy.equals(req.session.user._id)) {
+      res.status(401).send('Not authorized! Unable to hide this location!');
+    }
+    else {
+      Location.findByIdAndUpdate(req.params.id, {isPublished: false})
+      .then(location => {
+        res.status(200).send('Update Successful');
+      })
+      .catch(err => {
+        res.status(err.status ? err.status : 500).send(err.message ? err.message : 'There was a problem updating this location.');
+      });
+    }
+  })
+  .catch(err => {
+    res.status(err.status ? err.status : 500).send(err.message ? err.message : 'There was a problem updating this location.');
+  });
+});
+
+router.delete('/location/:id', (req, res, next) => {
+  if (!req.params.id) {
+    const err = new Error('_id field not found and is required for update operation.');
+    err.status = 400;
+    next(err);
+    return
+  }
+  Location.findById(req.params.id)
+  .then(location => {
+    // If below admin and location is not yours don't allow delete operation.
+    if (!req.session.user.isAdmin && !location.createdBy.equals(req.session.user._id)) {
+      res.status(401).send('Not authorized! Unable to delete this location!');
+    }
+    else {
+      Location.findByIdAndDelete(req.params.id)
+      .then(location => {
+        res.status(200).send('Location Deleted.');
+      })
+      .catch(err => {
+        res.status(err.status ? err.status : 500).send(err.message ? err.message : 'There was a problem deleting this location.');
+      });
+    }
+  })
+  .catch(err => {
+    res.status(err.status ? err.status : 500).send(err.message ? err.message : 'There was a problem deleting this location.');
+  });
 });
 /*
 *          !!#########################!!
