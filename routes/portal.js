@@ -84,6 +84,74 @@ router.delete('/user/:id', isAdmin, (req, res) => {
     }
   });
 });
+
+/**
+ * Updates basic user information like first name last name and username.
+ * Also updates the user information for the current session.
+ * Will send error if username is already taken in the system.
+ */
+router.put('/user/:id', (req, res, next) => {
+  if (!req.params.id) {
+    const err = new Error('_id field not found and is required for update operation.');
+    err.status = 400;
+    next(err);
+  }
+  else if (req.params.id !== req.session.user._id) {
+    const err = new Error('Cannot change data of another user.');
+    err.status = 400;
+    next(err);
+  }
+  else {
+    User.findByIdAndUpdate(req.params.id, req.body)
+    .then(user => {
+      req.session.user = {...req.session.user, ...req.body};
+      res.status(200).send('User update successful');
+    })
+    .catch(err => {
+      if (err.code === 11000 && err.codeName === 'DuplicateKey') {
+        res.status(400).send('Current username value already in use, username must be unique. Choose another value!');
+      }
+      res.status(err.status ? error.status : 500).send(err.message ? err.message : 'There was a problem processing the request.');
+    });
+  }
+});
+
+router.put('/user/change-password/:id', (req, res, next) => {
+  if (!req.params.id) {
+    const err = new Error('_id field not found and is required for update operation.');
+    err.status = 400;
+    next(err);
+  }
+  else if (req.params.id !== req.session.user._id) {
+    const err = new Error('Cannot change password of another user.');
+    err.status = 400;
+    next(err);
+  }
+  else if (!/^(?=.*[A-Z])(?=.*\d)[A-Za-z\d].{5,}$/.test(req.body.newPassword)) {
+    res.status(400).send('Password does not meet requirements. Must be minimum 6 digits long with at least one capital letter one number.');
+  }
+  else {
+    User.findById(req.params.id)
+    .then(user => {
+      user.comparePassword(req.body.password, (err, isMatch) => {
+        if (err) {
+          res.status(error.status ? error.status : 500).send(error.message ? error.message : 'There was a problem processing the request.');
+        }
+        else if (isMatch && isMatch === true) {
+          user.password = req.body.newPassword;
+          user.save();
+          res.status(200).send('Password Update Successful.');
+        }
+        else if (!isMatch) {
+          res.status(400).send('Password not recognized!');
+        }
+      });
+    })
+    .catch(err => {
+      res.status(error.status ? error.status : 500).send(error.message ? error.message : 'There was a problem processing the request.');
+    });
+  }
+});
 /*
 *          !!##########################!!
 *          !!                          !!
