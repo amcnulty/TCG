@@ -104,12 +104,13 @@ router.get('/locations', (req, res, next) => {
   }
   else if (req.session.user.isAdmin) {
     query = { $or: [{ isDraft: false }, { createdBy: req.session.user._id }] };
+    popOptions = 'createdBy';
   }
   else {
     query = { createdBy: req.session.user._id };
   }
   Location.find(query)
-  .populate(popOptions)
+  .populate(popOptions, {password: 0})
   .then(locations => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');

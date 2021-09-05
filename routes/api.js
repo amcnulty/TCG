@@ -71,7 +71,9 @@ router.post('/user/create', (req, res) => {
 
 router.get('/user/is-logged-in', (req, res, next) => {
   if (req.session.user) {
-    res.status(200).send({...req.session.user, password: ''});
+    const response = {...req.session.user};
+    delete response.password;
+    res.status(200).send(response);
   }
   else {
     res.status(401).send('You are not logged in!');
