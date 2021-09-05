@@ -28,27 +28,24 @@ const isAdmin = (req, res, next) => {
 }
 
 router.post('/user/create', isAdmin, (req, res) => {
-  const newUser = new User({...req.body});
+  const newUser = new User({
+    ...req.body,
+    ...(req.body.isAdmin && {isSuperAdmin: false, maxLocationAllowance: 69420})
+  });
 
   User.findOne({
     username: newUser.username
   }, (err, user) => {
     if (err) {
-      const err = new Error('Something went wrong!');
-      err.status = 500;
-      return next(err);
+      res.status(err.status ? error.status : 500).send(err.message ? err.message : 'There was a problem processing the request.');
     }
     if (user) {
-      const err = new Error('The requested username is already taken!!');
-      err.status = 202;
-      return next(err);
+      res.status(400).send('The requested username is already taken!!');
     }
     else {
       newUser.save(err => {
         if (err) {
-          const err = new Error('Something went wrong!');
-          err.status = 500;
-          return next(err);
+          res.status(err.status ? error.status : 500).send(err.message ? err.message : 'There was a problem processing the request.');
         }
         return res.status(200).send();
       });
@@ -70,19 +67,32 @@ router.get('/user/get-all-users', isAdmin, (req, res, next) => {
 router.delete('/user/:id', isAdmin, (req, res) => {
   User.findByIdAndDelete(req.params.id, (err, user) => {
     if (err) {
-      const err = new Error('Something went wrong!');
-      err.status = 500;
-      return next(err);
+      res.status(err.status ? error.status : 500).send(err.message ? err.message : 'There was a problem processing the request.');
     }
     if (!user) {
-      const err = new Error('User Id not found!');
-      err.status = 404;
-      return next(err);
+      res.status(err.status ? error.status : 500).send(err.message ? err.message : 'There was a problem processing the request.');
     }
     else {
-      return res.status(200).send();
+      return res.status(200).send('Delete successful');
     }
   });
+});
+
+router.put('/user/max-allowance/:id', isAdmin, (req, res) => {
+  if (!req.params.id) {
+    const err = new Error('_id field not found and is required for update operation.');
+    err.status = 400;
+    next(err);
+  }
+  else {
+    User.findByIdAndUpdate(req.params.id, {maxLocationAllowance: req.body.maxLocationAllowance})
+    .then(user => {
+      res.status(200).send('Updated Successfully!');
+    })
+    .catch(err => {
+      res.status(err.status ? error.status : 500).send(err.message ? err.message : 'There was a problem processing the request.');
+    });
+  }
 });
 
 /**

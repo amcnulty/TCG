@@ -40,35 +40,6 @@ router.post('/user/logout', (req, res) => {
   res.status(200).send();
 });
 
-router.post('/user/create', (req, res) => {
-  const newUser = new User({...req.body});
-
-  User.findOne({
-    username: newUser.username
-  }, (err, user) => {
-    if (err) {
-      const err = new Error('Something went wrong!');
-      err.status = 500;
-      return next(err);
-    }
-    if (user) {
-      const err = new Error('The requested username is already taken!!');
-      err.status = 202;
-      return next(err);
-    }
-    else {
-      newUser.save(err => {
-        if (err) {
-          const err = new Error('Something went wrong!');
-          err.status = 500;
-          return next(err);
-        }
-        return res.status(200).send();
-      });
-    }
-  });
-});
-
 router.get('/user/is-logged-in', (req, res, next) => {
   if (req.session.user) {
     const response = {...req.session.user};
@@ -124,69 +95,6 @@ router.get('/location/preview/:id', (req, res, next) => {
     res.json(location);
   })
   .catch(next);
-});
-
-/**
- * Create a new location
- */
-router.post('/location', (req, res, next) => {
-  console.log('req.body :>> ', req.body);
-  Location.create({
-    name: req.body.name,
-    paypalEmail: req.body.paypalEmail,
-    enablePayments: req.body.enablePayments,
-    paymentMarkupPercent: parseFloat(req.body.paymentMarkupPercent),
-    paymentMarkupFixed: parseFloat(req.body.paymentMarkupFixed),
-    coordinates: req.body.coordinates,
-    slug: req.body.slug,
-    addressFirstLine: req.body.addressFirstLine,
-    addressSecondLine: req.body.addressSecondLine,
-    thumbnailImage: req.body.thumbnailImage,
-    shortDescription: req.body.shortDescription,
-    longDescription: req.body.longDescription,
-    detailPageImages: req.body.detailPageImages,
-    features: req.body.features,
-    units: req.body.units,
-    unitSummary: req.body.unitSummary,
-    contactName: req.body.contactName,
-    contactEmail: req.body.contactEmail,
-    contactPhone: req.body.contactPhone,
-    bannerImage: req.body.bannerImage,
-    extras: req.body.extras
-  })
-  .then(location => {
-    console.log('location created :>> ', location);
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json(location);
-  })
-  .catch(error => next(error));
-});
-
-/**
- * Updates single existing location based on matching query
- */
-router.put('/location', (req, res, next) => {
-  console.log('req.body :>> ', req.body);
-  Location.findOneAndUpdate(req.body.query, req.body.payload, { new: true})
-  .then(document => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json(document);
-  });
-});
-
-/**
- * Updates many existing locations based on matching query
- */
-router.put('/locations', (req, res, next) => {
-  console.log('req.body :>> ', req.body);
-  Location.updateMany(req.body.query, req.body.payload, { new: true })
-  .then(documents => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json(document);
-  });
 });
 
 module.exports = router;
