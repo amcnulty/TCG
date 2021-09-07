@@ -197,102 +197,80 @@ const LocationDetail = (props) => {
             </div>
             <div className="unitInfoSection themeBackground py-5">
                 <div className="container">
-                    <h3 className='text-center'>Unit Information</h3>
-                    <p className="text-center fst-italic">Availability, pricing, and sizing information for the units at this locations are as follows:</p>
-                    <Nav tabs className='border-0'>
-                        <NavItem>
-                            <NavLink
-                                className={classnames({ active: activeTab === '1' })}
-                                onClick={() => { toggle('1'); }}
-                                >
-                                UNIT SUMMARY
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink
-                                className={classnames({ active: activeTab === '2' })}
-                                onClick={() => { toggle('2'); }}
-                            >
-                                AVAILABLE UNITS
-                            </NavLink>
-                        </NavItem>
-                    </Nav>
-                    <TabContent activeTab={activeTab}>
-                        <TabPane tabId='1'>
-                            <div className="unitSummaryTableWrapper py-4 table-responsive bg-sm-light">
-                                <table className="unitSummaryTable table">
-                                    <thead>
-                                        <tr>
-                                            {unitSummaryColumns.includes('unitName') && <th>Name</th>}
-                                            {unitSummaryColumns.includes('numberOfUnitsByType') && <th># Units At Site</th>}
-                                            {unitSummaryColumns.includes('monthlyRent') && <th>Rent (monthly)</th>}
-                                            {unitSummaryColumns.includes('width') && <th>Width</th>}
-                                            {unitSummaryColumns.includes('depth') && <th>Depth</th>}
-                                            {unitSummaryColumns.includes('squareFeet') && <th>Square Feet</th>}
-                                            {unitSummaryColumns.includes('height') && <th>Ceiling Height</th>}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            location.unitSummary &&
-                                            location.unitSummary.map((unit, index) => (
-                                                <tr key={index}>
-                                                    {
-                                                        unitSummaryColumns.map((key, index) => {
-                                                            return (
-                                                                <td key={index}>
-                                                                    {getValueForCell(unit, key)}
-                                                                </td>
-                                                            )
-                                                        })
-                                                    }
-                                                </tr>
-                                            ))
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                        </TabPane>
-                        <TabPane tabId='2'>
-                            <div className="availableUnitsTableWrapper py-4 table-responsive bg-sm-light">
+                    <h3 className='text-center'>Unit Summary</h3>
+                    <p className="text-center fst-italic">A summary of the types of units available at this location:</p>
+                    <div className="unitSummaryTableWrapper py-4 table-responsive bg-sm-light">
+                        <table className="unitSummaryTable table">
+                            <thead>
+                                <tr>
+                                    {unitSummaryColumns.includes('unitName') && <th>Name</th>}
+                                    {unitSummaryColumns.includes('numberOfUnitsByType') && <th># Units At Site</th>}
+                                    {unitSummaryColumns.includes('monthlyRent') && <th>Rent (monthly)</th>}
+                                    {unitSummaryColumns.includes('width') && <th>Width</th>}
+                                    {unitSummaryColumns.includes('depth') && <th>Depth</th>}
+                                    {unitSummaryColumns.includes('squareFeet') && <th>Square Feet</th>}
+                                    {unitSummaryColumns.includes('height') && <th>Ceiling Height</th>}
+                                </tr>
+                            </thead>
+                            <tbody>
                                 {
-                                    location.units && location.units.length > 0
-                                    ?
-                                    <table className='availableUnitsTable table'>
-                                        <thead>
-                                            <tr>
-                                                {unitColumns.includes('unitName') && <th>Name</th> }
-                                                {unitColumns.includes('monthlyRent') && <th>Rent (monthly)</th> }
-                                                {unitColumns.includes('width') && <th>Width</th> }
-                                                {unitColumns.includes('depth') && <th>Depth</th> }
-                                                {unitColumns.includes('squareFeet') && <th>Square Feet</th> }
-                                                {unitColumns.includes('height') && <th>Ceiling Height</th> }
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                    location.unitSummary &&
+                                    location.unitSummary.map((unit, index) => (
+                                        <tr key={index}>
                                             {
-                                                location.units.filter(unit => unit.available).map((unit, index) => (
-                                                    <tr key={index}>
-                                                        {
-                                                            unitColumns.map((key, index) => {
-                                                                return (
-                                                                    <td key={index}>
-                                                                        {getValueForCell(unit, key)}
-                                                                    </td>
-                                                                )
-                                                            })
-                                                        }
-                                                    </tr>
-                                                ))
+                                                unitSummaryColumns.map((key, index) => {
+                                                    return (
+                                                        <td key={index}>
+                                                            {getValueForCell(unit, key)}
+                                                        </td>
+                                                    )
+                                                })
                                             }
-                                        </tbody>
-                                    </table>
-                                    :
-                                    <span className="fw-bold">No available units at this time. Please contact us to be placed on waitlist.</span>
+                                        </tr>
+                                    ))
                                 }
-                            </div>
-                        </TabPane>
-                    </TabContent>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3 className='text-center'>Unit Availabilities</h3>
+                    <p className="text-center fst-italic">A listing of what units are currently available at this time:</p>
+                    <div className="availableUnitsTableWrapper py-4 table-responsive bg-sm-light">
+                        {
+                            location.units && location.units.filter(unit => unit.available).length > 0
+                            ?
+                            <table className='availableUnitsTable table'>
+                                <thead>
+                                    <tr>
+                                        {unitColumns.includes('unitName') && <th>Name</th> }
+                                        {unitColumns.includes('monthlyRent') && <th>Rent (monthly)</th> }
+                                        {unitColumns.includes('width') && <th>Width</th> }
+                                        {unitColumns.includes('depth') && <th>Depth</th> }
+                                        {unitColumns.includes('squareFeet') && <th>Square Feet</th> }
+                                        {unitColumns.includes('height') && <th>Ceiling Height</th> }
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        location.units.filter(unit => unit.available).map((unit, index) => (
+                                            <tr key={index}>
+                                                {
+                                                    unitColumns.map((key, index) => {
+                                                        return (
+                                                            <td key={index}>
+                                                                {getValueForCell(unit, key)}
+                                                            </td>
+                                                        )
+                                                    })
+                                                }
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                            </table>
+                            :
+                            <span className="fw-bold">No available units at this time. Please contact us to be placed on waitlist.</span>
+                        }
+                    </div>
                 </div>
             </div>
             {
