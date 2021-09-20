@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { Alert } from 'reactstrap';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { API } from '../../util/API';
@@ -40,6 +41,7 @@ function Directory(props) {
     return (
         <div className='Directory'>
             <div className="landingSection pt-3">
+                { locations && locations.filter(location => location.units && location.units.some(unit => unit.available)).length > 0 && <Alert className='text-center unitAlert' color='success'>We have locations with <b>units available</b>. Check the map and list below to find a location with units ready to rent.</Alert>}
                 <div className="container">
                     <h1 className='fw-light text-uppercase'>LOCATIONS</h1>
                     <p>View our many locations. Interact with the map below and click on map markers to see more information about a specific location.</p>
@@ -75,6 +77,7 @@ function Directory(props) {
                                         className='text-nowrap text-truncate'
                                         title={location.name}
                                     >{location.name}</h6>
+                                    { location.units && location.units.filter(unit => unit.available).length > 0 && <span className='badge bg-success w-50'>Units Available</span>}
                                     <address className='mb-0'>
                                         <p
                                             className='text-nowrap text-truncate m-0'
@@ -104,6 +107,8 @@ function Directory(props) {
             </div>
             <div className="locationListSection py-5">
                 <div className="container">
+                    <h3 className='fw-normal text-uppercase'>Our Locations</h3>
+                    <p>See a list of all our locations below. Locations marked with <span className='badge bg-success'>Units Available</span> currently have vacant units ready to rent.</p>
                     <div className="row">
                     {
                         locations.map(location => (
@@ -113,6 +118,7 @@ function Directory(props) {
                                             {location.name}
                                         </Link>
                                     </h3>
+                                    { location.units && location.units.filter(unit => unit.available).length > 0 && <span className='badge bg-success'>Units Available</span>}
                                     {location.addressFirstLine && <p className='mb-0'>{location.addressFirstLine}</p>}
                                     {location.addressSecondLine && <p className='mb-0'>{location.addressSecondLine}</p>}
                                 </div>
