@@ -159,6 +159,7 @@ const LocationDetail = (props) => {
                                 zoomControl={false}
                                 doubleClickZoom={false}
                                 scrollWheelZoom={false}
+                                tap={false}
                             >
                                 <TileLayer
                                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
