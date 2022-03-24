@@ -30,10 +30,8 @@ function DevelopmentServices(props) {
                         <p>Payment in a graduated structure as follows:</p>
                         <ul className='my-4'>
                             <li><span className='fw-bold'>Property #1:</span>  $2500 per year</li>
-                            <li><span className='fw-bold'>Property #2:</span>  $1,000 additional per year ($3500 total)</li>
-                            <li><span className='fw-bold'>Property #3+:</span>  $500 additional per year per additional property added</li>
+                            <li><span className='fw-bold'>Property #2:</span>  $1,500 additional per year per additional property added ($4,000 total for 2nd property, $5,500 for 3rd property for example)</li>
                         </ul>
-                        <p className='my-4'><span className='fw-bold'>5 year minimum term</span> with automatic year-to-year renewal.</p>
                     </div>
                     <div className="noteBox p-4 themeBackground">
                         <p className='mb-0'><span className='fw-bold'>Note:</span> <span className='fst-italic'>This is a subscription to a listing service.  You are not obtaining licensing rights to Contractors Garage nor joining a franchise.</span></p>
