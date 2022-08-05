@@ -113,16 +113,16 @@ const CarouselOverlay = (props) => {
         <div className="CarouselOverlay position-absolute d-none d-md-block p-3">
             <div className="container-fluid">
                 <div className="row text-center justify-content-center">
-                    {props.index === 0 && <h4>MULTIPLE CONVENIENT LOCATIONS</h4>}
-                    {props.index === 1 && <h4>LIST YOUR CONTRACTORS GARAGE WITH US</h4>}
-                    {props.index === 2 && <h4>DESIGNED WITH BUSINESSES IN MIND</h4>}
+                    {props.index === 0 && <h4>DESIGNED WITH BUSINESSES IN MIND</h4>}
+                    {props.index === 1 && <h4>MULTIPLE CONVENIENT LOCATIONS</h4>}
+                    {props.index === 2 && <h4>LIST YOUR CONTRACTORS GARAGE WITH US</h4>}
                     <span className='divider mt-3'></span>
                 </div>
                 <div className="row">
                     <div className="col text-center">
-                        {props.index === 0 && <button className="btn btn-primary mt-3" onClick={() => history.push('/directory')}>See Locations</button>}
-                        {props.index === 1 && <button className="btn btn-primary mt-3" onClick={() => history.push('/development-services')}>List With Us</button>}
-                        {props.index === 2 && <button className="btn btn-primary mt-3" onClick={() => history.push('/about-us')}>Learn More</button>}
+                        {props.index === 0 && <button className="btn btn-primary mt-3" onClick={() => history.push('/about-us')}>Learn More</button>}
+                        {props.index === 1 && <button className="btn btn-primary mt-3" onClick={() => history.push('/directory')}>See Locations</button>}
+                        {props.index === 2 && <button className="btn btn-primary mt-3" onClick={() => history.push('/development-services')}>List With Us</button>}
                     </div>
                 </div>
             </div>

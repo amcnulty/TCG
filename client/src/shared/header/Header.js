@@ -32,6 +32,9 @@ const Header = (props) => {
                                 <NavLink onClick={() => isOpen && toggle()} tag={Link} to="/" className={isActive('/')}>Home</NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink onClick={() => isOpen && toggle()} tag={Link} to="/about-us" className={isActive('/about-us')}>About</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink onClick={() => isOpen && toggle()} tag={Link} to="/directory" className={isActive('/directory')}>Locations</NavLink>
                             </NavItem>
                             <NavItem>

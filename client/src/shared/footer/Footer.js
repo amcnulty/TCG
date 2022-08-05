@@ -33,7 +33,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className='text-center'>Content copyright &copy;{new Date().getFullYear()} Contractors Garage is a tradmarked pending brand. All rights reserved.</div>
+                <div className='text-center'>Content copyright &copy;{new Date().getFullYear()} Contractors Garage is a tradmarked brand. All rights reserved.</div>
             </div>
         </div>
     );
