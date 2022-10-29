@@ -50,6 +50,10 @@ function App() {
           path='/location/:slug'
           component={LocationDetail}
         />
+        <Route
+          path='/privacy-policy'
+          render={() => (<img src="https://cdn.dribbble.com/users/1044993/screenshots/13234956/media/e83a3fdf897bcdd4762048aa58c8a68e.png" />)}
+        />
         <Redirect to='/'/>
       </Switch>
       <Route
