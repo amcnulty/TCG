@@ -27,8 +27,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "prebuild": "npm rebuild node-sass",
     "build": "react-scripts build",
-    "postinstall": "npm rebuild node-sass",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
