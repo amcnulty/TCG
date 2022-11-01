@@ -32,7 +32,7 @@ app.use(session({
 app.use(function(req, res, next) {
   const allowedOrigins = ['http://localhost:3000','http://localhost:3001', 'https://portal.contractorsgarage.com'];
   const origin = req.headers.origin;
-  console.log('req :>> ', req);
+  console.log('headers :>> ', req.headers);
   console.log('origin :>> ', origin);
   console.log('is allowed?:  ' + allowedOrigins.includes(origin));
   if (allowedOrigins.includes(origin)) {
