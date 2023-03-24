@@ -34,7 +34,7 @@ function Directory(props) {
 
     useEffect(() => {
         API.getAllLocations()
-        .then(setLocations)
+        .then((locations) => setLocations(locations.filter(location => location.isPublished)))
         .catch(Function.prototype);
     }, []);
 
