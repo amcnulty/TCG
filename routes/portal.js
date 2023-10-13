@@ -467,6 +467,7 @@ router.delete('/location/:id', (req, res, next) => {
 router.get('/image-upload-credentials', (req, res, next) => {
   return res.status(200).send({
     UPLOAD_PRESET: process.env.UPLOAD_PRESET,
+    VIDEO_UPLOAD_PRESET: process.env.VIDEO_UPLOAD_PRESET,
     API_KEY: process.env.API_KEY,
     CLOUD_NAME: process.env.CLOUD_NAME
   });

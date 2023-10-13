@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const unitSchema = require('./Unit');
 const imageSchema = require('./Image');
+const videoSchema = require('./Video');
 const extraSchema = require('./Extra');
 
 const locationSchema = mongoose.Schema({
@@ -36,6 +37,8 @@ const locationSchema = mongoose.Schema({
     longDescription: String,
     // Location images to show on the detail page
     detailPageImages: [imageSchema],
+    // Location videos to show on the detail page
+    detailPageVideos: [videoSchema],
     // List of features to show on detail page
     features: [String],
     // Unit information

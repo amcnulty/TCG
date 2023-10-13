@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Alert } from 'reactstrap';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
+import MarkerClusterGroup from '@changey/react-leaflet-markercluster';
 import { API } from '../../util/API';
 import './directory.sass';
 import { MapContext } from '../../context/Store';

@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Alert, Modal, ModalBody, ModalHeader, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import { Alert, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import Carousel from 'react-gallery-carousel';
-import classnames from 'classnames';
+import ReactPlayer from 'react-player/file';
 import './locationDetail.sass';
 import { API } from '../../util/API';
 import Payment from '../../components/payment/Payment';
 
 const LocationDetail = (props) => {
     const [location, setLocation] = useState();
-    const [activeTab, setActiveTab] = useState('1');
+    const [videoSectionExpanded, setVideoSectionExpanded] = useState(false);
     const [popupState, setPopupState] = useState('collapsed');
     const [showModal, setShowModal] = useState(false);
     const [paymentAmount, setPaymentAmount] = useState();
@@ -17,13 +17,7 @@ const LocationDetail = (props) => {
     const [unitSummaryColumns, setUnitSummaryColumns] = useState(['unitName', 'numberOfUnitsByType', 'monthlyRent', 'width', 'depth', 'squareFeet', 'height']);
     const [unitColumns, setUnitColumns] = useState(['unitName', 'monthlyRent', 'width', 'depth', 'squareFeet', 'height']);
 
-    const UNIT_COLUMNS = ['unitName', 'monthlyRent', 'width', 'depth', 'squareFeet', 'height'];
-
     const toggleModal = () => setShowModal(!showModal);
-
-    const toggle = tab => {
-        if(activeTab !== tab) setActiveTab(tab);
-    }
 
     useEffect(() => {
         if (props.match.params.id) {
@@ -180,6 +174,77 @@ const LocationDetail = (props) => {
                     </div>
                 </div>
             </div>
+            {
+                true && // if there is a video file for this location
+                <div className={`videoSection pb-5 ${videoSectionExpanded ? '' : 'overflow-y-hidden'}`}>
+                    <div className='position-relative container text-center'>
+                        <ReactPlayer
+                            url='https://res.cloudinary.com/dz54puaeo/video/upload/v1696942213/VIDEOTEST/TEST/qrvsgmuoxn5e5hvldnsk.mp4'
+                            controls
+                            width='100%'
+                            height='auto'
+                            config={{
+                                file: {
+                                    attributes: {
+                                        poster:
+                                            'https://res.cloudinary.com/dz54puaeo/image/upload/v1623514286/TCG/exteriorelevations.jpg'
+                                    }
+                                }
+                            }}
+                            fallback={
+                                <div className="d-flex justify-content-center align-items-center">
+                                    <div className="spinner-border" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </div>
+                                </div>
+                            }
+                        />
+                        {
+                            true && (!videoSectionExpanded ? // if there are multiple videos for this location
+                            <>
+                                <ReactPlayer
+                                    className='noPointerEvents position-absolute pe-4'
+                                    url='https://res.cloudinary.com/dz54puaeo/video/upload/v1696942213/VIDEOTEST/TEST/qrvsgmuoxn5e5hvldnsk.mp4'
+                                    controls
+                                    width='100%'
+                                    height='auto'
+                                    fallback={
+                                        <div className="d-flex justify-content-center align-items-center">
+                                            <div className="spinner-border" role="status">
+                                                <span className="visually-hidden">Loading...</span>
+                                            </div>
+                                        </div>
+                                    }
+                                />
+                                <div className='seeMorePanel position-relative mt-5 pb-5'>
+                                    <button
+                                        className='btn btn-link text-decoration-none fw-bold'
+                                        onClick={() => setVideoSectionExpanded(!videoSectionExpanded)}
+                                    >
+                                        See More
+                                    </button>
+                                </div>
+                            </> :
+                            Array.from('x'.repeat(5)).map((x, index) => (
+                                <ReactPlayer
+                                    key={index}
+                                    url='https://res.cloudinary.com/dz54puaeo/video/upload/v1696942213/VIDEOTEST/TEST/qrvsgmuoxn5e5hvldnsk.mp4'
+                                    controls
+                                    width='100%'
+                                    height='auto'
+                                    fallback={
+                                        <div className="d-flex justify-content-center align-items-center">
+                                            <div className="spinner-border" role="status">
+                                                <span className="visually-hidden">Loading...</span>
+                                            </div>
+                                        </div>
+                                    }
+                                />
+                            )))
+                        }
+                    </div>
+                </div>
+            }
             <div className="featuresSection gunMetalBackground py-5">
                 <div className="container">
                     <h3 className='text-center'>Location Features</h3>
