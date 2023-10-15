@@ -5,6 +5,7 @@ const Preview = require('../db/schemas/Preview');
 var router = express.Router();
 const User = require('../db/schemas/User');
 const axios = require('axios');
+const CloudinaryService = require('../services/cloudinaryService');
 
 router.get('/', (req, res, next) => {
   res.send('respond with a protected resource');
@@ -224,7 +225,6 @@ router.get('/locations', (req, res, next) => {
 });
 
 router.post('/location', (req, res, next) => {
-  console.log('req.body :>> ', req.body);
   Location.create({
     ...(req.body.name && {name: req.body.name}),
     ...(req.body.paypalEmail && {paypalEmail: req.body.paypalEmail}),
@@ -292,29 +292,7 @@ router.put('/location', (req, res, next) => {
           res.status(401).send('Unable to publish location maximum location allowance has been reached.');
           return;
         }
-        let imagesToBeDeleted = [];
-        if (location.bannerImage && location.bannerImage.src !== (req.body.bannerImage && req.body.bannerImage.src)) {
-          imagesToBeDeleted.push(location.bannerImage.src);
-        }
-        if (location.detailPageImages && req.body.detailPageImages) {
-          imagesToBeDeleted = imagesToBeDeleted.concat(
-            location.detailPageImages.filter(image => !req.body.detailPageImages.find(requestImage => requestImage.src === image.src))
-            .map(item => item.src)
-          );
-        }
-        if (location.thumbnailImage && location.thumbnailImage.src !== (req.body.thumbnailImage && req.body.thumbnailImage.src)) {
-          imagesToBeDeleted.push(location.thumbnailImage.src);
-        }
-        imagesToBeDeleted = imagesToBeDeleted.map(url => url.match(/TCG.[^.]*/)[0]);
-  
-        axios.delete(`https://${process.env.API_KEY}:${process.env.API_SECRET}@api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/resources/image/upload?${imagesToBeDeleted.map(url => 'public_ids[]=' + url).join('')}`)
-        .then(res => {
-          console.log('The Following Images Were Deleted:', imagesToBeDeleted);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-  
+        CloudinaryService.cleanupResourcesFromLocationUpdate(location, req);
         // Get location by id and check if it is created by the current user.
         Location.findOneAndUpdate({ _id: req.body._id, createdBy: req.session.user._id }, req.body)
         .then(location => {
@@ -347,29 +325,7 @@ router.put('/location', (req, res, next) => {
   else {
     Location.findById(req.body._id)
     .then(location => {
-      let imagesToBeDeleted = [];
-      if (location.bannerImage && location.bannerImage.src !== (req.body.bannerImage && req.body.bannerImage.src)) {
-        imagesToBeDeleted.push(location.bannerImage.src);
-      }
-      if (location.detailPageImages && req.body.detailPageImages) {
-        imagesToBeDeleted = imagesToBeDeleted.concat(
-          location.detailPageImages.filter(image => !req.body.detailPageImages.find(requestImage => requestImage.src === image.src))
-          .map(item => item.src)
-        );
-      }
-      if (location.thumbnailImage && location.thumbnailImage.src !== (req.body.thumbnailImage && req.body.thumbnailImage.src)) {
-        imagesToBeDeleted.push(location.thumbnailImage.src);
-      }
-      imagesToBeDeleted = imagesToBeDeleted.map(url => url.match(/TCG.[^.]*/)[0]);
-
-      axios.delete(`https://${process.env.API_KEY}:${process.env.API_SECRET}@api.cloudinary.com/v1_1/${process.env.CLOUD_NAME}/resources/image/upload?${imagesToBeDeleted.map(url => 'public_ids[]=' + url).join('')}`)
-      .then(res => {
-        console.log('The Following Images Were Deleted:', imagesToBeDeleted);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
+      CloudinaryService.cleanupResourcesFromLocationUpdate(location, req);
       Location.findByIdAndUpdate(req.body._id, req.body)
       .then(location => {
         res.statusCode = 200;
@@ -386,6 +342,7 @@ router.put('/location', (req, res, next) => {
       });
     })
     .catch(err => {
+      console.log('err :>> ', err);
       res.status(err.status).send(err.message);
     });
   }
