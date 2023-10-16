@@ -1,7 +1,8 @@
+import { useHistory } from 'react-router';
+import ReactPlayer from 'react-player/file';
 import CompanyLogo from '../../components/companyLogo/CompanyLogo';
 import './aboutUs.sass';
 import pinsImage from './images/pins.png';
-import { useHistory } from 'react-router';
 
 function AboutUs(props) {
     const history = useHistory();
@@ -26,6 +27,28 @@ function AboutUs(props) {
                         Would you also like to leave the rat race and build passive income through commercial real estate investment?  Please see us at <a href='http://www.insightcommercial.net/construction.html' target='_blank'>www.insightcommercial.net/construction</a> for personalized one-on-one consulting.
                     </p>
                 </div>
+            </div>
+            <div className='videoSection container py-5'>
+                <ReactPlayer
+                    url='https://res.cloudinary.com/dz54puaeo/video/upload/v1697497123/GARAGEVIDEOS/WhatIsContractors.mp4'
+                    controls
+                    width='100%'
+                    height='auto'
+                    config={{
+                        file: {
+                            attributes: {
+                                poster: 'https://res.cloudinary.com/dz54puaeo/image/upload/v1697497853/TCG/poster.jpg'
+                            }
+                        }
+                    }}
+                    fallback={
+                        <div className="d-flex justify-content-center align-items-center">
+                            <div className="spinner-border" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    }
+                />
             </div>
             <div className="locationImageSection"></div>
             <div className="descriptionSection gunMetalBackground py-5">

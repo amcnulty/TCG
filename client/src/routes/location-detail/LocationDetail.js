@@ -175,19 +175,18 @@ const LocationDetail = (props) => {
                 </div>
             </div>
             {
-                true && // if there is a video file for this location
+                location.detailPageVideos && location.detailPageVideos.length > 0 &&
                 <div className={`videoSection pb-5 ${videoSectionExpanded ? '' : 'overflow-y-hidden'}`}>
                     <div className='position-relative container text-center'>
                         <ReactPlayer
-                            url='https://res.cloudinary.com/dz54puaeo/video/upload/v1696942213/VIDEOTEST/TEST/qrvsgmuoxn5e5hvldnsk.mp4'
+                            url={location.detailPageVideos[0].src}
                             controls
                             width='100%'
                             height='auto'
                             config={{
                                 file: {
                                     attributes: {
-                                        poster:
-                                            'https://res.cloudinary.com/dz54puaeo/image/upload/v1623514286/TCG/exteriorelevations.jpg'
+                                        poster: location.detailPageVideos[0].poster
                                     }
                                 }
                             }}
@@ -200,14 +199,21 @@ const LocationDetail = (props) => {
                             }
                         />
                         {
-                            true && (!videoSectionExpanded ? // if there are multiple videos for this location
+                            location.detailPageVideos.length > 1 && (!videoSectionExpanded ? // if there are multiple videos for this location
                             <>
                                 <ReactPlayer
                                     className='noPointerEvents position-absolute pe-4'
-                                    url='https://res.cloudinary.com/dz54puaeo/video/upload/v1696942213/VIDEOTEST/TEST/qrvsgmuoxn5e5hvldnsk.mp4'
+                                    url={location.detailPageVideos[1].src}
                                     controls
                                     width='100%'
                                     height='auto'
+                                    config={{
+                                        file: {
+                                            attributes: {
+                                                poster: location.detailPageVideos[1].poster
+                                            }
+                                        }
+                                    }}
                                     fallback={
                                         <div className="d-flex justify-content-center align-items-center">
                                             <div className="spinner-border" role="status">
@@ -225,13 +231,21 @@ const LocationDetail = (props) => {
                                     </button>
                                 </div>
                             </> :
-                            Array.from('x'.repeat(5)).map((x, index) => (
+                            location.detailPageVideos.map((video, index) => (
+                                index === 0 ? <></> :
                                 <ReactPlayer
-                                    key={index}
-                                    url='https://res.cloudinary.com/dz54puaeo/video/upload/v1696942213/VIDEOTEST/TEST/qrvsgmuoxn5e5hvldnsk.mp4'
+                                    key={video._id}
+                                    url={video.src}
                                     controls
                                     width='100%'
                                     height='auto'
+                                    config={{
+                                        file: {
+                                            attributes: {
+                                                poster: video.poster
+                                            }
+                                        }
+                                    }}
                                     fallback={
                                         <div className="d-flex justify-content-center align-items-center">
                                             <div className="spinner-border" role="status">

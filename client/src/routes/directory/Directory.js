@@ -136,8 +136,8 @@ function Directory(props) {
                         </div>
                         <div className="col text-center checkUsOutContainer">
                             <h2>Get On The Map</h2>
-                            <p className='fst-italic'>List with us to get your location displayed on the map.</p>
-                            <button type='button' className="btn btn-primary" onClick={() => history.push('/development-services')}>List With Us</button>
+                            <p className='fst-italic'>Brand with us to get your location displayed on the map.</p>
+                            <button type='button' className="btn btn-primary" onClick={() => history.push('/development-services')}>Brand With Us</button>
                         </div>
                     </div>
                 </div>

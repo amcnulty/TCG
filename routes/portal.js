@@ -294,7 +294,7 @@ router.put('/location', (req, res, next) => {
         }
         CloudinaryService.cleanupResourcesFromLocationUpdate(location, req);
         // Get location by id and check if it is created by the current user.
-        Location.findOneAndUpdate({ _id: req.body._id, createdBy: req.session.user._id }, req.body)
+        Location.findOneAndUpdate({ _id: req.body._id, createdBy: req.session.user._id }, req.body, {new: true})
         .then(location => {
           if (!location) {
             res.status(401).send('You don\'t have access to this location!');
@@ -326,7 +326,7 @@ router.put('/location', (req, res, next) => {
     Location.findById(req.body._id)
     .then(location => {
       CloudinaryService.cleanupResourcesFromLocationUpdate(location, req);
-      Location.findByIdAndUpdate(req.body._id, req.body)
+      Location.findByIdAndUpdate(req.body._id, req.body, {new: true})
       .then(location => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');

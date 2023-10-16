@@ -6,7 +6,7 @@ function DevelopmentServices(props) {
         <div className='DevelopmentServices'>
             <div className="landingSection py-5">
                 <div className="container">
-                    <h1 className='fw-light text-uppercase'>LIST WITH US</h1>
+                    <h1 className='fw-light text-uppercase'>BRAND WITH US</h1>
                     <CompanyLogo textOnly/>
                 </div>
             </div>
@@ -27,11 +27,14 @@ function DevelopmentServices(props) {
                     </div>
                     <h4>Payment</h4>
                     <div className="ms-4">
-                        <p>Payment in a graduated structure as follows:</p>
+                        <p>Payment for our branding and services is a straightforward flat rate of <b>$2,000</b> per location annually. For instance, if you're branding three locations with us, your annual cost would be $6,000 to cover all three locations.</p>
+                        <p><span className="fw-bold">Example:</span> With three locations:</p>
                         <ul className='my-4'>
-                            <li><span className='fw-bold'>Property #1:</span>  $2500 per year</li>
-                            <li><span className='fw-bold'>Property #2:</span>  $1,500 additional per year per additional property added ($4,000 total for 2nd property, $5,500 for 3rd property for example)</li>
+                            <li><span className='fw-bold'>Property #1:</span>  $2000 per year</li>
+                            <li><span className='fw-bold'>Property #2:</span>  $2,000 additional per year</li>
+                            <li><span className='fw-bold'>Property #2:</span>  $2,000 additional per year</li>
                         </ul>
+                        <p>Total annually: <b>$6,000</b></p>
                     </div>
                     <div className="noteBox p-4 themeBackground">
                         <p className='mb-0'><span className='fw-bold'>Note:</span> <span className='fst-italic'>This is a subscription to a listing service.  You are not obtaining licensing rights to Contractors Garage nor joining a franchise.</span></p>
