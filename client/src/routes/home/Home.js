@@ -67,15 +67,15 @@ function Home(props) {
                                     <i className="fas fa-check checkIcon"></i>
                                     <span className='ps-3'>Mobile Trucks:  Food, Dog Grooming, Veterinary, Tool</span>
                                 </li>
-                                <li className='d-flex align-items-center'>
+                                <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
                                     <span className='ps-3'>Hobbyists, Car Collectors</span>
                                 </li>
-                                <li className='d-flex align-items-center'>
+                                <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
                                     <span className='ps-3'>General Contractors</span>
                                 </li>
-                                <li className='d-flex align-items-center'>
+                                <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
                                     <span className='ps-3'>E-Commerce Resellers</span>
                                 </li>
