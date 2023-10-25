@@ -49,31 +49,39 @@ function Home(props) {
                             <i className="fas fa-city homepageIcon"></i>
                             <h5 className='small pt-4'>INDUSTRIAL STORAGE SPACE</h5>
                             <h2><span className='themeText'>Access</span> Premium Storage Suitable For Commercial Use</h2>
-                            <p className='fst-italic'>Contractors Garage offers large functional industrial space designed exclusively for entrepreneurs and hobbyists including but not limited to landscapers, plumbers, electricians, specialty vehicles, or about anyone needing space larger than mini storage but smaller and less expensive than traditional incubator industrial space.</p>
+                            <p className='fst-italic'>Contractors Garage offers large industrial storage space specifically designed for anyone needing space larger and more functional/usable than mini storage, but simpler and less expensive per month than traditional incubator industrial flex space. Users including:</p>
                             <ul className='list-unstyled'>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Multiple locations in Kansas City Metro and may be expanding to a town near you</span>
+                                    <span className='ps-3'>Entrepreneurs of all types</span>
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Insulated Units</span>
+                                    <span className='ps-3'>Construction Tradesman: Plumbers, Electricians, HVAC Contractors</span>
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Electric service in all units</span>
+                                    <span className='ps-3'>Landscapers, Arborists, Hardscaping, Mud Jacking</span>
                                 </li>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Large drive-in doors</span>
-                                </li>
-                                <li className='pb-2 d-flex align-items-center'>
-                                    <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Huge parking lots for maximum trailer maneuverability</span>
+                                    <span className='ps-3'>Mobile Trucks:  Food, Dog Grooming, Veterinary, Tool</span>
                                 </li>
                                 <li className='d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
-                                    <span className='ps-3'>Storefronts, bathroom(s), water, outside storage, and/or mailboxes available at some locations</span>
+                                    <span className='ps-3'>Hobbyists, Car Collectors</span>
+                                </li>
+                                <li className='d-flex align-items-center'>
+                                    <i className="fas fa-check checkIcon"></i>
+                                    <span className='ps-3'>General Contractors</span>
+                                </li>
+                                <li className='d-flex align-items-center'>
+                                    <i className="fas fa-check checkIcon"></i>
+                                    <span className='ps-3'>E-Commerce Resellers</span>
+                                </li>
+                                <li className='d-flex align-items-center'>
+                                    <i className="fas fa-check checkIcon"></i>
+                                    <span className='ps-3'>Recreational Vehicles</span>
                                 </li>
                             </ul>
                         </div>
