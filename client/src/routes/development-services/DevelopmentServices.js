@@ -27,7 +27,11 @@ function DevelopmentServices(props) {
                     </div>
                     <h4>Payment</h4>
                     <div className="ms-4">
-                        <p>Payment for our branding and services is a straightforward flat rate of <b>$2,000</b> per location annually.</p>
+                        <p>We offer two payment options for our branding and services: an annual subscription or a one-time payment.</p>
+                        <ul className='my-4'>
+                            <li><span className='fw-bold'>Annual Fee:</span>  <strong>$3,000</strong> per year <span className="text-secondary">(Ten year term minimum)</span></li>
+                            <li><span className='fw-bold'>One-time Fee:</span>  <strong>$30,000</strong> one-time lifetime fee <span className="text-secondary">(Can be financed or packaged into your construction loan)</span></li>
+                        </ul>
                     </div>
                     <div className="noteBox p-4 themeBackground">
                         <p className='mb-0'><span className='fw-bold'>Note:</span> <span className='fst-italic'>This is a subscription to a listing service.  You are not obtaining licensing rights to Contractors Garage nor joining a franchise.</span></p>
