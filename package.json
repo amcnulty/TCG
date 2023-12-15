@@ -10,7 +10,8 @@
     "build-run": "cd client/ && npm run build && cd .. && npm start",
     "install": "npm ci --dry-run=false --ignore-scripts=true",
     "postinstall": "cd node_modules/bcrypt && node-pre-gyp install --fallback-to-build",
-    "build": "cd client/ && npm ci --dry-run=false --ignore-scripts=true && npm run build"
+    "build-old": "cd client/ && npm ci --dry-run=false --ignore-scripts=true && npm run build",
+    "build": "cd client/ && npm install --dry-run=false --ignore-scripts=true && npm run build"
   },
   "dependencies": {
     "axios": "^0.21.1",
