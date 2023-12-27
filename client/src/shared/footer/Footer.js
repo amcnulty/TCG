@@ -14,7 +14,7 @@ const Footer = () => {
                     <div className="col-12 col-md-8">
                         <div className="row">
                             <div className="col-6 col-lg-4">
-                                <h6>Contractors Garage</h6>
+                                <h6>Contractor Garage&trade;</h6>
                                 <ul className="list-unstyled">
                                     <li><NavLink className="text-white-50" tag={Link} to='/'>Home</NavLink></li>
                                     <li><NavLink className="text-white-50" tag={Link} to='/about-us'>About</NavLink></li>
@@ -33,7 +33,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className='text-center'>Content copyright &copy;{new Date().getFullYear()} Contractors Garage is a tradmarked brand. All rights reserved.</div>
+                <div className='text-center'>Content copyright &copy;{new Date().getFullYear()} Contractor Garage&trade; is a tradmarked brand. All rights reserved.</div>
             </div>
         </div>
     );

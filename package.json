@@ -11,7 +11,8 @@
     "install": "npm ci --dry-run=false --ignore-scripts=true",
     "postinstall": "cd node_modules/bcrypt && node-pre-gyp install --fallback-to-build",
     "build-old": "cd client/ && npm ci --dry-run=false --ignore-scripts=true && npm run build",
-    "build-old2": "cd client/ && npm run build"
+    "build-old2": "cd client/ && npm run build",
+    "deploy": "cd client/ && npm run build && ncp build ../build && git add . && git commit -m \"Deploy Commit\" && git push"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -26,5 +27,8 @@
     "jade": "~1.11.0",
     "mongoose": "^5.12.8",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "ncp": "^2.0.0"
   }
 }

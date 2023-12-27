@@ -49,7 +49,7 @@ function Home(props) {
                             <i className="fas fa-city homepageIcon"></i>
                             <h5 className='small pt-4'>INDUSTRIAL STORAGE SPACE</h5>
                             <h2><span className='themeText'>Access</span> Premium Storage Suitable For Commercial Use</h2>
-                            <p className='fst-italic'>Contractors Garage offers large industrial storage space specifically designed for anyone needing space larger and more functional/usable than mini storage, but simpler and less expensive per month than traditional incubator industrial flex space. Users including:</p>
+                            <p className='fst-italic'>Contractor Garage&trade; offers large industrial storage space specifically designed for anyone needing space larger and more functional/usable than mini storage, but simpler and less expensive per month than traditional incubator industrial flex space. Users including:</p>
                             <ul className='list-unstyled'>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
@@ -123,7 +123,7 @@ const CarouselOverlay = (props) => {
                 <div className="row text-center justify-content-center">
                     {props.index === 0 && <h4>DESIGNED WITH BUSINESSES IN MIND</h4>}
                     {props.index === 1 && <h4>MULTIPLE CONVENIENT LOCATIONS</h4>}
-                    {props.index === 2 && <h4>BRAND YOUR CONTRACTORS GARAGE WITH US</h4>}
+                    {props.index === 2 && <h4>BRAND YOUR CONTRACTOR GARAGE&trade; WITH US</h4>}
                     <span className='divider mt-3'></span>
                 </div>
                 <div className="row">

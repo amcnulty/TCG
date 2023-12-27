@@ -11,14 +11,14 @@ const CompanyLogo = (props) => {
         return <img
             className="CompanyLogo"
             src={LightLogoTransparentTextOnlySVG}
-            alt="Contractors Garage"
+            alt="Contractor GarageTM"
         />
     }
     else if (props.square) {
         return <img
             className="CompanyLogo"
             src={props.dark ? SquareDarkTransparentSVG : SquareLightTransparentSVG}
-            alt="Contractors Garage"
+            alt="Contractor GarageTM"
         />
     }
     return (
@@ -27,13 +27,13 @@ const CompanyLogo = (props) => {
             <img
                 className="CompanyLogo"
                 src={props.transparent ? DarkLogoTransparentSVG : DarkLogoSVG}
-                alt="Contractors Garage"
+                alt="Contractor GarageTM"
             />  
         :
             <img
                 className="CompanyLogo"
                 src={props.transparent ? LightLogoTransparentSVG : LightLogoSVG}
-                alt="Contractors Garage"
+                alt="Contractor GarageTM"
             />
     );
 };

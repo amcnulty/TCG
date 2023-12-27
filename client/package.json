@@ -28,9 +28,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuild": "npm rebuild node-sass",
+    "prebuild-old": "npm rebuild node-sass",
     "build": "react-scripts build",
-    "postbuild": "npx rimraf node_modules",
+    "postbuild-old": "npx rimraf node_modules",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
