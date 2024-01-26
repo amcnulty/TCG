@@ -1,9 +1,11 @@
+import { Alert } from "reactstrap";
 import CompanyLogo from "../../components/companyLogo/CompanyLogo";
 import './developmentServices.sass';
 
 function DevelopmentServices(props) {
     return (
         <div className='DevelopmentServices'>
+            <Alert className='text-center' color='primary'>Contractor Garage&trade; will soon be hosting a seminar lead by Kevin Combs. Check out the <a className="text-decoration-none" href="https://www.contractorgarage.com/seminar" target="_blank" rel="noopener noreferrer">seminar information page</a> for more details.</Alert>
             <div className="landingSection py-5">
                 <div className="container">
                     <h1 className='fw-light text-uppercase'>BRAND WITH US</h1>
@@ -14,8 +16,8 @@ function DevelopmentServices(props) {
                 <div className="container">
                     <h3>Subscribe to <span className='fst-italic'>contractorgarage.com</span></h3>
                     <div className="ms-4">
-                        <p>Do you have a Contractor Garage&trade; of your own and would like to partner with us?</p>
-                        <p>Annual subscriptions under <a className='text-decoration-none' href='http://www.contractorgarage.com' target="_blank" rel="noopener noreferrer">contractorgarage.com</a> website include:</p>
+                        <p>If earning passive income in an unsaturated niche of commercial real estate is of interest to you, join the leading brand in large-bay storage. Subscribers benefit through instant branding and credibility with lenders, municipalities, and investors. We are the feasibility study. You can be confident you will step into a proven concept on day one without the steep learning curve.</p>
+                        <p>Subscriptions under <a className='text-decoration-none' href='https://www.contractorgarage.com' target="_blank" rel="noopener noreferrer">contractorgarage.com</a> website include:</p>
                         <ul>
                             <li>Your own page under <span className='fst-italic'>contractorgarage.com</span> for <span className='fw-bold'>each</span> location</li>
                             <li><span className='fw-bold'>Lead generation</span> with your direct contact info</li>

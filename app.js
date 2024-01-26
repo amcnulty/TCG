@@ -31,7 +31,7 @@ app.use(session({
 }));
 
 app.use(function(req, res, next) {
-  const allowedOrigins = ['http://localhost:3000','http://localhost:3001', 'https://portal.contractorsgarage.com'];
+  const allowedOrigins = ['http://localhost:3000','http://localhost:3001', 'https://portal.contractorgarage.com'];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);

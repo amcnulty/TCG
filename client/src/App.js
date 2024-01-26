@@ -10,6 +10,7 @@ import Footer from './shared/footer/Footer';
 import Header from './shared/header/Header';
 import ScrollToTop from './components/scrollToTop/ScrollToTop'
 import Store from './context/Store';
+import Seminar from './routes/seminar/Seminar';
 
 function App() {
 
@@ -49,6 +50,10 @@ function App() {
         <Route
           path='/location/:slug'
           component={LocationDetail}
+        />
+        <Route
+          path='/seminar'
+          component={Seminar}
         />
         <Route
           path='/privacy-policy'

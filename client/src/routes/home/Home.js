@@ -49,7 +49,7 @@ function Home(props) {
                             <i className="fas fa-city homepageIcon"></i>
                             <h5 className='small pt-4'>INDUSTRIAL STORAGE SPACE</h5>
                             <h2><span className='themeText'>Access</span> Premium Storage Suitable For Commercial Use</h2>
-                            <p className='fst-italic'>Contractor Garage&trade; offers large industrial storage space specifically designed for anyone needing space larger and more functional/usable than mini storage, but simpler and less expensive per month than traditional incubator industrial flex space. Users including:</p>
+                            <p className='fst-italic'>Contractor Garage&trade; offers large bay storage specifically designed for individuals and businesses needing space larger and more functional than mini storage, but simpler and less expensive than traditional industrial flex space. Designed with users in mind:</p>
                             <ul className='list-unstyled'>
                                 <li className='pb-2 d-flex align-items-center'>
                                     <i className="fas fa-check checkIcon"></i>
