@@ -3,6 +3,7 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import {
     Card,
     CardBody,
+    CardImg,
     CardSubtitle,
     CardTitle,
     List,
@@ -12,6 +13,7 @@ import {
     ListGroupItemText
 } from 'reactstrap';
 import CompanyLogo from '../../components/companyLogo/CompanyLogo';
+import ProfilePic from './profilePic.jpg';
 import './Seminar.sass';
 
 const location = {
@@ -123,6 +125,12 @@ const Seminar = () => {
                                     <CardSubtitle className='text-secondary'>
                                         CCIM
                                     </CardSubtitle>
+                                    <div className='d-flex justify-content-center'>
+                                        <CardImg
+                                            className='profilePic'
+                                            src={ProfilePic}
+                                        />
+                                    </div>
                                 </CardBody>
                                 <ListGroup className='small' flush>
                                     <ListGroupItem>
