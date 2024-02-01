@@ -3,7 +3,8 @@ var router = express.Router();
 const Location = require('../db/schemas/Location');
 const Preview = require('../db/schemas/Preview');
 const User = require('../db/schemas/User');
-const sgMail = require('@sendgrid/mail')
+const sgMail = require('@sendgrid/mail');
+const Honeypot = require('../db/schemas/Honeypot');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 /*
@@ -112,17 +113,30 @@ router.get('/location/preview/:id', (req, res, next) => {
 router.post('/seminar/sign-up', (req, res, next) => {
   // Catch honeypot requests and send 200 response to not alert anything is wrong
   if (req.body && req.body.username) {
-    return res.status(200).send('sign up complete');
+    const honeypot = new Honeypot({
+      timestamp: new Date().toLocaleString(),
+      requestData: JSON.stringify(req.body)
+    });
+    honeypot.save()
+      .then(() => {
+        console.log('saved honeypot');
+        return res.status(200).send('sign up complete');
+      })
+      .catch((e) => {
+        console.log('error saving honeypot', e);
+        return res.status(200).send('sign up complete');
+      });
+  } else {
+    sgMail.send({
+      to: ['kevin.combs@contractorgarage.com', 'kcombs@insightcommercial.net'],
+      bcc: ['aaron.mcnulty@contractorgarage.com', 'amcnulty88@swbell.net'],
+      from: 'webmaster@contractorgarage.com',
+      templateId: 'd-558864b6508d4cb2880a7c7b45e24b35',
+      dynamicTemplateData: req.body,
+    }).then(() => {
+      res.status(200).send();
+    }).catch(next);
   }
-  sgMail.send({
-    to: ['kevin.combs@contractorgarage.com', 'kcombs@insightcommercial.net'],
-    bcc: ['aaron.mcnulty@contractorgarage.com', 'amcnulty88@swbell.net'],
-    from: 'webmaster@contractorgarage.com',
-    templateId: 'd-558864b6508d4cb2880a7c7b45e24b35',
-    dynamicTemplateData: req.body,
-  }).then(() => {
-    res.status(200).send();
-  }).catch(next);
 })
 
 module.exports = router;

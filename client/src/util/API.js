@@ -49,7 +49,6 @@ export const API = {
     submitSeminarSignupForm: (formData) =>
         axios
             .post(localHost + `/api/seminar/sign-up`, formData)
-            .then(console.log)
             .catch((error) => {
                 console.log('from api: ', error);
                 throw new Error(error);
