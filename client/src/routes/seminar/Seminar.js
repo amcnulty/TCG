@@ -489,15 +489,13 @@ const Seminar = () => {
                                         />
                                     </FormGroup>
                                     <FormGroup>
-                                        <Label for='hearAboutUs'>
-                                            Do you have any special requests?
+                                        <Label for='specialRequests'>
+                                            Geographic Market
                                         </Label>
                                         <Input
                                             id='specialRequests'
                                             name='specialRequests'
-                                            type='textarea'
-                                            maxLength={500}
-                                            rows={4}
+                                            type='text'
                                             value={formData.specialRequests}
                                             onChange={handleInputChange}
                                         />
