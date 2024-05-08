@@ -108,7 +108,7 @@ const Seminar = () => {
                     <h2 className='fw-light'>
                         Introduction to the Development of Large-Bay storage
                     </h2>
-                    <p className='text-muted'>April 26th-27th, 2024</p>
+                    <p className='text-muted'>October 25th-26th, 2024</p>
                     <p className='fw-light text-uppercase'>Hosted By</p>
                     <CompanyLogo textOnly />
                 </div>
@@ -276,12 +276,12 @@ const Seminar = () => {
                                 <div>
                                     <label className='fw-bold'>Dates:</label>
                                     <span className='fst-italic ms-3'>
-                                        April 26th-27th 2024
+                                        October 25th-26th 2024
                                     </span>
                                 </div>
                                 <div className='py-2'>
                                     <label className='fw-bold'>
-                                        April 25th 2024:
+                                        October 24th 2024:
                                     </label>
                                     <span className='ms-3'>
                                         7:00 PM. Optional meet and greet at Brew
@@ -294,7 +294,7 @@ const Seminar = () => {
                                 <div className='py-2'>
                                     <label className='fw-bold'>Day 1:</label>
                                     <span className='ms-3'>
-                                        April 26th 2024: 9:00 AM Session 1 at
+                                        October 25th 2024: 9:00 AM Session 1 at
                                         Brew Lab
                                         <i>
                                             (7925 Marty St, Overland Park, KS)
@@ -305,7 +305,7 @@ const Seminar = () => {
                                 <div className='py-1'>
                                     <label className='fw-bold'>Day 2:</label>
                                     <span className='ms-3'>
-                                        April 27th 2024: 9:00 AM Bus tour
+                                        October 26th 2024: 9:00 AM Bus tour
                                     </span>
                                     <p>
                                         Bus tour conclusion at Brew Lab around
@@ -360,11 +360,11 @@ const Seminar = () => {
                                     the payment terms:
                                 </p>
                                 <p>
-                                    <b>Cost:</b> $985 per person.{' '}
+                                    <b>Cost:</b> $1000 per person.{' '}
                                 </p>
                                 <p>
                                     <b>Cancellation Policy:</b> Fully refundable
-                                    if canceled up to 2 months before the class.
+                                    if canceled up to 1 month before the class.
                                 </p>
                                 <p>
                                     <b>Payment Instructions:</b> You will
