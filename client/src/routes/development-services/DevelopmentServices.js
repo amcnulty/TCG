@@ -133,72 +133,43 @@ function DevelopmentServices(props) {
                         </span>
                     </h4>
                     <p>
-                        Excited about the booming industrial storage market?
-                        Turn your passion into profit with our comprehensive
-                        Teachable course,{' '}
+                        Want to know more? Learn everything there is to know
+                        about Contractor Garage&trade; and the large-bay storage
+                        niche by the guy who coined the term and has been
+                        developing his own since 2009. We have two options for
+                        you to continue your education:
+                    </p>
+                    <h5>Live Event</h5>
+                    <p className='ms-5'>
+                        Visit us in Kansas City for a live 2 day seminar hosted
+                        by Kevin Combs.{' '}
                         <a
                             className='text-decoration-none'
-                            href='https://kevin-combs-s-school.teachable.com/'
+                            href='https://www.contractorgarage.com/seminar'
                             target='_blank'
                             rel='noopener noreferrer'
                         >
-                            Introduction to the Development of Large-Bay Storage
-                            by Contractor Garage&trade;
+                            Click here for more information
+                        </a>{' '}
+                        about our next event.
+                    </p>
+                    <h5>Online Course</h5>
+                    <p className='ms-5'>
+                        Watch one of our former seminars from the comfort of
+                        home. Purchase our <strong>5-part course</strong> from
+                        Teachable.com which includes a step-by-step roadmap to
+                        navigate every aspect of selecting a site, developing,
+                        leasing, managing, then scaling your own Contractor
+                        Garage&trade; portfolio. Visit:{' '}
+                        <a
+                            className='text-decoration-none'
+                            href='https://contractorgarage.teachable.com/'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
+                            https://contractorgarage.teachable.com/
                         </a>
                     </p>
-                    <p>
-                        This 5-part course, created by the experts at Contractor
-                        Garage&trade;, provides a step-by-step roadmap to
-                        navigate every aspect of launching and scaling your
-                        successful storage business.
-                    </p>
-                    <h5>What You'll Learn:</h5>
-                    <ul>
-                        <li>
-                            <strong>Site Selection & Development:</strong>{' '}
-                            Master the process of finding the perfect location
-                            and navigating the development process for your
-                            large bay facility.
-                        </li>
-                        <li>
-                            <strong>Financial Strategies:</strong> Learn the
-                            financial ins and outs of securing funding for your
-                            project, from crafting a winning business plan to
-                            securing loans.
-                        </li>
-                        <li>
-                            <strong>Operational Excellence:</strong> Discover
-                            proven strategies for building a smooth-running
-                            operation, including marketing, tenant management,
-                            and daily operations.
-                        </li>
-                        <li>
-                            <strong>Industry Insights:</strong> Gain valuable
-                            insights from industry veterans to optimize your
-                            business and stay ahead of the curve.
-                        </li>
-                        <li>
-                            <strong>Building a Community:</strong> Learn how to
-                            connect with potential tenants and build a strong
-                            brand reputation.
-                        </li>
-                    </ul>
-                    <p>
-                        <strong>
-                            Ready to unlock your industrial storage potential?
-                        </strong>{' '}
-                        Enroll in our Teachable course today and start building
-                        your business!
-                    </p>
-                    <a
-                        href='https://kevin-combs-s-school.teachable.com/'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='btn btn-primary btn-lg mb-3'
-                    >
-                        Enroll&nbsp;&nbsp;
-                        <i class='fas fa-graduation-cap'></i>
-                    </a>
                     <p>
                         <strong>Bonus!</strong> Get a sneak peek inside the
                         course with our free introductory video featuring{' '}
