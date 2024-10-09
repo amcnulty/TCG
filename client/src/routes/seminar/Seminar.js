@@ -108,7 +108,7 @@ const Seminar = () => {
                     <h2 className='fw-light'>
                         Introduction to the Development of Large-Bay storage
                     </h2>
-                    <p className='text-muted'>October 25th-26th, 2024</p>
+                    <p className='text-muted'>April 26th-27th, 2025</p>
                     <p className='fw-light text-uppercase'>Hosted By</p>
                     <CompanyLogo textOnly />
                 </div>
@@ -276,12 +276,12 @@ const Seminar = () => {
                                 <div>
                                     <label className='fw-bold'>Dates:</label>
                                     <span className='fst-italic ms-3'>
-                                        October 25th-26th 2024
+                                        April 26th-27th 2025
                                     </span>
                                 </div>
                                 <div className='py-2'>
                                     <label className='fw-bold'>
-                                        October 24th 2024:
+                                        April 25th 2025:
                                     </label>
                                     <span className='ms-3'>
                                         7:00 PM. Optional meet and greet at Brew
@@ -294,7 +294,7 @@ const Seminar = () => {
                                 <div className='py-2'>
                                     <label className='fw-bold'>Day 1:</label>
                                     <span className='ms-3'>
-                                        October 25th 2024: 9:00 AM Session 1 at
+                                        April 26th 2025: 9:00 AM Session 1 at
                                         Brew Lab
                                         <i>
                                             (7925 Marty St, Overland Park, KS)
@@ -305,7 +305,7 @@ const Seminar = () => {
                                 <div className='py-1'>
                                     <label className='fw-bold'>Day 2:</label>
                                     <span className='ms-3'>
-                                        October 26th 2024: 9:00 AM Bus tour
+                                        April 27th 2025: 9:00 AM Bus tour
                                     </span>
                                     <p>
                                         Bus tour conclusion at Brew Lab around

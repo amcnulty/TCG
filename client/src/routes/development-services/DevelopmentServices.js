@@ -18,6 +18,30 @@ function DevelopmentServices(props) {
                 </a>{' '}
                 for more details.
             </Alert>
+            <Alert className='text-center' color='primary'>
+                <p>
+                    Listen to Kevin on <strong>The K Show</strong> discuss all
+                    things Contractor Garage&trade;. Learn how he got started,
+                    understand the specifics of the Contractor Garage&trade;
+                    niche, and how to build one of your own.
+                </p>
+                <a
+                    className='text-decoration-none me-3 fs-5'
+                    href='https://open.spotify.com/show/4NmrlrOMnfkM16q8tuFR6c'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    <i className='fab fa-spotify text-success'></i>Spotify
+                </a>
+                <a
+                    className='text-decoration-none fs-5'
+                    href='https://podcasts.apple.com/us/podcast/the-k-show/id1740211062'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                >
+                    <i className='fab fa-apple text-body'></i>Podcasts
+                </a>
+            </Alert>
             <div className='landingSection py-5'>
                 <div className='container'>
                     <h1 className='fw-light text-uppercase'>BRAND WITH US</h1>
