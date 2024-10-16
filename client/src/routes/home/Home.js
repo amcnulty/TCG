@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom';
 import 'react-gallery-carousel/dist/index.css';
 import './home.sass';
 import pinsImage from './images/pins.png';
-import img1 from './images/location6.jpg';
-import img2 from './images/overlandParkMain.jpeg';
-import img3 from './images/169hwyOlathe.jpeg';
+import img1 from './images/garage8.jpg';
+import img2 from './images/location6.jpg';
+import img3 from './images/overlandParkMain.jpeg';
 import collage from './images/collage.jpg';
 
 function Home(props) {
