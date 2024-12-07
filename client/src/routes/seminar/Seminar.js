@@ -15,7 +15,7 @@ import {
     ListGroup,
     ListGroupItem,
     ListGroupItemHeading,
-    ListGroupItemText
+    ListGroupItemText,
 } from 'reactstrap';
 import CompanyLogo from '../../components/companyLogo/CompanyLogo';
 import { useTextScramble } from '../../hooks/useTextScramble';
@@ -26,7 +26,7 @@ import './Seminar.sass';
 const location = {
     coordinates: [38.98520709907486, -94.66967884584639],
     addressFirstLine: '7925 Marty St',
-    addressSecondLine: 'Overland Park, KS 66204'
+    addressSecondLine: 'Overland Park, KS 66204',
 };
 
 const Seminar = () => {
@@ -37,10 +37,11 @@ const Seminar = () => {
         fullname: '',
         email: '',
         phoneNumber: '',
+        attendanceType: 'In-Person',
         company: '',
         jobTitle: '',
         hearAboutUs: '',
-        specialRequests: ''
+        specialRequests: '',
     });
     const [errors, setErrors] = useState({});
 
@@ -49,6 +50,7 @@ const Seminar = () => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
         // Clear the validation error when the user starts typing
         setErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
+        console.log('formData :>> ', formData);
     };
 
     const clearForm = () => {
@@ -59,7 +61,7 @@ const Seminar = () => {
             company: '',
             jobTitle: '',
             hearAboutUs: '',
-            specialRequests: ''
+            specialRequests: '',
         });
     };
 
@@ -108,7 +110,7 @@ const Seminar = () => {
                     <h2 className='fw-light'>
                         Introduction to the Development of Large-Bay storage
                     </h2>
-                    <p className='text-muted'>April 26th-27th, 2025</p>
+                    <p className='text-muted'>April 25th-26th, 2025</p>
                     <p className='fw-light text-uppercase'>Hosted By</p>
                     <CompanyLogo textOnly />
                 </div>
@@ -148,7 +150,9 @@ const Seminar = () => {
                                 </div>
                                 <p>
                                     This will be a <b>2 day course</b> starting
-                                    with the basics. Day 1 will be{' '}
+                                    with the basics. The course will be taught
+                                    both in-person and virtually via a webinar.
+                                    Day 1 will be{' '}
                                     <i>“down to the nitty gritty”</i>
                                     located in a private event space at{' '}
                                     <i>Brew Lab</i>, a local neighborhood
@@ -276,12 +280,12 @@ const Seminar = () => {
                                 <div>
                                     <label className='fw-bold'>Dates:</label>
                                     <span className='fst-italic ms-3'>
-                                        April 26th-27th 2025
+                                        April 25th-26th 2025
                                     </span>
                                 </div>
                                 <div className='py-2'>
                                     <label className='fw-bold'>
-                                        April 25th 2025:
+                                        April 24th 2025:
                                     </label>
                                     <span className='ms-3'>
                                         7:00 PM. Optional meet and greet at Brew
@@ -294,7 +298,7 @@ const Seminar = () => {
                                 <div className='py-2'>
                                     <label className='fw-bold'>Day 1:</label>
                                     <span className='ms-3'>
-                                        April 26th 2025: 9:00 AM Session 1 at
+                                        April 25th 2025: 9:00 AM Session 1 at
                                         Brew Lab
                                         <i>
                                             (7925 Marty St, Overland Park, KS)
@@ -305,11 +309,11 @@ const Seminar = () => {
                                 <div className='py-1'>
                                     <label className='fw-bold'>Day 2:</label>
                                     <span className='ms-3'>
-                                        April 27th 2025: 9:00 AM Bus tour
+                                        April 26th 2025: 9:00 AM tour
                                     </span>
                                     <p>
-                                        Bus tour conclusion at Brew Lab around
-                                        3:00 PM
+                                        Tour conclusion at Brew Lab around 3:00
+                                        PM
                                     </p>
                                 </div>
                             </div>
@@ -453,6 +457,45 @@ const Seminar = () => {
                                         <FormFeedback>
                                             {errors.phoneNumber}
                                         </FormFeedback>
+                                    </FormGroup>
+                                    <FormGroup tag='fieldset'>
+                                        <Label for='attendanceType'>
+                                            How will you be attending?
+                                        </Label>
+                                        <div className='d-flex gap-3'>
+                                            <FormGroup check>
+                                                <Input
+                                                    id='inPerson'
+                                                    name='attendanceType'
+                                                    type='radio'
+                                                    value='In-Person'
+                                                    checked={
+                                                        formData.attendanceType ===
+                                                        'In-Person'
+                                                    }
+                                                    onChange={handleInputChange}
+                                                />
+                                                <Label check for='inPerson'>
+                                                    In-Person
+                                                </Label>
+                                            </FormGroup>
+                                            <FormGroup check>
+                                                <Input
+                                                    id='webinar'
+                                                    name='attendanceType'
+                                                    type='radio'
+                                                    value='Webinar'
+                                                    checked={
+                                                        formData.attendanceType ===
+                                                        'Webinar'
+                                                    }
+                                                    onChange={handleInputChange}
+                                                />
+                                                <Label check for='webinar'>
+                                                    Webinar
+                                                </Label>
+                                            </FormGroup>
+                                        </div>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label for='company'>Company</Label>

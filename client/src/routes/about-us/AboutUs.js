@@ -3,6 +3,8 @@ import ReactPlayer from 'react-player/file';
 import CompanyLogo from '../../components/companyLogo/CompanyLogo';
 import './aboutUs.sass';
 import pinsImage from './images/pins.png';
+import whatIsContractors from './videos/WhatIsContractors.mp4';
+import poster from './images/poster.jpg';
 
 function AboutUs(props) {
     const history = useHistory();
@@ -30,14 +32,16 @@ function AboutUs(props) {
             </div>
             <div className='videoSection container py-5'>
                 <ReactPlayer
-                    url='https://res.cloudinary.com/dz54puaeo/video/upload/v1697497123/GARAGEVIDEOS/WhatIsContractors.mp4'
+                    // url='https://res.cloudinary.com/dz54puaeo/video/upload/v1697497123/GARAGEVIDEOS/WhatIsContractors.mp4'
+                    url={whatIsContractors}
                     controls
                     width='100%'
                     height='auto'
                     config={{
                         file: {
                             attributes: {
-                                poster: 'https://res.cloudinary.com/dz54puaeo/image/upload/v1697497853/TCG/poster.jpg'
+                                // poster: 'https://res.cloudinary.com/dz54puaeo/image/upload/v1697497853/TCG/poster.jpg'
+                                poster
                             }
                         }
                     }}
