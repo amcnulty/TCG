@@ -6,19 +6,6 @@ function DevelopmentServices(props) {
     return (
         <div className='DevelopmentServices'>
             <Alert className='text-center' color='primary'>
-                Contractor Garage&trade; will soon be hosting a seminar lead by
-                Kevin Combs. Check out the{' '}
-                <a
-                    className='text-decoration-none'
-                    href='https://www.contractorgarage.com/seminar'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                >
-                    seminar information page
-                </a>{' '}
-                for more details.
-            </Alert>
-            <Alert className='text-center' color='primary'>
                 <p>
                     Listen to Kevin on <strong>The K Show</strong> discuss all
                     things Contractor Garage&trade;. Learn how he got started,
@@ -120,18 +107,24 @@ function DevelopmentServices(props) {
                         </p>
                         <ul className='my-4'>
                             <li>
-                                <span className='fw-bold'>Annual Fee:</span>{' '}
-                                <strong>$3,000</strong> per year{' '}
+                                <span className='fw-bold'>
+                                    Annual Membership:
+                                </span>{' '}
+                                <strong>$1,000 - $3,000</strong> per year{' '}
                                 <span className='text-secondary'>
-                                    (Ten year term minimum)
+                                    (Ten year term minimum depending on size of
+                                    project)
                                 </span>
                             </li>
                             <li>
-                                <span className='fw-bold'>One-time Fee:</span>{' '}
-                                <strong>$30,000</strong> one-time lifetime fee{' '}
+                                <span className='fw-bold'>
+                                    One-time Lifetime Membership:
+                                </span>{' '}
+                                <strong>$10,000 - $30,000</strong>{' '}
                                 <span className='text-secondary'>
-                                    (Can be financed or packaged into your
-                                    construction loan)
+                                    (Depending on size of project, to be
+                                    financed or packaged into your construction
+                                    loan)
                                 </span>
                             </li>
                         </ul>
@@ -140,9 +133,10 @@ function DevelopmentServices(props) {
                         <p className='mb-0'>
                             <span className='fw-bold'>Note:</span>{' '}
                             <span className='fst-italic'>
-                                This is a subscription to a listing service. You
-                                are not obtaining licensing rights to Contractor
-                                Garage&trade; nor joining a franchise.
+                                This is a subscription to list your property on
+                                the ContractorGarage.com website and use of the
+                                Contractor Garage&trade; brand. You are not
+                                joining a franchise.
                             </span>
                         </p>
                     </div>
@@ -163,10 +157,11 @@ function DevelopmentServices(props) {
                         developing his own since 2009. We have two options for
                         you to continue your education:
                     </p>
-                    <h5>Live Event</h5>
+                    <h5>Live/Webinar Events</h5>
                     <p className='ms-5'>
-                        Visit us in Kansas City for a live 2 day seminar hosted
-                        by Kevin Combs.{' '}
+                        Either visit us in Kansas City for a{' '}
+                        <b>live 2 day seminar</b> or join one of our next
+                        webinar events hosted by Kevin Combs.{' '}
                         <a
                             className='text-decoration-none'
                             href='https://www.contractorgarage.com/seminar'

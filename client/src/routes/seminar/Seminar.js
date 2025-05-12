@@ -110,7 +110,7 @@ const Seminar = () => {
                     <h2 className='fw-light'>
                         Introduction to the Development of Large-Bay storage
                     </h2>
-                    <p className='text-muted'>April 25th-26th, 2025</p>
+                    <p className='text-muted'>April 24th-25th, 2026</p>
                     <p className='fw-light text-uppercase'>Hosted By</p>
                     <CompanyLogo textOnly />
                 </div>
@@ -150,10 +150,8 @@ const Seminar = () => {
                                 </div>
                                 <p>
                                     This will be a <b>2 day course</b> starting
-                                    with the basics. The course will be taught
-                                    both in-person and virtually via a webinar.
-                                    Day 1 will be{' '}
-                                    <i>“down to the nitty gritty”</i>
+                                    with the basics. Day 1 will be{' '}
+                                    <i>“down to the nitty gritty” </i>
                                     located in a private event space at{' '}
                                     <i>Brew Lab</i>, a local neighborhood
                                     brewpub in Overland Park, Kansas. Lunch and
@@ -279,13 +277,23 @@ const Seminar = () => {
                             <div className='col-12 col-md-6'>
                                 <div>
                                     <label className='fw-bold'>Dates:</label>
-                                    <span className='fst-italic ms-3'>
-                                        April 25th-26th 2025
-                                    </span>
+                                    <div className='ms-3'>
+                                        <label>In-Person:</label>
+                                        <span className='fst-italic ms-3'>
+                                            April 24th-25th 2026
+                                        </span>
+                                    </div>
+                                    <div className='ms-3'>
+                                        <label>Webinar:</label>
+                                        <span className='fst-italic ms-3'>
+                                            When 4 person minimum class size is
+                                            reached
+                                        </span>
+                                    </div>
                                 </div>
                                 <div className='py-2'>
                                     <label className='fw-bold'>
-                                        April 24th 2025:
+                                        April 23th 2026:
                                     </label>
                                     <span className='ms-3'>
                                         7:00 PM. Optional meet and greet at Brew
@@ -298,7 +306,7 @@ const Seminar = () => {
                                 <div className='py-2'>
                                     <label className='fw-bold'>Day 1:</label>
                                     <span className='ms-3'>
-                                        April 25th 2025: 9:00 AM Session 1 at
+                                        April 24th 2026: 9:00 AM Session 1 at
                                         Brew Lab
                                         <i>
                                             (7925 Marty St, Overland Park, KS)
@@ -309,7 +317,7 @@ const Seminar = () => {
                                 <div className='py-1'>
                                     <label className='fw-bold'>Day 2:</label>
                                     <span className='ms-3'>
-                                        April 26th 2025: 9:00 AM tour
+                                        April 25th 2026: 9:00 AM tour
                                     </span>
                                     <p>
                                         Tour conclusion at Brew Lab around 3:00
