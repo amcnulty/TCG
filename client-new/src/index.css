@@ -1,0 +1,44 @@
+/*
+  Global styles — Tailwind directives + base resets.
+
+  The #root overrides are required: Vite's default scaffold constrains
+  the root element to a fixed width with centered text, which breaks
+  full-width layout. These rules undo that.
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F7F6F4;
+    color: #1A1A1A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+  }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /* Undo Vite scaffold constraints so layout spans the full viewport */
+  #root {
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    margin: 0;
+    border: none;
+    min-height: unset;
+    display: block;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+}

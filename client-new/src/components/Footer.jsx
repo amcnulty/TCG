@@ -1,0 +1,103 @@
+/*
+  Footer — 4-column dark footer with brand info, nav links, services list, and contact.
+  Bottom bar shows copyright and tagline.
+*/
+import { Link } from 'react-router-dom'
+import Logo from './Logo'
+
+export default function Footer() {
+  return (
+    <footer className="bg-[#1A1A1A] text-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <Logo white />
+            <p className="mt-5 text-white/55 text-sm leading-relaxed max-w-xs">
+              Large-bay industrial workspace for contractors, tradespeople, and small business owners.
+              Built different. Built right.
+            </p>
+            <p className="mt-4 text-[#C85A0A] font-display font-bold uppercase tracking-widest text-xs">
+              The Original Since 2008
+            </p>
+          </div>
+
+          {/* Navigate */}
+          <div>
+            <h4 className="font-display font-bold uppercase tracking-widest text-xs text-white/40 mb-5">
+              Navigate
+            </h4>
+            <ul className="space-y-3">
+              {[
+                { label: 'Home', to: '/' },
+                { label: 'About Kevin', to: '/about' },
+                { label: 'Locations', to: '/locations' },
+                { label: 'Development Consulting', to: '/brand-with-us' },
+              ].map(({ label, to }) => (
+                <li key={to}>
+                  <Link
+                    to={to}
+                    className="text-white/65 hover:text-white text-sm transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-display font-bold uppercase tracking-widest text-xs text-white/40 mb-5">
+              Services
+            </h4>
+            <ul className="space-y-3 text-white/65 text-sm">
+              <li>Development Consulting</li>
+              <li>Brand Subscription</li>
+              <li>Online Course</li>
+              <li>Live 2-Day Seminar</li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-display font-bold uppercase tracking-widest text-xs text-white/40 mb-5">
+              Contact
+            </h4>
+            <ul className="space-y-3 text-white/65 text-sm">
+              <li>Kansas City Metro, KS</li>
+              <li>
+                <a
+                  href="mailto:info@contractorgarage.com"
+                  className="hover:text-white transition-colors"
+                >
+                  info@contractorgarage.com
+                </a>
+              </li>
+              <li>
+                <Link
+                  to="/brand-with-us"
+                  className="text-[#C85A0A] hover:text-[#E06B1A] font-semibold transition-colors"
+                >
+                  Talk to Kevin →
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-white/35 text-xs">
+            © {new Date().getFullYear()} Contractor Garage™. All rights reserved.
+          </p>
+          <p className="text-white/35 text-xs font-display font-semibold uppercase tracking-widest">
+            The Original Since 2008 · Kansas City, KS
+          </p>
+        </div>
+      </div>
+    </footer>
+  )
+}
