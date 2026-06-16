@@ -2,34 +2,15 @@
   Locations — full list of all Contractor Garage™ locations with availability status.
   Sections: Hero → Availability banner → Location table (desktop) / cards (mobile) → Developer CTA.
 
-  Location data is a static array at the top of this file. To pull from an API instead,
-  replace the `locations` array with a useState + useEffect fetch (Axios works well here).
-  Status values: "Available" | "Full" | "Coming Soon" — each maps to a color config in statusConfig.
+  Location data is imported from src/data/locations.js (shared with LocationDetail).
+  Each row/card links to /location/:slug.
 
   TODO: integrate a Leaflet map showing pin locations (lat/lng not yet in the data array).
 */
 import { Link } from 'react-router-dom'
 import AnimateOnScroll from '../components/AnimateOnScroll'
 import locationImage from '../assets/location.jpg'
-
-const locations = [
-  { name: 'Garage 1', address: '636 E Dennis Ave', city: 'Olathe, KS', status: 'Full' },
-  { name: 'Garage 2', address: '15735 S US-169 Hwy', city: 'Olathe, KS', status: 'Full' },
-  { name: 'Garage 3', address: '14100 Santa Fe Trail Dr', city: 'Lenexa, KS', status: 'Full' },
-  { name: 'Garage 4', address: '8400 W 127th St', city: 'Overland Park, KS', status: 'Full' },
-  { name: 'Garage 5', address: '15811 S Mahaffie St', city: 'Olathe, KS', status: 'Full' },
-  { name: 'Garage 6', address: '9501 NE 76th St', city: 'Kansas City, MO', status: 'Full' },
-  { name: 'Garage 7', address: '817 E Park St', city: 'Olathe, KS', status: 'Full' },
-  { name: 'Garage 8', address: '2107 E Kansas City Rd', city: 'Olathe, KS', status: 'Full' },
-  { name: 'Grandview', address: '4310 E 142nd St', city: 'Grandview, MO', status: 'Full' },
-  { name: 'Topeka', address: '660 NE Hwy 24', city: 'Topeka, KS', status: 'Available' },
-  { name: 'Johnson City', address: 'Collins Dr', city: 'Johnson City, TN', status: 'Available' },
-  { name: 'Spruce St Industrial Suites', address: '1904 E Spruce St', city: 'Olathe, KS', status: 'Available' },
-  { name: 'Glasgow Warehouse', address: 'Pottstown, PA', city: 'Pennsylvania', status: 'Available' },
-  { name: 'Lawrence', address: 'Lawrence, KS', city: 'Kansas', status: 'Available' },
-  { name: 'Chesterfield', address: 'Chesterfield, MO', city: 'Missouri', status: 'Coming Soon' },
-  { name: 'Maryland Heights', address: 'Maryland Heights, MO', city: 'Missouri', status: 'Coming Soon' },
-]
+import { locations } from '../data/locations'
 
 const statusConfig = {
   Available: {
@@ -39,8 +20,8 @@ const statusConfig = {
   },
   'Coming Soon': {
     label: 'Coming Soon',
-    dot: 'bg-[#C85A0A]',
-    badge: 'bg-[#C85A0A]/15 text-[#C85A0A] border border-[#C85A0A]/30',
+    dot: 'bg-[#CC6633]',
+    badge: 'bg-[#CC6633]/15 text-[#CC6633] border border-[#CC6633]/30',
   },
   Full: {
     label: 'Full',
@@ -66,7 +47,7 @@ export default function Locations() {
         <div className="absolute inset-0 bg-[#1A1A1A]/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10">
           <AnimateOnScroll>
-            <p className="font-display font-bold uppercase tracking-[0.22em] text-[#C85A0A] text-xs mb-4">
+            <p className="font-display font-bold uppercase tracking-[0.22em] text-[#CC6633] text-xs mb-4">
               KC Metro &amp; Beyond
             </p>
             <h1 className="font-display font-black text-white uppercase leading-none text-[clamp(3rem,8vw,6.5rem)]">
@@ -77,7 +58,7 @@ export default function Locations() {
       </section>
 
       {/* ── AVAILABILITY BANNER ──────────────────────────────── */}
-      <div className="bg-[#C85A0A] py-4">
+      <div className="bg-[#CC6633] py-4">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <span className="w-2.5 h-2.5 rounded-full bg-white animate-pulse flex-shrink-0" />
@@ -122,23 +103,24 @@ export default function Locations() {
                 </div>
               </div>
               {/* Rows */}
-              {locations.map(({ name, address, city, status }, i) => {
+              {locations.map(({ slug, name, address, city, state, status }, i) => {
                 const cfg = statusConfig[status]
                 return (
-                  <AnimateOnScroll key={name} delay={i * 0.03}>
-                    <div
-                      className={`grid grid-cols-12 px-8 py-5 border-t border-[#1A1A1A]/8 hover:bg-[#F7F6F4] transition-colors ${
+                  <AnimateOnScroll key={slug} delay={i * 0.03}>
+                    <Link
+                      to={`/location/${slug}`}
+                      className={`grid grid-cols-12 px-8 py-5 border-t border-[#1A1A1A]/8 hover:bg-[#F7F6F4] transition-colors group ${
                         status === 'Available' ? 'bg-green-50/40' : ''
                       }`}
                     >
-                      <div className="col-span-3 font-display font-bold text-[#1A1A1A] text-sm uppercase tracking-wide">
+                      <div className="col-span-3 font-display font-bold text-[#1A1A1A] text-sm uppercase tracking-wide group-hover:text-[#CC6633] transition-colors">
                         {name}
                       </div>
                       <div className="col-span-5 text-[#1A1A1A]/65 text-sm font-body">
                         {address}
                       </div>
                       <div className="col-span-2 text-[#1A1A1A]/65 text-sm font-body">
-                        {city}
+                        {city}, {state}
                       </div>
                       <div className="col-span-2 flex justify-end">
                         <span
@@ -148,7 +130,7 @@ export default function Locations() {
                           {cfg.label}
                         </span>
                       </div>
-                    </div>
+                    </Link>
                   </AnimateOnScroll>
                 )
               })}
@@ -157,12 +139,13 @@ export default function Locations() {
 
           {/* Mobile cards */}
           <div className="md:hidden space-y-3">
-            {locations.map(({ name, address, city, status }, i) => {
+            {locations.map(({ slug, name, address, city, state, status }, i) => {
               const cfg = statusConfig[status]
               return (
-                <AnimateOnScroll key={name} delay={i * 0.04}>
-                  <div
-                    className={`bg-white p-5 border border-[#1A1A1A]/10 ${
+                <AnimateOnScroll key={slug} delay={i * 0.04}>
+                  <Link
+                    to={`/location/${slug}`}
+                    className={`block bg-white p-5 border border-[#1A1A1A]/10 hover:border-[#CC6633]/40 transition-colors ${
                       status === 'Available' ? 'border-l-4 border-l-green-500' : ''
                     }`}
                   >
@@ -178,9 +161,9 @@ export default function Locations() {
                       </span>
                     </div>
                     <p className="text-[#1A1A1A]/60 text-sm">
-                      {address}, {city}
+                      {address}, {city}, {state}
                     </p>
-                  </div>
+                  </Link>
                 </AnimateOnScroll>
               )
             })}
@@ -205,7 +188,7 @@ export default function Locations() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <AnimateOnScroll>
             <div className="max-w-2xl">
-              <p className="font-display font-bold uppercase tracking-[0.2em] text-[#C85A0A] text-xs mb-4">
+              <p className="font-display font-bold uppercase tracking-[0.2em] text-[#CC6633] text-xs mb-4">
                 Grow the Network
               </p>
               <h2 className="font-display font-black text-white uppercase leading-tight text-4xl lg:text-5xl mb-6">
@@ -217,8 +200,8 @@ export default function Locations() {
                 and put your city on the map.
               </p>
               <Link
-                to="/brand-with-us"
-                className="inline-block font-display font-bold uppercase tracking-wider text-sm bg-[#C85A0A] text-white px-8 py-3.5 hover:bg-[#A84808] transition-colors"
+                to="/development-services"
+                className="inline-block font-display font-bold uppercase tracking-wider text-sm bg-[#CC6633] text-white px-8 py-3.5 hover:bg-[#A85228] transition-colors"
               >
                 Development Consulting →
               </Link>
