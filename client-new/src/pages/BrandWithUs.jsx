@@ -9,6 +9,8 @@
 */
 import { useState } from 'react'
 import AnimateOnScroll from '../components/AnimateOnScroll'
+import useMetaTags from '../hooks/useMetaTags'
+import { API } from '../util/API'
 import presentingImage from '../assets/presenting.png'
 
 const consultingFeatures = [
@@ -69,8 +71,14 @@ const investmentCase = [
 ]
 
 export default function BrandWithUs() {
+  useMetaTags({
+    title: 'Development Consulting',
+    description: 'Build a Contractor Garage™ in your market. One-on-one consulting with Kevin Combs, CCIM — site selection, construction specs, lease-up strategy, and brand licensing.',
+  })
   const [form, setForm] = useState({ name: '', email: '', market: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleChange = (e) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
@@ -78,7 +86,17 @@ export default function BrandWithUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+    setError(false)
+    API.submitContactForm(form)
+      .then(() => {
+        setSubmitted(true)
+        setSubmitting(false)
+      })
+      .catch(() => {
+        setError(true)
+        setSubmitting(false)
+      })
   }
 
   return (
@@ -504,6 +522,7 @@ export default function BrandWithUs() {
                   onSubmit={handleSubmit}
                   className="bg-white border border-[#1A1A1A]/10 p-8 lg:p-10 space-y-5"
                 >
+                  <input type="text" name="username" className="hidden" tabIndex={-1} autoComplete="off" />
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block font-display font-bold uppercase tracking-widest text-xs text-[#1A1A1A]/50 mb-2">
@@ -561,11 +580,17 @@ export default function BrandWithUs() {
                       className="w-full border border-[#1A1A1A]/15 bg-[#F7F6F4] px-4 py-3 text-sm text-[#1A1A1A] placeholder:text-[#1A1A1A]/30 focus:outline-none focus:border-[#CC6633] transition-colors resize-none"
                     />
                   </div>
+                  {error && (
+                    <p className="text-red-600 text-sm font-semibold">
+                      Something went wrong. Please try again or email kevin.combs@contractorgarage.com directly.
+                    </p>
+                  )}
                   <button
                     type="submit"
-                    className="w-full font-display font-bold uppercase tracking-wider text-sm bg-[#CC6633] text-white py-4 hover:bg-[#A85228] transition-colors"
+                    disabled={submitting}
+                    className="w-full font-display font-bold uppercase tracking-wider text-sm bg-[#CC6633] text-white py-4 hover:bg-[#A85228] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Send Message
+                    {submitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               )}

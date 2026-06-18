@@ -6,6 +6,7 @@ import 'react-gallery-carousel/dist/index.css'
 import ReactPlayer from 'react-player/file'
 import AnimateOnScroll from '../components/AnimateOnScroll'
 import PayPalButton from '../components/PayPalButton'
+import useMetaTags from '../hooks/useMetaTags'
 import useTextScramble from '../hooks/useTextScramble'
 import { API } from '../util/API'
 
@@ -21,6 +22,11 @@ export default function LocationDetail() {
   const [payModalOpen, setPayModalOpen] = useState(false)
   const [payAmount, setPayAmount] = useState('')
   const [paymentApproved, setPaymentApproved] = useState(false)
+
+  useMetaTags({
+    title: location?.name,
+    description: location?.longDescription?.slice(0, 160),
+  })
 
   useEffect(() => {
     setLoading(true)

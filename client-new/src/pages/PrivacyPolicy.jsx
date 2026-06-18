@@ -3,6 +3,7 @@
 */
 import { Link } from 'react-router-dom'
 import AnimateOnScroll from '../components/AnimateOnScroll'
+import useMetaTags from '../hooks/useMetaTags'
 
 const sections = [
   {
@@ -32,6 +33,10 @@ const sections = [
 ]
 
 export default function PrivacyPolicy() {
+  useMetaTags({
+    title: 'Privacy Policy',
+    description: 'Contractor Garage™ privacy policy — how we collect, use, and protect your personal information.',
+  })
   return (
     <main>
       {/* ── HERO ─────────────────────────────────────────────── */}

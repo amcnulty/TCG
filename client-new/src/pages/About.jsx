@@ -9,6 +9,7 @@
 import { Link } from 'react-router-dom'
 import ReactPlayer from 'react-player/file'
 import AnimateOnScroll from '../components/AnimateOnScroll'
+import useMetaTags from '../hooks/useMetaTags'
 import kevinImage from '../assets/kevin.jpg'
 
 const stats = [
@@ -34,6 +35,10 @@ const offerings = [
 ]
 
 export default function About() {
+  useMetaTags({
+    title: 'About Kevin Combs',
+    description: 'Kevin Combs, CCIM — founder of Contractor Garage™. 10+ projects built in the KC metro since 2008. Learn how he created a new product category in commercial real estate.',
+  })
   return (
     <main>
       {/* ── HERO ─────────────────────────────────────────────── */}
